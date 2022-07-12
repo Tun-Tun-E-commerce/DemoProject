@@ -21,6 +21,8 @@ import com.tt.modelo.envio.ProveedorEmpresa;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.envio.ExportarExcelAlmacen;
 
+
+
 @ManagedBean(name = "aBean")
 @RequestScoped
 public class AlmacenBean {
