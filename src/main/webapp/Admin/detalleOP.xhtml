@@ -247,7 +247,7 @@
 										style="width: 100%">
 										<h:form>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Materia Prima</h:outputLabel>
 												<h:selectOneMenu value="#{dtoBean.idMateriaPrima}"
 													class="form-control">
 													<f:selectItems value="#{dtoBean.listaMateriaPrima}"
@@ -255,6 +255,17 @@
 													<f:selectItems value="#{dtoBean.listaMateriaPrima}"
 														var="var" itemValue="#{var.id}"
 														itemLabel="#{var.nombre}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Orden Produccion</h:outputLabel>
+												<h:selectOneMenu value="#{dtoBean.idOrdenProduccion}"
+													class="form-control">
+													<f:selectItems value="#{dtoBean.listaOrdenProdccion}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{dtoBean.listaOrdenProdccion}"
+														var="var" itemValue="#{var.id}"
+														itemLabel="#{var.cantidad}" />
 												</h:selectOneMenu>
 											</div>
 											<div class="text-center">

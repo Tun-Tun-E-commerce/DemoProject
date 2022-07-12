@@ -164,9 +164,19 @@ public class UsuarioBean {
 		response.setHeader(headerKey, headerValue);
 		
 		UsuarioImp usuarioImp = new UsuarioImp();
-		if(idRol !=0) {
-			this.listaUsuarios = usuarioImp.exportUsuario(idRol);
-		}else {
+		
+	
+		if(idRol !=0 && idTipoDocumento !=0) {
+			this.listaUsuarios = usuarioImp.exportarMulticriterioU(idRol, idTipoDocumento);
+		}
+		else if (idRol !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarRolId(idRol);
+		}
+		else if (idTipoDocumento !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarTipoDId(idTipoDocumento);
+		}
+			
+		else {
 			this.listaUsuarios = usuarioImp.encontrarTodo();
 		}
 		

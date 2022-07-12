@@ -7,8 +7,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.usuario.IUsuario;
+import com.tt.implementacion.venta.ProductoImp;
 import com.tt.modelo.usuario.Rol;
+import com.tt.modelo.usuario.TipoDocumento;
 import com.tt.modelo.usuario.Usuario;
+import com.tt.modelo.venta.CarritoCompra;
+import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
 public class UsuarioImp implements IUsuario {
@@ -119,7 +123,7 @@ public class UsuarioImp implements IUsuario {
 		}
 	}
 
-	public List<Usuario> exportUsuario(int id) {
+	public List<Usuario> exportarRolId(int id) {
 		RolImp rolImp = new RolImp();
 		Rol rol = new Rol();
 		try {
@@ -138,6 +142,53 @@ public class UsuarioImp implements IUsuario {
 		}
 		return listaUsuario;
 	}
+	
+	
+	public List<Usuario> exportarTipoDId(int id) {
+		TipoDocumentoImp tipImp = new TipoDocumentoImp();
+		TipoDocumento tip = new TipoDocumento();
+		try {
+			tip = tipImp.econtrarId(id);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.idTipoDocumento.id=" + id + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario;
+	}
+	
+
+	public List<Usuario> exportarMulticriterioU(int idRol, int idTipoDocumento) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
+		TipoDocumentoImp tpImp = new TipoDocumentoImp();
+		TipoDocumento tp = new TipoDocumento();
+		try {
+			r = rImp.econtrarId(idRol);
+			tp = tpImp.econtrarId(idTipoDocumento);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario ;
+	}
+	
+	
 
 	public String validarUsuario(Usuario usu) {
 		String roles = "none";
