@@ -13,6 +13,7 @@ import com.tt.modelo.venta.CarritoCompra;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
+//Comentario
 public class CarritoCompraImp implements ICarritoCompra {
 	EntityManager entity;
 
