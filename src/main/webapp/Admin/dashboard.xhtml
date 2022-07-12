@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="keywords"
+		content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
+	<meta name="description"
+		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
+	<meta name="robots" content="noindex,nofollow"></meta>
+	<title>Admin | Tun Tun</title>
+	<link rel="canonical"
+		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16"
+		href="../assets/images/logo/logo.png" />
+	<!-- Custom CSS -->
+	<link href="plugins/bower_components/chartist/dist/chartist.min.css"
+		rel="stylesheet" />
+	<link rel="stylesheet"
+		href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+	<!-- Custom CSS -->
+	<link href="css/style.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/Admin/css/stylesadmin.css" />
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+</h:head>
+
+<h:body>
+
+	<!-- Preloader  -->
+	<div class="preloader">
+		<div class="lds-ripple">
+			<div class="lds-pos"></div>
+			<div class="lds-pos"></div>
+		</div>
+	</div>
+	<!-- Main wrapper -->
+	<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5"
+		data-sidebartype="full" data-sidebar-position="absolute"
+		data-header-position="absolute" data-boxed-layout="full">
+		<!-- Topbar header -->
+		<header class="topbar" data-navbarbg="skin5">
+			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+				<div class="navbar-header" data-logobg="skin6">
+					<!-- Logo -->
+					<a class="navbar-brand" href="dashboard.jsf"> <!-- Logo icon -->
+						<b class="logo-icon"> <!-- Dark Logo icon --> <img
+							src="../assets/images/logo/fulllogo.png" width="200"
+							alt="homepage" />
+					</b> <!--End Logo icon --> <!-- Logo text --> <span class="logo-text">
+							<!-- dark Logo text -->
+							<p>Tun Tun</p>
+					</span>
+					</a>
+					<!-- End Logo -->
+					<!-- toggle and nav items -->
+					<a
+						class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+						href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+				</div>
+				<!-- End Logo -->
+				<div class="navbar-collapse collapse" id="navbarSupportedContent"
+					data-navbarbg="skin5">
+					<!-- Right side toggle and nav items -->
+					<ul class="navbar-nav ms-auto d-flex align-items-center">
+						<!-- User profile and search -->
+						<li><a class="profile-pic" href="#"> <img
+								src="plugins/images/users/varun.jpg" alt="user-img" width="36"
+								class="img-circle" /><span class="text-dark font-medium">
+									Admin</span></a></li>
+						<!-- User profile and search -->
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- End Topbar header -->
+
+		<!-- Aside bar - Start-->
+		<!-- Sidebar scroll-->
+		<aside class="left-sidebar" data-sidebarbg="skin6">
+			<!-- Sidebar scroll-->
+			<div class="scroll-sidebar scrollsa">
+				<!-- Sidebar navigation-->
+				<nav class="sidebar-nav">
+					<ul id="sidebarnav">
+						<!--User Profile -->
+						<li class="sidebar-item"><h:link
+								class="sidebar-link waves-effect waves-dark sidebar-link"
+								outcome="dashboard.xhtml" aria-expanded="false">
+								<i class="fa fa-clock" aria-hidden="true"></i>
+								<span class="hide-menu">Dashboard</span>
+							</h:link></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-users" aria-hidden="true"></i> Fidelización del
+								clientes
+						</a>
+							<div class="collapse" id="collapseExample">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="PQRS.xhtml"> PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample2" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-user" aria-hidden="true"></i> Gestión de usuario
+						</a>
+							<div class="collapse" id="collapseExample2">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="tipodoc.xhtml"> Tipo de Documento </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="roles.xhtml"> Roles </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="privilegios.xhtml"> Privilegios </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Usuarios.xhtml"> Usuarios </h:link></li>
+
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample3" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-box" aria-hidden="true"></i> Inventario
+						</a>
+							<div class="collapse" id="collapseExample3">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="referenciaP.xhtml"> Referencia Producto </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="materiaPrima.xhtml">Materia Prima </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="ordenP.xhtml">Orden Producccion </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="inventario.xhtml">Inventario </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="proveedorM.xhtml">Proveedor Materia Prima </h:link>
+									</li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="detalleOP.xhtml">Detalle Orden Producccion </h:link>
+									</li>
+
+
+
+								</ul>
+							</div></li>
+
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample4" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-box" aria-hidden="true"></i> Ventas
+						</a>
+							<div class="collapse" id="collapseExample4">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="metodopago.xhtml"> Método de Pago</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="facturas.xhtml">Factura</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="product.xhtml"> Productos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="categories.xhtml">Categorias</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Carrito.xhtml">Carrito de Compras</h:link></li>
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample5" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-truck" aria-hidden="true"></i> Envios y
+								Devoluciones
+						</a>
+							<div class="collapse" id="collapseExample5">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="almacenes.xhtml">Almacenes</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="companiaenvio.xhtml">Compañías de Envío</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="order.xhtml">Pedidos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="detallepedidop.xhtml">Detalle de los Pedidos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="delivery.xhtml"> Envio </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="return.xhtml"> Devoluciones </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="ProveedorEmpresa.xhtml"> Proveedores de la empresa </h:link>
+									</li>
+								</ul>
+							</div></li>
+					</ul>
+				</nav>
+				<!-- End Sidebar navigation -->
+			</div>
+			<!-- End Sidebar scroll-->
+		</aside>
+		<!-- Aside bar - End -->
+
+		<!-- Page wrapper  -->
+		<div class="page-wrapper">
+			<!-- Bread crumb and right sidebar toggle -->
+			<div class="page-breadcrumb bg-white">
+				<div class="row align-items-center">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Dashboard</h4>
+					</div>
+
+				</div>
+			</div>
+			<!-- End Bread crumb and right sidebar toggle -->
+			<!-- Container fluid  -->
+			<div class="container-fluid bg-tuntun">
+				<!-- Graficas -->
+				<div class="row justify-content-center">
+					<div class="col-lg-4 col-md-12">
+						<div class="white-box rounded-2 analytics-info">
+							<h3 class="box-title">Total de visitas anónimas</h3>
+							<ul class="list-inline two-part d-flex align-items-center mb-0">
+								<li>
+									<div id="sparklinedash">
+										<canvas width="67" height="30"
+											style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+									</div>
+								</li>
+								<li class="ms-auto"><span class="counter text-success">0</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12">
+						<div class="white-box rounded-2 analytics-info">
+							<h3 class="box-title">Ventas hechas</h3>
+							<ul class="list-inline two-part d-flex align-items-center mb-0">
+								<li>
+									<div id="sparklinedash2">
+										<canvas width="67" height="30"
+											style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+									</div>
+								</li>
+								<li class="ms-auto"><span class="counter text-purple">0</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12">
+						<div class="white-box rounded-2 analytics-info">
+							<h3 class="box-title">Vistas de personas logueadas</h3>
+							<ul class="list-inline two-part d-flex align-items-center mb-0">
+								<li>
+									<div id="sparklinedash3">
+										<canvas width="67" height="30"
+											style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+									</div>
+								</li>
+								<li class="ms-auto"><span class="counter text-info"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Tabla de compras recientes -->
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-sm-12">
+						<div class="white-box pe-none rounded-2 rounded">
+							<h3 class="box-title mb-0">Compras recientes</h3>
+							<div class="table-responsive">
+								<table class="table no-wrap pe-auto">
+									<h:form>
+										<h:dataTable value="${fBean.encontrarTodo()}" var="f"
+											class="table table-striped">
+											<h:column>
+												<f:facet name="header">Id</f:facet>
+												<h:outputText value="${f.id}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Fecha</f:facet>
+												<h:outputText value="${f.fecha}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Codigo</f:facet>
+												<h:outputText value="${f.codigo}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Valor</f:facet>
+												<h:outputText value="${f.valor}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Carrito</f:facet>
+												<h:outputText
+													value="${f.idCarrito.cantidad}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Metodo Pago</f:facet>
+												<h:outputText value="${f.idMetodoPago.nombre}"></h:outputText>
+											</h:column>
+
+											<h:column>
+												<f:facet name="header">Periodo</f:facet>
+												<h:outputText value="${f.idPeriodo.id}"></h:outputText>
+											</h:column>
+										</h:dataTable>
+									</h:form>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Inquietudes  + Ultimas personas-->
+				<div class="row">
+					<!-- .col -->
+					<div class="col-md-12 col-lg-8 col-sm-12">
+						<div class="card white-box rounded-2 p-0">
+							<div class="card-body">
+								<h3 class="box-title mb-0">Inquietudes recientes</h3>
+							</div>
+							<div class="comment-widgets">
+								<!-- Comment Row -->
+								<div class="d-flex flex-row pe-auto comment-row p-3 mt-0">
+									<div class="p-2">
+										<img src="plugins/images/users/1.jpg" alt="user" width="50"
+											class="rounded-circle" />
+									</div>
+									<div class="comment-text ps-2 ps-md-3 w-100">
+										<h5 class="font-medium">Santiago Alberto</h5>
+										<span class="mb-3 d-block">Lorem Ipsum is simply dummy
+											text of the printing and type setting industry.It has
+											survived not only five centuries. </span>
+										<div class="comment-footer d-md-flex align-items-center">
+											<span class="badge bg-primary rounded">Pendiente</span>
+
+											<div class="text-muted fs-2 ms-auto mt-2 mt-md-0">Abril
+												4, 2022</div>
+										</div>
+									</div>
+								</div>
+								<!-- Comment Row -->
+								<div class="d-flex flex-row comment-row p-3">
+									<div class="p-2">
+										<img src="plugins/images/users/d2.jpg" alt="user" width="50"
+											class="rounded-circle" />
+									</div>
+									<div class="comment-text pe-auto ps-2 ps-md-3 active w-100">
+										<h5 class="font-medium">Karen</h5>
+										<span class="mb-3 d-block">Lorem Ipsum is simply dummy
+											text of the printing and type setting industry.It has
+											survived not only five centuries. </span>
+										<div class="comment-footer d-md-flex align-items-center">
+
+											<span class="badge bg-success rounded">Resuelta</span>
+
+											<div class="text-muted fs-2 ms-auto mt-2 mt-md-0">Febrero
+												14, 2022</div>
+										</div>
+									</div>
+								</div>
+								<!-- Comment Row -->
+								<div class="d-flex flex-row comment-row p-3">
+									<div class="p-2">
+										<img src="plugins/images/users/d3.jpg" alt="user" width="50"
+											class="rounded-circle" />
+									</div>
+									<div class="comment-text pe-auto ps-2 ps-md-3 w-100">
+										<h5 class="font-medium">Michael</h5>
+										<span class="mb-3 d-block">Lorem Ipsum is simply dummy
+											text of the printing and type setting industry.It has
+											survived not only five centuries. </span>
+										<div class="comment-footer d-md-flex align-items-center">
+
+											<span class="badge rounded bg-danger">Sin resolver </span>
+
+											<div class="text-muted fs-2 ms-auto mt-2 mt-md-0">Enero
+												1, 2022</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Ultimas Personas -->
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="card white-box rounded-2 p-0">
+							<div class="card-heading rounded-2">
+								<h3 class="box-title rounded-2 mb-0">Últimas personas</h3>
+							</div>
+							<div class="card-body">
+								<ul class="chatonline">
+									<li>
+										<div class="call-chat">
+											<button class="btn btn-success text-white btn-circle btn"
+												type="button">
+												<i class="fas fa-phone"></i>
+											</button>
+											<button class="btn btn-info btn-circle btn" type="button">
+												<i class="far fa-comments text-white"></i>
+											</button>
+										</div> <a href="javascript:void(0)"
+										class="d-flex align-items-center"><img
+											src="plugins/images/users/d1.jpg" alt="user-img"
+											class="img-circle" />
+											<div class="ms-2">
+												<span class="text-dark">Jose <small
+													class="d-block text-muted d-block">Offline</small></span>
+											</div> </a>
+									</li>
+									<li>
+										<div class="call-chat">
+											<button class="btn btn-success text-white btn-circle btn"
+												type="button">
+												<i class="fas fa-phone"></i>
+											</button>
+											<button class="btn btn-info btn-circle btn" type="button">
+												<i class="far fa-comments text-white"></i>
+											</button>
+										</div> <a href="javascript:void(0)"
+										class="d-flex align-items-center"><img
+											src="plugins/images/users/d2.jpg" alt="user-img"
+											class="img-circle" />
+											<div class="ms-2">
+												<span class="text-dark">Karen <small
+													class="d-block text-muted">Offline</small></span>
+											</div> </a>
+									</li>
+									<li>
+										<div class="call-chat">
+											<button class="btn btn-success text-white btn-circle btn"
+												type="button">
+												<i class="fas fa-phone"></i>
+											</button>
+											<button class="btn btn-info btn-circle btn" type="button">
+												<i class="far fa-comments text-white"></i>
+											</button>
+										</div> <a href="javascript:void(0)"
+										class="d-flex align-items-center"><img
+											src="plugins/images/users/d3.jpg" alt="user-img"
+											class="img-circle" />
+											<div class="ms-2">
+												<span class="text-dark">Michael <small
+													class="d-block text-muted">Offline</small></span>
+											</div> </a>
+									</li>
+									<li>
+										<div class="call-chat">
+											<button class="btn btn-success text-white btn-circle btn"
+												type="button">
+												<i class="fas fa-phone"></i>
+											</button>
+											<button class="btn btn-info btn-circle btn" type="button">
+												<i class="far fa-comments text-white"></i>
+											</button>
+										</div> <a href="javascript:void(0)"
+										class="d-flex align-items-center"><img
+											src="plugins/images/users/arijit.jpg" alt="user-img"
+											class="img-circle" />
+											<div class="ms-2">
+												<span class="text-dark">Miguel <small
+													class="d-block text-muted">Offline</small></span>
+											</div> </a>
+									</li>
+									<li>
+										<div class="call-chat">
+											<button class="btn btn-success text-white btn-circle btn"
+												type="button">
+												<i class="fas fa-phone"></i>
+											</button>
+											<button class="btn btn-info btn-circle btn" type="button">
+												<i class="far fa-comments text-white"></i>
+											</button>
+										</div> <a href="javascript:void(0)"
+										class="d-flex align-items-center"><img
+											src="plugins/images/users/govinda.jpg" alt="user-img"
+											class="img-circle" />
+											<div class="ms-2">
+												<span class="text-dark">Govinda Star <small
+													class="d-block text-muted">Offline</small></span>
+											</div> </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /.col -->
+				</div>
+			</div>
+			<!-- End Container fluid  -->
+			<!-- footer -->
+			<footer class="footer text-center"> 2022 © Tun Tun </footer>
+			<!-- End footer -->
+		</div>
+		<!-- End Page wrapper  -->
+	</div>
+	<!-- End Wrapper -->
+	<!-- All Jquery -->
+	<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/app-style-switcher.js"></script>
+	<script
+		src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+	<!--Wave Effects -->
+	<script src="js/waves.js"></script>
+	<!--Menu sidebar -->
+	<script src="js/sidebarmenu.js"></script>
+	<!--Custom JavaScript -->
+	<script src="js/custom.js"></script>
+	<!--This page JavaScript -->
+	<!--chartis chart-->
+	<script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+	<script
+		src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src="js/pages/dashboards/dashboard1.js"></script>
+</h:body>
+
+</html>

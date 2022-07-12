@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta name="keywords"
+		content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
+	<meta name="description"
+		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
+	<meta name="robots" content="noindex,nofollow"></meta>
+	<title>Inquietudes recientes</title>
+	<link rel="canonical"
+		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16"
+		href="../../assets/images/logo/logo.png" />
+	<!-- Custom CSS -->
+	<link href="plugins/bower_components/chartist/dist/chartist.min.css"
+		rel="stylesheet" />
+	<link rel="stylesheet"
+		href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+	<!-- Custom CSS -->
+	<link href="css/style.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="./css/stylesadmin.css" />
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+</h:head>
+
+<h:body>
+
+	<!-- Preloader 
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+     -->
+
+	<!-- Main wrapper -->
+	<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5"
+		data-sidebartype="full" data-sidebar-position="absolute"
+		data-header-position="absolute" data-boxed-layout="full">
+		<!-- Topbar header -->
+		<header class="topbar" data-navbarbg="skin5">
+			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+				<div class="navbar-header" data-logobg="skin6">
+					<!-- Logo -->
+					<a class="navbar-brand" href="dashboard.jsf"> <!-- Logo icon -->
+						<b class="logo-icon"> <!-- Dark Logo icon --> <img
+							src="../assets/images/logo/fulllogo.png" width="200"
+							alt="homepage" />
+					</b> <!--End Logo icon --> <!-- Logo text --> <span class="logo-text">
+							<!-- dark Logo text -->
+							<p>Tun Tun</p>
+					</span>
+					</a>
+					<!-- End Logo -->
+					<!-- toggle and nav items -->
+					<a
+						class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+						href="javascript:void(0)"><i class="ti-menu ti-Cerrar"></i></a>
+				</div>
+				<!-- End Logo -->
+				<div class="navbar-collapse collapse" id="navbarSupportedContent"
+					data-navbarbg="skin5">
+					<!-- Right side toggle and nav items -->
+					<ul class="navbar-nav ms-auto d-flex align-items-center">
+						<!-- User profile and search -->
+						<li><a class="profile-pic" href="#"> <img
+								src="plugins/images/users/varun.jpg" alt="user-img" width="36"
+								class="img-circle" /><span class="text-dark font-medium">Admin</span></a>
+						</li>
+						<!-- User profile and search -->
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- End Topbar header -->
+
+		<!-- Aside bar - Start-->
+		<aside class="left-sidebar" data-sidebarbg="skin6">
+			<!-- Sidebar scroll-->
+			<div class="scroll-sidebar scrollsa">
+				<!-- Sidebar navigation-->
+				<nav class="sidebar-nav">
+					<ul id="sidebarnav">
+						<!--User Profile -->
+						<li class="sidebar-item"><h:link
+								class="sidebar-link waves-effect waves-dark sidebar-link"
+								outcome="dashboard.xhtml" aria-expanded="false">
+								<i class="fa fa-clock" aria-hidden="true"></i>
+								<span class="hide-menu">Dashboard</span>
+							</h:link></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-users" aria-hidden="true"></i> Fidelización del
+								cliente
+						</a>
+							<div class="collapse" id="collapseExample">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="PQRS.xhtml"> PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample2" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-user" aria-hidden="true"></i> Gestión de usuario
+						</a>
+							<div class="collapse" id="collapseExample2">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="tipodoc.xhtml"> Tipo de Documento </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="roles.xhtml"> Roles </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="privilegios.xhtml"> Privilegios </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Usuarios.xhtml"> Usuarios </h:link></li>
+
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample3" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-box" aria-hidden="true"></i> Inventario
+						</a>
+							<div class="collapse" id="collapseExample3">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="referenciaP.xhtml"> Referencia Producto </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="materiaPrima.xhtml">Materia Prima </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="ordenP.xhtml">Orden Producccion </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="inventario.xhtml">Inventario </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="proveedorM.xhtml">Proveedor Materia Prima </h:link>
+									</li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="detalleOP.xhtml">Detalle Orden Producccion </h:link>
+									</li>
+
+
+
+								</ul>
+							</div></li>
+
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample4" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-box" aria-hidden="true"></i> Ventas
+						</a>
+							<div class="collapse" id="collapseExample4">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="metodopago.xhtml"> Método de Pago</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="facturas.xhtml">Factura</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="product.xhtml"> Productos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="categories.xhtml">Categorias</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Carrito.xhtml">Carrito de Compras</h:link></li>
+								</ul>
+							</div></li>
+						<li class="sidebar-item pt-2"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							data-bs-toggle="collapse" href="#collapseExample5" role="button"
+							aria-expanded="false" aria-controls="collapseExample"> <i
+								class="fa fa-truck" aria-hidden="true"></i> Envios y
+								Devoluciones
+						</a>
+							<div class="collapse" id="collapseExample5">
+								<ul class="list-group">
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="almacenes.xhtml">Almacenes</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="companiaenvio.xhtml">Compañías de Envío</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="order.xhtml">Pedidos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="detallepedidop.xhtml">Detalle de los Pedidos</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="delivery.xhtml"> Envio </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="return.xhtml"> Devoluciones </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="ProveedorEmpresa.xhtml"> Proveedores de la empresa </h:link>
+									</li>
+								</ul>
+							</div></li>
+					</ul>
+				</nav>
+				<!-- End Sidebar navigation -->
+			</div>
+			<!-- End Sidebar scroll-->
+		</aside>
+		<!-- Aside bar - End -->
+
+		<!-- Page wrapper  -->
+		<div class="page-wrapper">
+			<!-- Bread crumb and right sidebar toggle -->
+			<div class="page-breadcrumb bg-white">
+				<div class="row align-items-center">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Problemáticas más recientes</h4>
+					</div>
+
+				</div>
+			</div>
+			<!-- End Bread crumb and right sidebar toggle -->
+			<!-- Container fluid  -->
+
+			<br />
+			<!-- .col -->
+			<div class="col-md-12 col-lg-12 col-sm-12">
+
+
+				<!-- Comment Row -->
+				<div class="d-flex flex-row pe-auto comment-row p-3 mt-0"
+					data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					<div class="p-2">
+						<img src="plugins/images/users/1.jpg" alt="user" width="50"
+							class="rounded-circle" />
+					</div>
+					<div class="comment-text ps-2 ps-md-3 w-100">
+						<h5 class="font-medium">Santiago Alberto: Titulo_Problemática</h5>
+						<span class="mb-3 d-block">Lorem Ipsum is simply dummy text
+							of the printing and type setting industry.It has survived not
+							only five centuries. </span>
+						<div class="comment-footer d-md-flex align-items-center">
+							<span class="badge bg-primary rounded mr-5">Responder</span>
+							<div class="text-muted-dark fs-2 ms-auto mt-2 mt-md-0">Abril
+								4, 2022</div>
+
+						</div>
+						<span class="badge bg-danger rounded lh">No respondida</span>
+					</div>
+
+				</div>
+
+				<!-- Comment Row -->
+				<div class="d-flex flex-row comment-row p-3" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop2">
+					<div class="p-2">
+						<img src="plugins/images/users/d2.jpg" alt="user" width="50"
+							class="rounded-circle" />
+					</div>
+					<div class="comment-text pe-auto ps-2 ps-md-3 active w-100">
+						<h5 class="font-medium">Karen: Titulo_Problemática</h5>
+						<span class="mb-3 d-block">Lorem Ipsum is simply dummy text
+							of the printing and type setting industry.It has survived not
+							only five centuries. </span>
+						<div class="comment-footer d-md-flex align-items-center">
+							<span class="badge bg-primary rounded lh">Editar respuesta</span>
+
+
+							<div class="text-muted-dark fs-2 ms-auto mt-2 mt-md-0">Febrero
+								14, 2022</div>
+						</div>
+						<span class="badge bg-success rounded lh">Respondida</span>
+					</div>
+				</div>
+				<!-- Comment Row -->
+				<div class="d-flex flex-row comment-row p-3" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop3">
+					<div class="p-2">
+						<img src="plugins/images/users/d3.jpg" alt="user" width="50"
+							class="rounded-circle" />
+					</div>
+					<div class="comment-text pe-auto ps-2 ps-md-3 w-100">
+						<h5 class="font-medium">Michael: Titulo_Problemática</h5>
+						<span class="mb-3 d-block">Lorem Ipsum is simply dummy text
+							of the printing and type setting industry.It has survived not
+							only five centuries. </span>
+						<div class="comment-footer d-md-flex align-items-center">
+
+							<span class="badge bg-primary rounded">Responder</span>
+
+							<div class="text-muted-dark-dark fs-2 ms-auto mt-2 mt-md-0">Enero
+								1, 2022</div>
+						</div>
+						<span class="badge bg-danger rounded lh">No respondida</span>
+					</div>
+				</div>
+
+				<div class="d-flex flex-row comment-row p-3" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop4">
+					<div class="p-2">
+						<img src="plugins/images/users/d2.jpg" alt="user" width="50"
+							class="rounded-circle" />
+					</div>
+					<div class="comment-text pe-auto ps-2 ps-md-3 active w-100">
+						<h5 class="font-medium">Karen: Titulo_Problemática</h5>
+						<span class="mb-3 d-block">Lorem Ipsum is simply dummy text
+							of the printing and type setting industry.It has survived not
+							only five centuries. </span>
+						<div class="comment-footer d-md-flex align-items-center">
+							<span class="badge bg-primary rounded lh">Editar respuesta</span>
+
+
+							<div class="text-muted-dark fs-2 ms-auto mt-2 mt-md-0">Febrero
+								14, 2022</div>
+						</div>
+						<span class="badge bg-success rounded lh">Respondida</span>
+					</div>
+				</div>
+
+				<div class="d-flex flex-row comment-row p-3" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop5">
+					<div class="p-2">
+						<img src="plugins/images/users/d3.jpg" alt="user" width="50"
+							class="rounded-circle" />
+					</div>
+					<div class="comment-text pe-auto ps-2 ps-md-3 w-100">
+						<h5 class="font-medium">Michael: Titulo_Problemática</h5>
+						<span class="mb-3 d-block">Lorem Ipsum is simply dummy text
+							of the printing and type setting industry.It has survived not
+							only five centuries. </span>
+						<div class="comment-footer d-md-flex align-items-center">
+
+							<span class="badge bg-primary rounded">Responder</span>
+
+							<div class="text-muted-dark fs-2 ms-auto mt-2 mt-md-0">Enero
+								1, 2022</div>
+						</div>
+						<span class="badge bg-danger rounded lh">No respondida</span>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- End Container fluid  -->
+			<!-- footer -->
+			<footer class="footer text-center"> 2022 © Tun Tun </footer>
+			<!-- End footer -->
+		</div>
+		<!-- End Page wrapper  -->
+	</div>
+	<!--Modales-->
+
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Nombre_Problemática</h5>
+					<button type="button" class="btn-Cerrar" data-bs-dismiss="modal"
+						aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<b>Descripción de la problemática</b>: Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Soluta at dolores saepe explicabo
+					delectus nulla error accusamus, fugiat recusandae tenetur
+					repellendus dolore, similique laboriosam, veniam minus odit earum
+					id? Sed! Ipsam laborum distinctio facere eum odio porro veniam
+					ratione, ea sequi atque fuga est deleniti consequatur tempore!
+					Eligendi ullam ducimus consequuntur tempore. Culpa architecto
+					corrupti voluptate ab consectetur, ducimus ad! <br />
+					<form action="#" onsubmit="validar_problematicas()">
+						<h4>Escribe tu respuesta</h4>
+						<textarea name="" id="respuesta_problematica" cols="50" rows="10"
+							placeholder="Escribe tu respuesta"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+				<br />
+			</div>
+			<br />
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Nombre_Problemática</h5>
+					<button type="button" class="btn-Cerrar" data-bs-dismiss="modal"
+						aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<b>Descripción de la problemática</b>: Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Soluta at dolores saepe explicabo
+					delectus nulla error accusamus, fugiat recusandae tenetur
+					repellendus dolore, similique laboriosam, veniam minus odit earum
+					id? Sed! Ipsam laborum distinctio facere eum odio porro veniam
+					ratione, ea sequi atque fuga est deleniti consequatur tempore!
+					Eligendi ullam ducimus consequuntur tempore. Culpa architecto
+					corrupti voluptate ab consectetur, ducimus ad! <br />
+					<form action="#" onsubmit="validar_problematicas()">
+						<h4>Escribe tu respuesta</h4>
+						<textarea name="" id="respuesta_problematica" cols="50" rows="10"
+							placeholder="Escribe tu respuesta"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Nombre_Problemática</h5>
+					<button type="button" class="btn-Cerrar" data-bs-dismiss="modal"
+						aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<b>Descripción de la problemática</b>: Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Soluta at dolores saepe explicabo
+					delectus nulla error accusamus, fugiat recusandae tenetur
+					repellendus dolore, similique laboriosam, veniam minus odit earum
+					id? Sed! Ipsam laborum distinctio facere eum odio porro veniam
+					ratione, ea sequi atque fuga est deleniti consequatur tempore!
+					Eligendi ullam ducimus consequuntur tempore. Culpa architecto
+					corrupti voluptate ab consectetur, ducimus ad! <br />
+					<form action="#" onsubmit="validar_problematicas()">
+						<h4>Escribe tu respuesta</h4>
+						<textarea name="" id="respuesta_problematica" cols="50" rows="10"
+							placeholder="Escribe tu respuesta"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Nombre_Problemática</h5>
+					<button type="button" class="btn-Cerrar" data-bs-dismiss="modal"
+						aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<b>Descripción de la problemática</b>: Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Soluta at dolores saepe explicabo
+					delectus nulla error accusamus, fugiat recusandae tenetur
+					repellendus dolore, similique laboriosam, veniam minus odit earum
+					id? Sed! Ipsam laborum distinctio facere eum odio porro veniam
+					ratione, ea sequi atque fuga est deleniti consequatur tempore!
+					Eligendi ullam ducimus consequuntur tempore. Culpa architecto
+					corrupti voluptate ab consectetur, ducimus ad! <br />
+					<form action="#" onsubmit="validar_problematicas()">
+						<h4>Escribe tu respuesta</h4>
+						<textarea name="" id="respuesta_problematica" cols="50" rows="10"
+							placeholder="Escribe tu respuesta"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Nombre_Problemática</h5>
+					<button type="button" class="btn-Cerrar" data-bs-dismiss="modal"
+						aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+					<b>Descripción de la problemática</b>: Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Soluta at dolores saepe explicabo
+					delectus nulla error accusamus, fugiat recusandae tenetur
+					repellendus dolore, similique laboriosam, veniam minus odit earum
+					id? Sed! Ipsam laborum distinctio facere eum odio porro veniam
+					ratione, ea sequi atque fuga est deleniti consequatur tempore!
+					Eligendi ullam ducimus consequuntur tempore. Culpa architecto
+					corrupti voluptate ab consectetur, ducimus ad! <br />
+					<form action="#" onsubmit="validar_problematicas()">
+						<h4>Escribe tu respuesta</h4>
+						<textarea name="" id="respuesta_problematica" cols="50" rows="10"
+							placeholder="Escribe tu respuesta"></textarea>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- End Wrapper -->
+	<!-- Scripts de swiftalert-->
+	<script src="/Admin/js/alertsadmin.js"></script>
+	<script src="/Admin/js/validaradmin.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- All Jquery -->
+	<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/app-style-switcher.js"></script>
+	<script
+		src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+	<!--Wave Effects -->
+	<script src="js/waves.js"></script>
+	<!--Menu sidebar -->
+	<script src="js/sidebarmenu.js"></script>
+	<!--Custom JavaScript -->
+	<script src="js/custom.js"></script>
+	<!--This page JavaScript -->
+	<!--chartis chart-->
+	<script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+	<script
+		src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+	<script src="js/pages/dashboards/dashboard1.js"></script>
+</h:body>
+
+</html>

@@ -1,0 +1,83 @@
+#chatbot{
+    position: fixed;
+    top: 90%;
+    border-radius: 50px;
+    border: solid;
+    width: 70px;
+	height: 70px;
+	border: solid black;
+}
+
+#chatbot_contenido{
+	width: 10%;
+	height: 10vh;
+	display: flex;
+	z-index: 1060;
+}
+.modala{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	z-index: 1060;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	transition: all 500ms ease;
+	opacity: 0;
+	visibility: hidden;
+}
+#btn-modala:checked ~ .modala{
+	opacity: 1;
+	visibility: visible;
+} 
+.contenedor{
+	width: 800px;
+	height: 800px;
+	margin: auto;
+	background: #fff;
+	box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+	transition: all 500ms ease;
+	position: relative;
+	transform: translateY(-30%);
+}
+#btn-modala:checked ~ .modala .contenedor{
+	transform: translateY(0%);
+} 
+.contenedor header{
+	padding: 20px;
+	background: #ce9977;
+}
+.contenedor label{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #fff;
+	font-size: 15px;
+	cursor: pointer;
+}
+.contenido{
+	width: 100%;
+	padding: 10px; 
+}
+.contenido h3{
+	margin-bottom: 10px;
+	text-align: center;
+}
+.contenido p{
+	margin-bottom: 7px;
+}
+#btn-modala{
+	display: none;
+}
+.lbl-modala{
+	background: #fff;
+	padding: 10px 15px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+	.contenedor{
+		width: 95%;
+	}
+}

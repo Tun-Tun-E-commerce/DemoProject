@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<!-- Comentario para demostrar que funciona el commit -->
+<h:head>
+	<meta charset="utf-8"></meta>
+	<meta http-equiv="x-ua-compatible" content="ie=edge"></meta>
+	<title>TUN TUN</title>
+	<meta name="robots" content="index, follow"></meta>
+	<meta name="description" content=""></meta>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon"
+		href="assets/images/logo/logo.png"></link>
+	<link rel="stylesheet" href="fonts/icomoon/style.css"></link>
+
+	<!-- PLugins/fonts CSS-->
+	<link rel="stylesheet" href="assets/css/vendor/line-awesome.min.css"></link>
+	<link rel="stylesheet" href="assets/css/plugins/slick.css"></link>
+	<link rel="stylesheet" href="assets/css/plugins/animate.css"></link>
+	<link rel="stylesheet" href="assets/css/plugins/easyzoom.css"></link>
+	<link rel="stylesheet" href="assets/css/plugins/aos.css"></link>
+	<link rel="stylesheet" href="assets/fonts/icomoon/style-Icon.css"></link>
+
+	<!-- CSS -->
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="assets/css/styles.css"></link>
+	<link rel="stylesheet" href="assets/css/style.css"></link>
+	<link rel="stylesheet" href="assets/css/chatbot.css"></link>
+
+</h:head>
+
+<h:body>
+	<!-- Header Section - Start -->
+	<header class="main-wrapper wrapper-2">
+		<div
+			class="header-area section-padding-lr-1 transparent-bar header-padding-tb sticky-bar sticky-white-bg"></div>
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-4">
+					<form class="Bus">
+						<input class="Form-S" type="search" placeholder="Buscar"
+							aria-label="Search" />
+					</form>
+				</div>
+				<div class="col-4">
+					<div class="logo text-center">
+						<h:link class="nav-link" alt="logo" outcome="index.xhtml">
+							<img src="assets/images/logo/logo.png" alt="logo" />
+						</h:link>
+					</div>
+					<nav class="navbar navbar-expand-sm justify-content-center">
+						<ul class="navbar-nav">
+							<li class="nav-item"><h:link class="nav-link"
+									outcome="index.xhtml">INICIO</h:link></li>
+							<li class="nav-item"><h:link class="nav-link"
+									outcome="contact.xhtml">CONTACTOS</h:link></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-4">
+					<div class="header-action-wrap">
+						<div class="header-action-cart dropdown">
+							<a class="dropdown-toggle" href="#" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false"> <img
+								class="injectable product-img img-zoom mb-md-0"
+								src="assets/images/icon-img/login.icon.png" alt="" />
+							</a>
+
+							<ul class="dropdown-menu">
+								<li><h:link class="dropdown-item"
+										outcome="/autenticacion/login.xhtml">Iniciar Sesion</h:link></li>
+								<li><h:link class="dropdown-item"
+										outcome="/autenticacion/register.xhtml">Registrarse</h:link></li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- Header Section - End -->
+
+
+	<!-- Carousel n1s- Start -->
+	<section class="slider">
+		<div class="slider-active-1 nav-style-1">
+			<div
+				class="single-slider-wrap slider-height-1 custom-d-flex custom-align-item-center single-animation-wrap">
+				<div class="slider-img">
+					<img src="assets/images/slider/slider-1.png" alt="" />
+				</div>
+				<div class="slider-content slider-animated-1">
+					<h3 class="animated">LO MÁS COMPRADO</h3>
+					<h1 class="animated">
+						30% <br /> OFF
+					</h1>
+					<div class="btn-style">
+						<h:link class="btn btn-outline-primary slider-btn animated">Compra ahora</h:link>
+					</div>
+				</div>
+			</div>
+			<div
+				class="single-slider-wrap slider-height-1 custom-d-flex custom-align-item-center single-animation-wrap">
+				<div class="slider-img">
+					<img src="assets/images/slider/slider-2.png" alt="" />
+				</div>
+				<div class="slider-content slider-animated-1">
+					<h3 class="animated">LO MÁS COMPRADO</h3>
+					<h1 class="animated">
+						30% <br /> OFF
+					</h1>
+					<div class="btn-style">
+						<h:link class="btn btn-outline-primary slider-btn animated">Compra ahora</h:link>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Carousel n1- End -->
+
+
+	<!-- Categoria - Start -->
+	<h1 class="tittle">NUESTRAS CATEGORIAS</h1>
+	<br />
+	<section class="container bg-white mt-5 p-3">
+		<div class="row g-2">
+			<div class="col-md-2  p-2">
+				<div class="features-wrap card text-center p-1">
+					<div class="features-img">
+						<img class="injectable" src="assets/images/icon-img/car.svg"
+							alt="" width="100" />
+					</div>
+					<h:link>
+						<span>Niños</span>
+					</h:link>
+				</div>
+			</div>
+			<div class="col-md-2  p-2">
+				<div class="features-wrap card text-center p-1">
+					<div class="features-img">
+						<img class="injectable" src="assets/images/icon-img/cut.svg"
+							alt="" width="100" />
+					</div>
+					<h:link>
+						<span>Niñas</span>
+					</h:link>
+				</div>
+			</div>
+			<div class="col-md-2  p-2">
+				<div class="features-wrap card text-center p-1">
+					<div class="features-img">
+						<img class="injectable" src="assets/images/icon-img/gift.svg"
+							alt="" width="100" />
+					</div>
+					<h:link>
+						<span>Camisas</span>
+					</h:link>
+				</div>
+			</div>
+			<div class="col-md-2  p-2">
+				<div class="features-wrap card text-center p-1">
+					<div class="features-img">
+						<img class="injectable" src="assets/images/icon-img/car.svg"
+							alt="" width="100" />
+					</div>
+					<h:link>
+						<span>Bodys</span>
+					</h:link>
+				</div>
+			</div>
+			<div class="col-md-2  p-2">
+				<div class="features-wrap card text-center p-1">
+					<div class="features-img">
+						<img class="injectable" src="assets/images/icon-img/cut.svg"
+							alt="" width="100" />
+					</div>
+					<h:link>
+						<span>Pantalones</span>
+					</h:link>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Categoria - End -->
+	<br />
+	<br />
+	<br />
+	<!-- Slider Productos - Start-->
+	<section class="product-area-1  section-padding-4 overflow-hidden">
+		<div class="container-fluid p-0">
+			<div class="product-area-wrap">
+				<div class="row gx-0 align-items-center">
+					<div class="col-lg-4">
+						<div class="section-title mb-10">
+							<h2 data-aos="fade-up" data-aos-delay="200">OFERTAS
+								ESPECIALES</h2>
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<div class="product-slider-active nav-style-2" data-aos="fade-up"
+							data-aos-delay="10">
+							<div class="product-plr-1">
+								<div class="product-wrap">
+									<div class="product-img img-zoom mb-5">
+										<h:link>
+											<img class="default-img"
+												src="assets/images/product/product-9.png" alt="" />
+										</h:link>
+									</div>
+									<div class="product-content-2">
+										<h3>
+											<h:link></h:link>
+										</h3>
+										<span></span>
+									</div>
+								</div>
+							</div>
+							<div class="product-plr-1">
+								<div class="product-wrap">
+									<div class="product-img img-zoom mb-5">
+										<h:link>
+											<img class="default-img"
+												src="assets/images/product/product-10.png" alt="" />
+										</h:link>
+									</div>
+									<div class="product-content-2">
+										<h3>
+											<h:link></h:link>
+										</h3>
+										<span></span>
+									</div>
+								</div>
+							</div>
+							<div class="product-plr-1">
+								<div class="product-wrap">
+									<div class="product-img img-zoom mb-5">
+										<h:link>
+											<img class="default-img"
+												src="assets/images/product/product-9.png" alt="" />
+										</h:link>
+									</div>
+									<div class="product-content-2">
+										<h3>
+											<h:link></h:link>
+										</h3>
+										<span></span>
+									</div>
+								</div>
+							</div>
+							<div class="product-plr-1">
+								<div class="product-wrap">
+									<div class="product-img img-zoom mb-5">
+										<h:link>
+											<img class="default-img"
+												src="assets/images/product/product-10.png" alt="" />
+										</h:link>
+									</div>
+									<div class="product-content-2">
+										<h3>
+											<h:link></h:link>
+										</h3>
+										<span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Slider_Productos - end -->
+
+	<div id="xd"></div>
+	<br />
+	<br />
+	<br />
+
+	<!-- Productos_Populares - Start -->
+	<h1 class="tittle">POPULAR</h1>
+	<br />
+	<br />
+	<section id="producto"
+		class="product-area section-padding-lr-1 section-padding-3">
+		<div class="container-fluid">
+			<div class="tab-content jump padding-54-row-col">
+
+				<div id="pro-1" class="tab-pane active">
+					<div class="row mb-n10">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-1.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-1</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$39.990</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-2.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-2</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$20.990</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-1.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-3</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-2.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-4</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-1.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-5</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-2.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-6</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-1.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<h:link>PRODUCTO-7</h:link>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-10">
+							<div class="product-wrap" data-aos="fade-up" data-aos-delay="10">
+								<div class="product-img img-zoom mb-4">
+									<h:link>
+										<img class="default-img"
+											src="assets/images/product/product-2.png" alt="" />
+									</h:link>
+									<div class="product-action-wrap">
+
+										<button title="Add To Cart">
+											<img class="injectable"
+												src="assets/images/icon-img/bag-2.svg" alt="" />
+										</button>
+
+									</div>
+								</div>
+								<div class="product-content text-center">
+									<h3>
+										<a href="product-details.jsf">PRODUCTO-8</a>
+									</h3>
+									<div class="product-price">
+										<span>$50.900</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Productos_Populares - End -->
+
+	<!-- Footer - Start -->
+	<hr />
+	<footer class="footer-16371">
+		<div id="chatbot_contenido">
+			<input type="checkbox" id="btn-modala" /> <label for="btn-modala"
+				class="lbl-modala"> <img
+				src="https://cdn-icons-png.flaticon.com/512/4616/4616655.png" alt=""
+				id="chatbot" /></label>
+
+
+			<div class="modala">
+				<div class="contenedor">
+					<header>¡PQRS con Tito!</header>
+					<label for="btn-modala">X</label>
+					<div class="contenido">
+						<h3>
+							<!-- Agregar un titulo -->
+							¡Hola,soy tito el chatbot que te ayudará <br /> con las
+							peticiones,quejas y reclamos!
+						</h3>
+						<br />
+						<h5>Dime,¿qué necesitas el día de hoy?</h5>
+						<!--Preuguntas-->
+						<div class="accordion" id="accordionExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne">
+										¿Cómo puedo registrarme?</button>
+								</h2>
+								<div id="collapseOne" class="accordion-collapse collapse"
+									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<strong>¡Sigue los siguientes pasos!</strong><br />
+										<ol>
+											<li><h:link outcome="/autenticacion/register.xhtml">Dale click aquí para
+													ir a la página en la que puedes registrarte</h:link>.</li>
+											<li>Ingresas tus datos personales.</li>
+											<li>Acepta los términos de uso.</li>
+											<li>Dale al botón "<i>Registrarse</i>".
+											</li>
+											<li>¡Listo! Cuenta hecha.</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingTwo">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo">
+										Tengo cuenta pero se me olvidó la contraseña</button>
+								</h2>
+								<div id="collapseTwo" class="accordion-collapse collapse"
+									aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<strong>¡Sigue los siguientes pasos!</strong> <br /> <b>Nota</b>:
+										Revisa bien si los campos los llenaste correctamente a la hora
+										de iniciar sesión. <br /> Si el problema sigue persisitiendo
+										o te olvidaste de la contraseña sigue los pasos.
+										<ol>
+											<li><h:link
+													outcome="/autenticacion/restorepassword.xhtml">Dale
+													click aquí para ir a la página donde puedes recuperar la
+													contraseña</h:link>.</li>
+											<li>Ingresa tu correo electrónico.</li>
+											<li>Dale en el botón "<i>Recuperar</i>".
+											</li>
+											<li>Revisa tu correo, ya que <b> allí se te enviará
+													una contraseña provisional </b>.
+											</li>
+											<li><h:link outcome="/autenticacion/login.xhtml">Utiliza
+													esa contraseña para iniciar sesión. Para iniciar sesión
+													dale click aquí</h:link>.</li>
+
+											<li>¡Listo! Ya puedes iniciar nuevamente.</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse" data-bs-target="#collapseThree"
+										aria-expanded="false" aria-controls="collapseThree">
+										Ya tengo cuenta y quiero iniciar sesión</button>
+								</h2>
+								<div id="collapseThree" class="accordion-collapse collapse"
+									aria-labelledby="headingThree"
+									data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<strong>¡Sigue los siguientes pasos para inciar
+											sesión!</strong> <br />
+										<ol>
+											<li><h:link outcome="/autenticacion/login.xhtml">Para inciar
+													sesión dale click aquí</h:link>.</li>
+											<li>Ingresa tu correo y tu contraaseña en los campos
+												especificados.</li>
+											<li>Dale en el botón "<i>Ingresar</i>".
+											</li>
+											<li>¡Listo,ya entraste a tu cuenta!.</li>
+										</ol>
+										<b>Nota</b>: Para saber si ya entraste en tu cuenta <br />
+										revisa si hay una cartera o bolsito al lado del ícono de
+										persona <br /> en la parte superior derecha
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-9 text-center">
+					<div class="footer-site-logo mb-4">
+						<img class="logo-footer" src="../assets/images/logo/fulllogo.png"
+							alt="" />
+					</div>
+					<ul class="list-unstyled nav-links mb-5">
+
+						<li><h:link outcome="about.xhtml">Acerca de</h:link></li>
+						<li><a href="#">Servicios</a></li>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Legal</a></li>
+						<li><h:link outcome="contact.xhtml">Contacto</h:link></li>
+					</ul>
+					<div class="social mb-4">
+						<h3>Siguenos en:</h3>
+						<ul class="list-unstyled">
+							<li class="in"><a href="#"><span class="icon-instagram"></span></a></li>
+							<li class="fb"><a href="#"><span class="icon-facebook"></span></a></li>
+							<li class="tw"><a href="#"><span class="icon-twitter"></span></a></li>
+							<li class="pin"><a href="#"><span class="icon-pinterest"></span></a></li>
+							<li class="dr"><a href="#"><span class="icon-dribbble"></span></a></li>
+						</ul>
+					</div>
+					<div class="copyright">
+						<p class="mb-0">
+							<small> Tun Tun. Todos los derechos reservados.</small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+
+	<!-- Footer - End -->
+
+
+	<!-- Global Vendor, plugins JS -->
+	<script src="assets/js/code.js"></script>
+	<script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+	<script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+	<script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+	<script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/plugins/svg-inject.min.js"></script>
+	<script src="assets/js/plugins/slick.js"></script>
+	<script src="assets/js/plugins/wow.js"></script>
+	<script src="assets/js/plugins/slinky.min.js"></script>
+	<script src="assets/js/plugins/jquery-ui.js"></script>
+	<script src="assets/js/plugins/jquery-ui-touch-punch.js"></script>
+	<script src="assets/js/plugins/countdown.js"></script>
+	<script src="assets/js/plugins/magnific-popup.js"></script>
+	<script src="assets/js/plugins/easyzoom.js"></script>
+	<script src="assets/js/plugins/scrollup.js"></script>
+	<script src="assets/js/plugins/aos.js"></script>
+	<script src="assets/js/plugins/select2.min.js"></script>
+	<script src="assets/js/plugins/jquery.nice-select.min.js"></script>
+	<!-- Main JS -->
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/codes.js"></script>
+
+
+</h:body>
+
+</html>

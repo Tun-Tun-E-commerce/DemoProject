@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light2", // "light2", "dark1", "dark2"
+	animationEnabled: false, // change to true		
+	title:{
+		text: "Calificación del sitio"
+	},
+	data: [
+	{
+		// Change type to "bar", "area", "spline", "pie",etc.
+		type: "pie",
+		dataPoints: [
+			{ label: "1",  y: 10  },
+			{ label: "2", y: 10  },
+			{ label: "3", y: 10  },
+			{ label: "4",  y: 20  },
+			{ label: "5",  y: 30  },
+            { label: "6",  y: 60  },
+			{ label: "7", y: 100  },
+			{ label: "8", y: 120  },
+			{ label: "9",  y: 60  },
+			{ label: "10",  y: 40  }
+		]
+	}
+	]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+</body>
+</html>

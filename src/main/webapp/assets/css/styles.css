@@ -1,0 +1,372 @@
+.tittle {
+  margin-top: 8%;
+  margin-left: 5%;
+}
+
+a.btn {
+  color: #fff;
+  font-size: 105%;
+  width: auto;
+  border: solid 2px #fff;
+  border-radius: 30px;
+  font-family: "Proxima Nova Rg";
+  margin-left: 40%;
+}
+
+header {
+  padding: 100px;
+}
+.slider {
+  
+  background-color: #ce9977;
+}
+.slider-img {
+  position: relative;
+}
+
+.slider-img:before {
+  content: " ";
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(192, 191, 191, 0.3);
+}
+
+.form-outline {
+  margin-left: 50px;
+  border-bottom: 3px solid black;
+  width: 100px;
+  opacity: 0.3;
+  color: black;
+  font-size: 15px;
+  height: 20px;
+}
+
+.logo-footer {
+  height: 50px;
+}
+
+body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+a {
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+a,
+a:hover {
+  text-decoration: none !important;
+}
+
+.content {
+  height: 70vh;
+}
+
+.footer-16371 {
+  padding:0;
+  font-family: "Fontaw", serif;
+}
+.footer-16371 .footer-site-logo {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.footer-16371 .footer-site-logo a {
+  color: #4200ff;
+}
+.footer-16371 .nav-links {
+  padding: 0;
+  margin: 0;
+}
+.footer-16371 .nav-links li {
+  display: inline-block;
+}
+.footer-16371 .nav-links li a {
+  padding: 10px;
+  color: #000;
+}
+.footer-16371 .nav-links li a:hover {
+  color: #bde3fa;
+}
+.footer-16371 .social h3 {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+}
+.footer-16371 .social ul li {
+  display: inline-block;
+}
+.footer-16371 .social ul li a {
+  display: inline-block;
+  padding: 10px;
+}
+.footer-16371 .social ul li.in a {
+  color: #df588a;
+}
+.footer-16371 .social ul li.tw a {
+  color: #15b8ff;
+}
+.footer-16371 .social ul li.fb a {
+  color: #3742d0;
+}
+.footer-16371 .social ul li.dr a {
+  color: #fa38c1;
+}
+.footer-16371 .social ul li.pin a {
+  color: #dd4d5a;
+}
+.footer-16371 .copyright {
+  padding-bottom: 0;
+  color: #999999;
+}
+
+.Bus {
+  margin-left: 90px;
+}
+
+.Form-S {
+  width: 200px;
+  height: 26px;
+  background: transparent;
+  border: none;
+  font-size: 13pt;
+  color: black;
+  padding-left: 25px;
+  border-bottom: #000 1px solid;
+  margin-right: 5px;
+}
+.Form-S::placeholder {
+  color: #000;
+  opacity:0.7;
+}
+@media only screen and (min-width: 1px) and (max-width: 991px) {
+  .Form-S  {
+    display: none;
+  }
+}@media only screen and (min-width: 1px) and (max-width: 991px) {
+  .Form-S {
+    display: none;
+    ;
+  }
+}
+.Button-s {
+  padding: 2px;
+  background: transparent;
+  border: none;
+}
+
+span.product-icon-prev.slick-arrow {
+  margin-left: 35px;
+}
+span.product-icon-next.slick-arrow {
+  margin-left: 35px;
+}
+
+a.btn.btn-outline-primary.slider-btn.animated {
+  padding: 15px 40px 15px;
+  margin-left: 200px;
+}
+.contact-form-title{
+  padding-top: 0;
+}
+.contact-info-area{
+  padding-left: 100px;
+  padding-top: 10%;
+
+}
+.breadcrumb-area  {
+  padding-top: 5%;
+}
+.map{
+  padding-bottom: 5%;
+}
+.tittle1 {
+  padding-bottom: 5%;
+}
+
+.send {
+  color: #fff;
+  padding: 10px 10px;
+  text-align: center;
+  width: 100%;
+  font-family: "Fontaw";
+  border: none;
+  background-color: #ce9676;
+  border-radius: 25px;
+  font-weight: bold;
+  opacity: 1;
+  border: solid 2.2px transparent;
+}
+
+.send:hover {
+  border: none solid 3px ;
+  width: 100%;
+  opacity: 0.6;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.tittlep , .breadcrumb-title {
+  font-size: 40px;
+  font-weight: bolder;
+  margin-left: 25%;
+
+}
+
+.billing-info-wrap{
+  border: 2px solid rgba(52, 53, 56, 0.1);
+  padding: 40px 50px 50px;
+  border-radius:25px;
+}
+
+.team-img {
+ border-radius: 50%;
+}
+
+.Bt-1{
+  padding: 10px 50px 10px;
+  border-radius: 5px;
+  font-family: "Fontaw";
+  background-color:#181818;
+  color:white;
+  text-align:center;
+  border-radius: 25px;
+}
+
+.Bt-1:hover{
+  background-color: #c79977;
+  color:white;
+  transition: 0.5s;
+  text-align:center;
+}
+
+
+.lit{
+  color:#feedf3;
+  font-weight: blod;
+}
+
+#title5{
+  color: #ce9676;
+  font-weight: bolder;
+}
+#title5:hover {
+  opacity: 0.6;
+}
+
+.abs{
+  display: block;
+}
+
+.header-area-1{
+  margin-top:0;
+  left:0;
+  width: 100%;
+  padding: 7px 0 0 0;
+  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.selec{
+  width: 100%;
+  height:30px;
+  background-color: #ce9676;
+  height: auto;
+  bottom:0;
+  display: flex;
+}
+.main-wrapper-1 .body-overlay {
+  background-color: #232324;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+
+.main-wrapper-1.overlay-active .body-overlay {
+    opacity: .7;
+    visibility: visible;
+    z-index: 9999;
+}
+
+
+.logo-1 a  {
+  display: inline-block;
+}
+
+ .logo-1 a img {
+  width: 80px;
+}
+
+@media only screen and (max-width: 767px) {
+   .logo-1 a img {
+    max-width: 70px;
+  }
+}
+ul.dropdown-menu{
+  margin: 500000000px;
+}
+
+.radas{
+  width:45%;
+  height:auto;
+}
+
+
+.Ingre-1{
+  padding: 10px ;
+  border: solid 2.2px transparent;
+  width: 100%;
+  background-color: #f7f4f4;
+  font-weight: bold;
+  border-radius: 25px;
+  color: rgb(14, 13, 13);
+  opacity: 1;
+}
+
+.Ingre-1:hover{
+  padding: 10px;
+  background-color: #000000;
+  width: 100%;
+  border: solid 0.5px #fff;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.5s;
+}
+
+
