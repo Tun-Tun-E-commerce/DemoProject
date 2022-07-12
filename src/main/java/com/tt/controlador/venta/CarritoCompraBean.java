@@ -156,7 +156,7 @@ public class CarritoCompraBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
 	}
-// Mejora
+	
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
 				.getResponse();
