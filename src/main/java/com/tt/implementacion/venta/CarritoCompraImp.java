@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.venta.ICarritoCompra;
+import com.tt.implementacion.usuario.UsuarioImp;
+import com.tt.modelo.usuario.Usuario;
 import com.tt.modelo.venta.CarritoCompra;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
@@ -115,15 +117,60 @@ public class CarritoCompraImp implements ICarritoCompra {
 			}
 		}
 	}
-	
-	public List<CarritoCompra> exportCarritoCompra(int id) {
+
+	public List<CarritoCompra> exportarProductoId(int id) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
 			p = pImp.econtrarId(id);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idProducto.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idProducto.id=" + id + "");
 			this.listaCarritoCompra = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaCarritoCompra;
+	}
+
+	public List<CarritoCompra> exportarUsuarioId(int id) {
+		UsuarioImp uImp = new UsuarioImp();
+		Usuario u = new Usuario();
+		try {
+			u = uImp.econtrarId(id);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idUsuario.id="+id+"");
+			this.listaCarritoCompra = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaCarritoCompra;
+	}
+	
+	public List<CarritoCompra> exportarMulticriterio(int idUsuario, int idProducto) {
+		UsuarioImp uImp = new UsuarioImp();
+		Usuario u = new Usuario();
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+		try {
+			p = pImp.econtrarId(idProducto);
+			u = uImp.econtrarId(idUsuario);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idUsuario.id="+idUsuario+"AND a.idProducto.id="+idProducto+"");
+			//Query q1 = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idProducto.id="+idProducto+"");
+			this.listaCarritoCompra = q.getResultList();
+			//this.listaCarritoCompra = q1.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

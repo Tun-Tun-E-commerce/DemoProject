@@ -21,6 +21,7 @@ import com.tt.modelo.venta.CarritoCompra;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.venta.ExportarExcelCarritoCompra;
 
+//Comentario
 @ManagedBean(name = "ccBean")
 @RequestScoped
 public class CarritoCompraBean {
@@ -31,7 +32,6 @@ public class CarritoCompraBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idProducto;
-
 	private int idUsuario;
 
 	private void LlenarProducto() {
@@ -168,8 +168,14 @@ public class CarritoCompraBean {
 		response.setHeader(headerKey, headerValue);
 
 		CarritoCompraImp cImp = new CarritoCompraImp();
-		if (idProducto != 0) {
-			this.listaCarritoCompra = cImp.exportCarritoCompra(idProducto);
+
+		if (idUsuario!= 0 && idProducto != 0) {
+			this.listaCarritoCompra = cImp.exportarMulticriterio(idUsuario, idProducto);
+		}
+		else if (idUsuario != 0) {
+			this.listaCarritoCompra = cImp.exportarUsuarioId(idUsuario);
+		} else if (idProducto != 0) {
+			this.listaCarritoCompra = cImp.exportarProductoId(idProducto);
 		} else {
 			this.listaCarritoCompra = cImp.encontrarTodo();
 		}
