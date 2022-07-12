@@ -202,8 +202,12 @@ public class FacturaBean {
 		response.setHeader(headerKey, headerValue);
 
 		FacturaImp fImp = new FacturaImp();
-		if (idMetodoPago != 0) {
-			this.listaFactura = fImp.exportFactura(idMetodoPago);
+		if (idMetodoPago != 0 && idCarrito != 0) {
+			this.listaFactura = fImp.exportarMulticriterio(idMetodoPago, idCarrito);
+		} else if (idMetodoPago != 0) {
+			this.listaFactura = fImp.exportarMetodoPago(idMetodoPago);
+		} else if (idCarrito != 0) {
+			this.listaFactura = fImp.exportarCarritoCompra(idCarrito);
 		} else {
 			this.listaFactura = fImp.encontrarTodo();
 
