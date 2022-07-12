@@ -268,9 +268,7 @@ public class ProductoBean {
 		ProductoImp pImp = new ProductoImp();
 		if (idProductoValor != 0 && idProductoCantidad != 0) {
 			this.listaProducto = pImp.exportarMulticriterio(idProductoValor, idProductoCantidad);
-		}
-
-		else if (idProductoValor != 0) {
+		} else if (idProductoValor != 0) {
 			this.listaProducto = pImp.exportProductoValor(idProductoValor);
 		} else if (idProductoCantidad != 0) {
 			this.listaProducto = pImp.exportProductoCantidad(idProductoCantidad);

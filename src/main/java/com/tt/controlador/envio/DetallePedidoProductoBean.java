@@ -32,6 +32,12 @@ public class DetallePedidoProductoBean {
 
 	private int idPedido;
 	private int idProducto;
+	private int idValor;
+
+	private void LlenarDetallePedidoProducto() {
+		DetallePedidoProductoImp pImp = new DetallePedidoProductoImp();
+		this.listaDetallePedidoProducto = pImp.encontrarTodo();
+	}
 
 	private void LlenarPedido() {
 		PedidoImp pImp = new PedidoImp();
@@ -99,7 +105,16 @@ public class DetallePedidoProductoBean {
 		this.idProducto = idProducto;
 	}
 
+	public int getIdValor() {
+		return idValor;
+	}
+
+	public void setIdValor(int idValor) {
+		this.idValor = idValor;
+	}
+
 	public DetallePedidoProductoBean() {
+		this.LlenarDetallePedidoProducto();
 		this.LlenarPedido();
 		this.LlenarProducto();
 	}
@@ -167,13 +182,26 @@ public class DetallePedidoProductoBean {
 		response.setHeader(headerKey, headerValue);
 
 		DetallePedidoProductoImp dopImp = new DetallePedidoProductoImp();
-		if(idProducto !=0) {
-			this.listaDetallePedidoProducto = dopImp.exportDPO(idProducto);
-		}else {
+		if (idPedido != 0 && idProducto != 0 && idValor != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarMulticriterio(idPedido, idValor, idProducto);
+		} else if (idPedido != 0 && idValor != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarMulticriterio1(idPedido, idValor);
+		} else if (idValor != 0 && idProducto != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarMulticriterio2(idValor, idProducto);
+		} else if (idPedido != 0 && idProducto != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarMulticriterio3(idPedido, idProducto);
+		} else if (idPedido != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarPedido(idPedido);
+		} else if (idValor != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarValorTotal(idValor);
+		} else if (idProducto != 0) {
+			this.listaDetallePedidoProducto = dopImp.exportarProducto(idProducto);
+		} else {
 			this.listaDetallePedidoProducto = dopImp.encontrarTodo();
 		}
 
-		ExportarExcelDetallePedidoProducto excelExportar = new ExportarExcelDetallePedidoProducto(this.listaDetallePedidoProducto);
+		ExportarExcelDetallePedidoProducto excelExportar = new ExportarExcelDetallePedidoProducto(
+				this.listaDetallePedidoProducto);
 		excelExportar.export(response);
 
 	}
