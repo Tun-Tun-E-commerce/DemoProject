@@ -21,6 +21,7 @@ import com.tt.modelo.venta.CarritoCompra;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.venta.ExportarExcelCarritoCompra;
 
+//Comentario
 @ManagedBean(name = "ccBean")
 @RequestScoped
 public class CarritoCompraBean {
