@@ -62,6 +62,7 @@ public class PqrBean {
 		return "/faces/Admin/PQRS.xhtml?faces-redirect=true";
 	}
 
+
 	public String encontrarId(int id) {
 		System.out.println("Entro al editar" + id);
 		PqrImp pqrImp = new PqrImp();

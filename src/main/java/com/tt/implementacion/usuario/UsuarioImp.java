@@ -164,6 +164,46 @@ public class UsuarioImp implements IUsuario {
 		return listaUsuario;
 	}
 	
+	public List<Usuario> exportarNombre(int idUsuarioN) {
+		UsuarioImp uImp = new UsuarioImp();
+		Usuario u = new Usuario();
+		try {
+			u = uImp.econtrarId(idUsuarioN);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.nombre.id=" + idUsuarioN + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario;
+	}
+	
+	
+	public List<Usuario> exportarApellido(int idUsuarioA) {
+		UsuarioImp uImp = new UsuarioImp();
+		Usuario u = new Usuario();
+		try {
+			u = uImp.econtrarId(idUsuarioA);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.apellido.id=" + idUsuarioA + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario;
+	}
 
 	public List<Usuario> exportarMulticriterioU(int idRol, int idTipoDocumento) {
 		RolImp rImp = new RolImp();
@@ -175,6 +215,93 @@ public class UsuarioImp implements IUsuario {
 			tp = tpImp.econtrarId(idTipoDocumento);
 			this.entity.getTransaction().begin();
 			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario ;
+	}
+	
+	
+
+	public List<Usuario> exportarMulticriterioNt(int idRol, int idTipoDocumento , int idUsuarioN ) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
+		TipoDocumentoImp tpImp = new TipoDocumentoImp();
+		TipoDocumento tp = new TipoDocumento();
+		Usuario u = new Usuario();
+		UsuarioImp uImp = new UsuarioImp();
+		try {
+			r = rImp.econtrarId(idRol);
+			tp = tpImp.econtrarId(idTipoDocumento);
+			u = uImp.econtrarId(idUsuarioN);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
+					""+"AND usu.nombre.id=" + idUsuarioN + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario ;
+	}
+	
+	
+
+	public List<Usuario> exportarMulticriterioAt(int idRol, int idTipoDocumento , int idUsuarioA ) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
+		TipoDocumentoImp tpImp = new TipoDocumentoImp();
+		TipoDocumento tp = new TipoDocumento();
+		Usuario u = new Usuario();
+		UsuarioImp uImp = new UsuarioImp();
+		try {
+			r = rImp.econtrarId(idRol);
+			tp = tpImp.econtrarId(idTipoDocumento);
+			u = uImp.econtrarId(idUsuarioA);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
+					""+"AND usu.apellido.id=" + idUsuarioA + "");
+			this.listaUsuario = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaUsuario ;
+	}
+	
+	public List<Usuario> exportarMulticriterioTu(int idRol, int idTipoDocumento , int idUsuarioN , int idUsuarioA) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
+		TipoDocumentoImp tpImp = new TipoDocumentoImp();
+		TipoDocumento tp = new TipoDocumento();
+		Usuario u = new Usuario();
+		UsuarioImp uImp = new UsuarioImp();
+	
+		try {
+			r = rImp.econtrarId(idRol);
+			tp = tpImp.econtrarId(idTipoDocumento);
+			u = uImp.econtrarId(idUsuarioN);
+			u = uImp.econtrarId(idUsuarioA);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
+					""+"AND usu.nombre.id=" + idUsuarioN + ""+"AND usu.apellido.id=" + idUsuarioA + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -239,6 +239,26 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+										<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Nombre</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idUsuarioN}"
+													class="form-control">
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Apellido</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idUsuarioA}"
+													class="form-control">
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.apellido}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="col-sm-4">
 												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Rol</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idRol}"
@@ -259,8 +279,7 @@
 														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
-											
-
+	
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
