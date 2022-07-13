@@ -73,7 +73,7 @@ public class ExportarExcelFactura {
 			createCell(row, columnCount++, f.getCodigo(), style);
 			createCell(row, columnCount++, f.getFecha().toString(), style);
 			createCell(row, columnCount++, String.valueOf(f.getValor()), style);
-			createCell(row, columnCount++, String.valueOf(f.getIdCarrito().getSubTotal()), style);
+			createCell(row, columnCount++, String.valueOf(f.getIdCarrito().getCantidad()), style);
 			createCell(row, columnCount++, f.getIdMetodoPago().getNombre(), style);
 			createCell(row, columnCount++, f.getIdPeriodo().getId(), style);
 		}

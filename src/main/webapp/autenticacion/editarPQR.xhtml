@@ -13,7 +13,7 @@
 	<meta name="description"
 		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
 	<meta name="robots" content="noindex,nofollow"></meta>
-	<title>Perfil</title>
+	<title>Editar</title>
 	<link rel="canonical"
 		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
 	<!-- Favicon icon -->
@@ -28,13 +28,6 @@
 </h:head>
 
 <h:body>
-	<!--  
-   <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-   -->
 
 
 
@@ -99,44 +92,39 @@
 						<h:form>
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText class="form-label" value="Valor"></h:outputText>
-									<h:inputText value="#{dpp.valorTotal}" class="form-control"></h:inputText>
+									<h:outputText class="form-label" value="Titulo"></h:outputText>
+									<h:inputText value="#{pqr.titulo}" class="form-control"></h:inputText>
 								</div>
 							</div>
 
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText value="Cantidad" class="form-label"></h:outputText>
-									<h:inputText value="#{dpp.cantidadTotal}" class="form-control"></h:inputText>
+									<h:outputText value="Descripcion" class="form-label"></h:outputText>
+									<h:inputText value="#{pqr.descripcion}" class="form-control"></h:inputText>
 								</div>
 							</div>
 
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText value="Destinatario Pedido" class="form-label"></h:outputText>
-									<h:selectOneMenu value="#{dpp.idPedido.id}"
-										class="form-control">
-										<f:selectItems value="#{dppBean.listaPedido}" var="p"
-											itemValue="#{p.id}" itemLabel="#{p.fechaEntrega}" />
-									</h:selectOneMenu>
+									<h:outputText value="Fecha" class="form-label"></h:outputText>
+									<h:inputText value="#{pqr.fecha}" class="form-control">
+										<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+									</h:inputText>
 								</div>
 							</div>
 
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText value="ID Materia Prima" class="form-label"></h:outputText>
-									<h:selectOneMenu value="#{dpp.idProducto.id}"
-										class="form-control">
-										<f:selectItems value="#{dppBean.listaProducto}" var="pr"
-											itemValue="#{pr.id}" itemLabel="#{pr.nombre}" />
-									</h:selectOneMenu>
+									<h:outputText value="Calificacion" class="form-label"></h:outputText>
+									<h:inputText value="#{pqr.calificacion}"
+										class="form-control"></h:inputText>
 								</div>
 							</div>
 
 							<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-								<h:commandButton action="#{dppBean.actualizar(dpp)}"
+								<h:commandButton action="#{pqrBeanU.actualizar(pqr)}"
 									value="Actualizar" class="btn btn-success ms-5 mt-5"></h:commandButton>
-								<h:link outcome="/Admin/detallepedidop.xhtml?faces-redirect=true"
+								<h:link outcome="/faces/autenticacion/user-account.xhtml?faces-redirect=true"
 									class="btn btn-danger ms-5 mt-5">Regresar</h:link>
 							</div>
 						</h:form>

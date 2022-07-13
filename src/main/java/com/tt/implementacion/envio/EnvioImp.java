@@ -8,9 +8,9 @@ import javax.persistence.Query;
 
 import com.tt.fachada.envio.IEnvio;
 import com.tt.implementacion.usuario.UsuarioImp;
+import com.tt.modelo.envio.CompaniaEnvio;
 import com.tt.modelo.envio.Envio;
 import com.tt.modelo.usuario.Usuario;
-import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
 public class EnvioImp implements IEnvio {
@@ -118,14 +118,57 @@ public class EnvioImp implements IEnvio {
 			}
 		}
 	}
-	
-	public List<Envio> exportEnvio(int id) {
+
+	public List<Envio> exportarUsuario(int idUsuario) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
 		try {
-			u = uImp.econtrarId(id);
+			u = uImp.econtrarId(idUsuario);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idUsuario.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idUsuario.id=" + idUsuario + "");
+			this.listaEnvio = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaEnvio;
+	}
+
+	public List<Envio> exportarCompaniaEnvio(int idCe) {
+		CompaniaEnvioImp cImp = new CompaniaEnvioImp();
+		CompaniaEnvio c = new CompaniaEnvio();
+		try {
+			c = cImp.econtrarId(idCe);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idCompaniaEnvio.id="+idCe+"");
+			this.listaEnvio = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaEnvio;
+	}
+	
+	public List<Envio> exportarMulticriterio(int idUsuario , int idCe) {
+		UsuarioImp uImp = new UsuarioImp();
+		Usuario u = new Usuario();
+		CompaniaEnvioImp cImp = new CompaniaEnvioImp();
+		CompaniaEnvio c = new CompaniaEnvio();
+		try {
+			u = uImp.econtrarId(idUsuario);
+			c = cImp.econtrarId(idCe);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idUsuario.id="+idUsuario+"AND a.idCompaniaEnvio.id="+idCe+"");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

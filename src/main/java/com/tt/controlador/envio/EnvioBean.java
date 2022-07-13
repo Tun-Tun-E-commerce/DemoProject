@@ -167,8 +167,12 @@ public class EnvioBean {
 		response.setHeader(headerKey, headerValue);
 
 		EnvioImp eImp = new EnvioImp();
-		if (idUsuario != 0) {
-			this.listaEnvio = eImp.exportEnvio(idUsuario);
+		if (idUsuario != 0 && idCompania != 0) {
+			this.listaEnvio = eImp.exportarMulticriterio(idUsuario, idCompania);
+		} else if (idUsuario != 0) {
+			this.listaEnvio = eImp.exportarUsuario(idUsuario);
+		} else if (idCompania != 0) {
+			this.listaEnvio = eImp.exportarCompaniaEnvio(idCompania);
 		} else {
 			this.listaEnvio = eImp.encontrarTodo();
 		}

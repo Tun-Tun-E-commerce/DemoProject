@@ -7,8 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.envio.IPedido;
+import com.tt.implementacion.venta.FacturaImp;
 import com.tt.modelo.envio.Envio;
 import com.tt.modelo.envio.Pedido;
+import com.tt.modelo.venta.Factura;
 import com.tt.utilidades.JPAUtil;
 
 public class PedidoImp implements IPedido {
@@ -116,14 +118,57 @@ public class PedidoImp implements IPedido {
 			}
 		}
 	}
-	
-	public List<Pedido> exportPedido(int id) {
+
+	public List<Pedido> exportarEnvio(int idEnvio) {
 		EnvioImp eImp = new EnvioImp();
 		Envio en = new Envio();
 		try {
-			en = eImp.econtrarId(id);
+			en = eImp.econtrarId(idEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idEnvio.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idEnvio.id="+idEnvio+"");
+			this.listaPedido = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaPedido;
+	}
+
+	public List<Pedido> exportarFactura(int idFactura) {
+		FacturaImp fImp = new FacturaImp();
+		Factura f = new Factura();
+		try {
+			f = fImp.econtrarId(idFactura);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idFactura.id="+idFactura+"");
+			this.listaPedido = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaPedido;
+	}
+
+	public List<Pedido> exportarMulticriterio(int idFactura, int idEnvio) {
+		EnvioImp eImp = new EnvioImp();
+		Envio en = new Envio();
+		FacturaImp fImp = new FacturaImp();
+		Factura f = new Factura();
+		try {
+			f = fImp.econtrarId(idFactura);
+			en = eImp.econtrarId(idEnvio);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idFactura.id="+idFactura+"AND a.idEnvio.id="+idEnvio+"");
 			this.listaPedido = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

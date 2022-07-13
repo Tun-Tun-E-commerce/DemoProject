@@ -8,9 +8,8 @@ import javax.persistence.Query;
 
 import com.tt.fachada.envio.IDetallePedidoProducto;
 import com.tt.implementacion.venta.ProductoImp;
-import com.tt.modelo.envio.Almacen;
 import com.tt.modelo.envio.DetallePedidoProducto;
-import com.tt.modelo.inventario.DetalleOrdenProduccion;
+import com.tt.modelo.envio.Pedido;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
@@ -119,14 +118,163 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 			}
 		}
 	}
-	
-	public List<DetallePedidoProducto> exportDPO(int id) {
+
+	public List<DetallePedidoProducto> exportarValorTotal(int idValorTotal) {
+		DetallePedidoProductoImp dppImp = new DetallePedidoProductoImp();
+		DetallePedidoProducto dpp = new DetallePedidoProducto();
+		try {
+			dpp = dppImp.econtrarId(idValorTotal);
+			this.entity.getTransaction().begin();
+			Query q = this.entity
+					.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.valorTotal.id=" + idValorTotal + "");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+
+	public List<DetallePedidoProducto> exportarProducto(int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
-			p = pImp.econtrarId(id);
+			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idProducto.id="+id+"");
+			Query q = this.entity
+					.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idProducto.id=" + idProducto + "");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+
+	public List<DetallePedidoProducto> exportarPedido(int idPedido) {
+		PedidoImp peImp = new PedidoImp();
+		Pedido pe = new Pedido();
+		try {
+			pe = peImp.econtrarId(idPedido);
+			this.entity.getTransaction().begin();
+			Query q = this.entity
+					.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id=" + idPedido + "");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+
+	public List<DetallePedidoProducto> exportarMulticriterio1(int idPedido, int idValor) {
+
+		DetallePedidoProductoImp dppImp = new DetallePedidoProductoImp();
+		DetallePedidoProducto dpp = new DetallePedidoProducto();
+
+		PedidoImp peImp = new PedidoImp();
+		Pedido pe = new Pedido();
+
+		try {
+			pe = peImp.econtrarId(idPedido);
+			dpp = dppImp.econtrarId(idValor);
+
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.valorTotal.id="+idValor+"");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+	
+	public List<DetallePedidoProducto> exportarMulticriterio2(int idValor, int idProducto) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+
+		DetallePedidoProductoImp dppImp = new DetallePedidoProductoImp();
+		DetallePedidoProducto dpp = new DetallePedidoProducto();
+
+		try {
+			dpp = dppImp.econtrarId(idValor);
+			p = pImp.econtrarId(idProducto);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.valorTotal.id="+idValor+"AND a.idProducto.id="+idProducto+"");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+	
+	public List<DetallePedidoProducto> exportarMulticriterio3(int idPedido, int idProducto) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+
+		PedidoImp peImp = new PedidoImp();
+		Pedido pe = new Pedido();
+
+		try {
+			pe = peImp.econtrarId(idPedido);
+			p = pImp.econtrarId(idProducto);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.idProducto.id="+idProducto+"");
+			this.listaDetallePedidoProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDetallePedidoProducto;
+	}
+	
+	public List<DetallePedidoProducto> exportarMulticriterio(int idPedido, int idValor, int idProducto) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+
+		DetallePedidoProductoImp dppImp = new DetallePedidoProductoImp();
+		DetallePedidoProducto dpp = new DetallePedidoProducto();
+
+		PedidoImp peImp = new PedidoImp();
+		Pedido pe = new Pedido();
+
+		try {
+			pe = peImp.econtrarId(idPedido);
+			dpp = dppImp.econtrarId(idValor);
+			p = pImp.econtrarId(idProducto);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.valorTotal.id="+idValor+"AND a.idProducto.id="+idProducto+"");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

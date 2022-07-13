@@ -21,7 +21,6 @@ import com.tt.modelo.venta.CarritoCompra;
 import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.venta.ExportarExcelCarritoCompra;
 
-//Comentario
 @ManagedBean(name = "ccBean")
 @RequestScoped
 public class CarritoCompraBean {
@@ -156,7 +155,7 @@ public class CarritoCompraBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
 	}
-
+	
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
 				.getResponse();

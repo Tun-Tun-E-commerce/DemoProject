@@ -24,6 +24,8 @@ public class PqrBean {
 	List<Pqr> listPqr = new ArrayList<Pqr>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
+	private int idPqr;
+	
 	public Pqr getPqr() {
 		return pqr;
 	}
@@ -60,6 +62,7 @@ public class PqrBean {
 		return "/faces/Admin/PQRS.xhtml?faces-redirect=true";
 	}
 
+
 	public String encontrarId(int id) {
 		System.out.println("Entro al editar" + id);
 		PqrImp pqrImp = new PqrImp();
@@ -92,7 +95,15 @@ public class PqrBean {
 		response.setHeader(headerKey, headerValue);
 		
 		PqrImp pqrImp = new PqrImp();
-		this.listPqr = pqrImp.encontrarTodo();
+		
+		
+		if (idPqr != 0) {
+			this.listPqr  = pqrImp.exportarPqrC(idPqr);
+		
+		} else {
+			this.listPqr = pqrImp.encontrarTodo();
+		}
+
 		
 		ExportarExcelPqr excelExportar = new ExportarExcelPqr(this.listPqr);
 		excelExportar.export(response);
