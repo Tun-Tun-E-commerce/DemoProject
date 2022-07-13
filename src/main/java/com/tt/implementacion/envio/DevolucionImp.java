@@ -117,14 +117,56 @@ public class DevolucionImp implements IDevolucion {
 			}
 		}
 	}
-	
-	public List<Devolucion> exportDevolucion(int id) {
+
+	public List<Devolucion> exportarFactura(int idFactura) {
 		FacturaImp fImp = new FacturaImp();
 		Factura f = new Factura();
 		try {
-			f = fImp.econtrarId(id);
+			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.idFactura.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.idFactura.id=" + idFactura + "");
+			this.listaDevolucion = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDevolucion;
+	}
+
+	public List<Devolucion> exportarFecha(int idFechaDev) {
+		
+		try {
+			econtrarId(idFechaDev);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.fecha.id=" + idFechaDev + "");
+			this.listaDevolucion = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaDevolucion;
+	}
+
+	public List<Devolucion> exportarMulticriterio(int idFactura, int idFechaDev) {
+		FacturaImp fImp = new FacturaImp();
+		Factura f = new Factura();
+		DevolucionImp dImp = new DevolucionImp();
+		Devolucion d = new Devolucion();
+		try {
+			d = dImp.econtrarId(idFechaDev);
+			f = fImp.econtrarId(idFactura);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.idFactura.id="+idFactura+"AND a.fecha.id="+idFechaDev+"");
 			this.listaDevolucion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

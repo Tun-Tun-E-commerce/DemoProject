@@ -165,9 +165,13 @@ public class PedidoBean {
 		response.setHeader(headerKey, headerValue);
 
 		PedidoImp pImp = new PedidoImp();
-		if(idEnvio !=0) {
-			this.listaPedido = pImp.exportPedido(idEnvio);
-		}else {
+		if (idFactura != 0 && idEnvio != 0) {
+			this.listaPedido = pImp.exportarMulticriterio(idFactura, idEnvio);
+		} else if (idEnvio != 0) {
+			this.listaPedido = pImp.exportarEnvio(idEnvio);
+		} else if (idFactura != 0) {
+			this.listaPedido = pImp.exportarFactura(idFactura);
+		} else {
 			this.listaPedido = pImp.encontrarTodo();
 		}
 
