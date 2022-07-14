@@ -705,20 +705,11 @@
 												<div class="row">
 													<div class="col-sm-6">
 
-														<h:selectOneMenu value="#{pqrBeanU.pqr.tipo}"
-															class="form-control">
-															<f:selectItems itemValue="Sugerencia"
-																itemLabel="Sugerencia" />
+												
 
-														</h:selectOneMenu>
-
-
-														<h:outputText value="Id Pqr" class="form-label"></h:outputText>
-														<h:selectOneMenu value="#{pqrBeanU.pqr.tipo}"
-															class="form-control">
-															<f:selectItems value="#{Sugerencia}" var="rp"
-																itemValue="#{Sugerencia}" itemLabel="#{Sugerencia}" />
-														</h:selectOneMenu>
+														<h:outputText value="Qué vas a enviar?" class="form-label"></h:outputText>
+														<h:inputText value="#{pqrBeanU.pqr.tipo}"
+															class="form-control"></h:inputText>
 
 														<select class="form-select"
 															aria-label="Default select example" id="floatingpqr">
