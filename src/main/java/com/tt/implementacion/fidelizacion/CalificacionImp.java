@@ -123,7 +123,7 @@ public class CalificacionImp implements ICalificacion {
 		try {
 			pqr = pqrImp.econtrarId(idPqr);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT c FROM Calificacion r WHERE r.idPqr.id=" + idPqr + "");
+			Query q = this.entity.createQuery("SELECT c FROM Calificacion c WHERE c.idPqr.id=" + idPqr + "");
 			this.listaCalificacion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
