@@ -241,18 +241,8 @@
 										style="width: 100%">
 										<h:form>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Tipo de PQR</h:outputLabel>
-												<h:selectOneMenu value="#{pqrBean.idPqr}"
-													class="form-control">
-													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
-														itemLabel="Seleccionar" />
-													<f:selectItems value="#{pqrBean.listPqr}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.tipo}" />
-												</h:selectOneMenu>
-											</div>
-											<div class="col-sm-4">
 												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
-												<h:selectOneMenu value="#{pqrBean.idFecha}"
+												<h:selectOneMenu value="#{pqrBean.idPqrFecha}"
 													class="form-control">
 													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
 														itemLabel="Seleccionar" />
@@ -296,7 +286,7 @@
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Tipo de PQR</f:facet>
+													<f:facet name="header">Tipo</f:facet>
 													<h:outputText value="${p.tipo}"></h:outputText>
 												</h:column>
 
