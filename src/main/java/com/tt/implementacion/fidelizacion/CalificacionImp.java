@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import com.tt.fachada.fidelizacion.ICalificacion;
 import com.tt.modelo.fidelizacion.Calificacion;
+import com.tt.modelo.fidelizacion.Pqr;
 import com.tt.utilidades.JPAUtil;
 
 public class CalificacionImp implements ICalificacion {
@@ -114,6 +115,27 @@ public class CalificacionImp implements ICalificacion {
 				System.out.println("Cerrando la entity");
 			}
 		}
+	}
+
+	public List<Calificacion> exportarPqr(int idPqr) {
+		PqrImp pqrImp = new PqrImp();
+		Pqr pqr = new Pqr();
+		try {
+			pqr = pqrImp.econtrarId(idPqr);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT c FROM Calificacion r WHERE r.idPqr.id=" + idPqr + "");
+			this.listaCalificacion = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaCalificacion;
+
 	}
 
 }
