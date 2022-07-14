@@ -27,7 +27,7 @@ public class EnvioImp implements IEnvio {
 	public List<Envio> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT env FROM Envio env");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e");
 			listaEnvio = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -45,13 +45,13 @@ public class EnvioImp implements IEnvio {
 
 	@Override
 	public Envio econtrarId(int id) {
-		Envio en = new Envio();
+		Envio e = new Envio();
 		try {
 			this.entity.getTransaction().begin();
-			en = this.entity.find(Envio.class, id);
+			e = this.entity.find(Envio.class, id);
 			this.entity.close();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			JPAUtil.shutdown();
 		} finally {
 			if (this.entity != null) {
@@ -60,7 +60,7 @@ public class EnvioImp implements IEnvio {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return en;
+		return e;
 	}
 
 	@Override
@@ -102,13 +102,13 @@ public class EnvioImp implements IEnvio {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Envio en = new Envio();
-			en = this.entity.find(Envio.class, id);
+			Envio e = new Envio();
+			e = this.entity.find(Envio.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(en);
+			this.entity.remove(e);
 			this.entity.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			JPAUtil.shutdown();
 		} finally {
 			if (this.entity != null) {
@@ -125,7 +125,7 @@ public class EnvioImp implements IEnvio {
 		try {
 			u = uImp.econtrarId(idUsuario);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idUsuario.id=" + idUsuario + "");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idUsuario.id=" + idUsuario + "");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -145,7 +145,7 @@ public class EnvioImp implements IEnvio {
 		try {
 			c = cImp.econtrarId(idCe);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idCompaniaEnvio.id="+idCe+"");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idCompaniaEnvio.id="+idCe+"");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,7 +168,7 @@ public class EnvioImp implements IEnvio {
 			u = uImp.econtrarId(idUsuario);
 			c = cImp.econtrarId(idCe);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Envio a WHERE a.idUsuario.id="+idUsuario+"AND a.idCompaniaEnvio.id="+idCe+"");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idUsuario.id="+idUsuario+"AND e.idCompaniaEnvio.id="+idCe+"");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

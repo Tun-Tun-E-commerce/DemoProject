@@ -64,10 +64,10 @@ public class CarritoCompraImp implements ICarritoCompra {
 	}
 
 	@Override
-	public void agregar(CarritoCompra cc) {
+	public void agregar(CarritoCompra carritoCompra) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.persist(cc);
+			this.entity.persist(carritoCompra);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,10 +82,10 @@ public class CarritoCompraImp implements ICarritoCompra {
 	}
 
 	@Override
-	public void actualizar(CarritoCompra cc) {
+	public void actualizar(CarritoCompra carritoCompra) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.merge(cc);
+			this.entity.merge(carritoCompra);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -25,7 +25,7 @@ public class ProveedorEmpresaImp implements IProveedorEmpresa {
 	public List<ProveedorEmpresa> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT prov FROM ProveedorEmpresa prov");
+			Query q = this.entity.createQuery("SELECT pe FROM ProveedorEmpresa pe");
 			listaProveedorEmpresa = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
