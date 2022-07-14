@@ -129,7 +129,7 @@ public class DetallePedidoProductoBean {
 		DetallePedidoProductoImp dtImp = new DetallePedidoProductoImp();
 		dpp = dtImp.econtrarId(id);
 		this.sessionMap.put("dpp", dpp);
-		return "/faces/Admin/editar/editarDPP.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(DetallePedidoProducto dpp) {
