@@ -36,8 +36,8 @@ public class Pqr implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha")
 	private Date fecha;
-	@Column(name = "calificacion")
-	private int calificacion;
+	@Column(name = "tipo", length = 70)
+	private String tipo;
 	@OneToMany(targetEntity = RespuestaPqr.class, mappedBy = "idPqr")
 	private List<RespuestaPqr> listaRespuestaPqr;
 	@ManyToMany(mappedBy = "listaPqr", cascade = { CascadeType.MERGE })
@@ -66,11 +66,13 @@ public class Pqr implements Serializable {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public int getCalificacion() {
-		return calificacion;
+	
+	
+	public String getTipo() {
+		return tipo;
 	}
-	public void setCalificacion(int calificacion) {
-		this.calificacion = calificacion;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	public List<RespuestaPqr> getListaRespuestaPqr() {
 		return listaRespuestaPqr;

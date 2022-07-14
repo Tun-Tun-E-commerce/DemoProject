@@ -40,7 +40,7 @@ public class ExportarExcelPqr {
 		createCell(row, 1, "Titulo", style);
 		createCell(row, 2, "Descripcion", style);
 		createCell(row, 3, "Fecha", style);
-		createCell(row, 4, "Calificacion", style);
+		createCell(row, 4, "Tipo", style);
 
 	}
 
@@ -72,7 +72,7 @@ public class ExportarExcelPqr {
 			createCell(row, columnCount++, pqr.getTitulo(), style);
 			createCell(row, columnCount++, pqr.getDescripcion(), style);
 			createCell(row, columnCount++, pqr.getFecha().toString(), style);
-			createCell(row, columnCount++, pqr.getCalificacion(), style);
+			createCell(row, columnCount++, pqr.getTipo(), style);
 		}
 	}
 
