@@ -111,6 +111,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -257,9 +259,11 @@
 												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
 												<h:selectOneMenu value="#{dppBean.idValor}"
 													class="form-control">
-													<f:selectItems value="#{dppBean.listaDetallePedidoProducto}" itemValue=""
+													<f:selectItems
+														value="#{dppBean.listaDetallePedidoProducto}" itemValue=""
 														itemLabel="Seleccionar" />
-													<f:selectItems value="#{dppBean.listaDetallePedidoProducto}" var="var"
+													<f:selectItems
+														value="#{dppBean.listaDetallePedidoProducto}" var="var"
 														itemValue="#{var.id}" itemLabel="#{var.valorTotal}" />
 												</h:selectOneMenu>
 											</div>

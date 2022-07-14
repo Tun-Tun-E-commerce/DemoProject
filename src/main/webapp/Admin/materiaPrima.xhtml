@@ -113,6 +113,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -328,8 +330,7 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Cantidad" class="form-label"></h:outputText>
-										<h:inputText
-											value="#{mtBean.materiaPrima.cantidad}"
+										<h:inputText value="#{mtBean.materiaPrima.cantidad}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
@@ -339,8 +340,7 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Descripcion" class="form-label"></h:outputText>
-										<h:inputText
-											value="#{mtBean.materiaPrima.descripcion}"
+										<h:inputText value="#{mtBean.materiaPrima.descripcion}"
 											class="form-control"></h:inputText>
 									</div>
 
