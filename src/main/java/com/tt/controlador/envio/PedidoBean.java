@@ -129,7 +129,7 @@ public class PedidoBean {
 		PedidoImp pImp = new PedidoImp();
 		p = pImp.econtrarId(id);
 		this.sessionMap.put("p", p);
-		return "/faces/Admin/editar/editarPEDIDO.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/pedido.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Pedido p) {
