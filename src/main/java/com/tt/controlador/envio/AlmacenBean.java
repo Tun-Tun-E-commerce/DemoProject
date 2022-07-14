@@ -129,7 +129,7 @@ public class AlmacenBean {
 		AlmacenImp aImp = new AlmacenImp();
 		a = aImp.econtrarId(id);
 		this.sessionMap.put("a", a);
-		return "/faces/Admin/editar/editarALMACEN.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envio/almacen.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Almacen a) {
