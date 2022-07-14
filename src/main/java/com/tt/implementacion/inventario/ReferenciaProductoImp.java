@@ -8,7 +8,6 @@ import javax.persistence.Query;
 
 import com.tt.fachada.inventario.IReferenciaProducto;
 import com.tt.modelo.inventario.ReferenciaProducto;
-import com.tt.modelo.usuario.Rol;
 import com.tt.utilidades.JPAUtil;
 
 public class ReferenciaProductoImp implements IReferenciaProducto {
@@ -26,7 +25,7 @@ public class ReferenciaProductoImp implements IReferenciaProducto {
 	public List<ReferenciaProducto> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT refp FROM ReferenciaProducto refp");
+			Query q = this.entity.createQuery("SELECT r FROM ReferenciaProducto r");
 			listaReferenciaProducto = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -44,10 +43,10 @@ public class ReferenciaProductoImp implements IReferenciaProducto {
 
 	@Override
 	public ReferenciaProducto econtrarId(int id) {
-		ReferenciaProducto refPro = new ReferenciaProducto();
+		ReferenciaProducto r = new ReferenciaProducto();
 		try {
 			this.entity.getTransaction().begin();
-			refPro = this.entity.find(ReferenciaProducto.class, id);
+			r = this.entity.find(ReferenciaProducto.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +58,7 @@ public class ReferenciaProductoImp implements IReferenciaProducto {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return refPro;
+		return r;
 	}
 
 	@Override
@@ -102,10 +101,10 @@ public class ReferenciaProductoImp implements IReferenciaProducto {
 	@Override
 	public void eliminar(int id) {
 		try {
-			ReferenciaProducto refPro = new ReferenciaProducto();
-			refPro = this.entity.find(ReferenciaProducto.class, id);
+			ReferenciaProducto r = new ReferenciaProducto();
+			r = this.entity.find(ReferenciaProducto.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(refPro);
+			this.entity.remove(r);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

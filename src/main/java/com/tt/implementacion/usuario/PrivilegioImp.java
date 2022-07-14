@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import com.tt.fachada.usuario.IPrivilegio;
 import com.tt.modelo.usuario.Privilegio;
 import com.tt.modelo.usuario.Rol;
-import com.tt.modelo.usuario.Usuario;
 import com.tt.utilidades.JPAUtil;
 
 public class PrivilegioImp implements IPrivilegio {
@@ -45,10 +44,10 @@ public class PrivilegioImp implements IPrivilegio {
 
 	@Override
 	public Privilegio econtrarId(int id) {
-		Privilegio privilegio = new Privilegio();
+		Privilegio p = new Privilegio();
 		try {
 			this.entity.getTransaction().begin();
-			privilegio = this.entity.find(Privilegio.class, id);
+			p = this.entity.find(Privilegio.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,7 +59,7 @@ public class PrivilegioImp implements IPrivilegio {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return privilegio;
+		return p;
 	}
 
 	@Override
@@ -102,10 +101,10 @@ public class PrivilegioImp implements IPrivilegio {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Privilegio privilegio = new Privilegio();
-			privilegio = this.entity.find(Privilegio.class, id);
+			Privilegio p = new Privilegio();
+			p = this.entity.find(Privilegio.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(privilegio);
+			this.entity.remove(p);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,14 +116,14 @@ public class PrivilegioImp implements IPrivilegio {
 			}
 		}
 	}
-	
-	public List<Privilegio> exportPrivilegio(int id) {
-		RolImp rolImp = new RolImp();
-		Rol rol = new Rol();
+
+	public List<Privilegio> exportarRol(int idRol) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
 		try {
-			rol = rolImp.econtrarId(id);
+			r = rImp.econtrarId(idRol);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT p FROM Privilegio p WHERE p.idRol.id="+id+"");
+			Query q = this.entity.createQuery("SELECT p FROM Privilegio p WHERE p.idRol.id=" + idRol + "");
 			this.listaPrivilegio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -137,6 +136,5 @@ public class PrivilegioImp implements IPrivilegio {
 		}
 		return listaPrivilegio;
 	}
-
 
 }

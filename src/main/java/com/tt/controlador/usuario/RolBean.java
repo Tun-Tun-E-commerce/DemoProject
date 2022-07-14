@@ -73,19 +73,20 @@ public class RolBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/roles.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaRoles " + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		RolImp rolImp = new RolImp();
 		this.listaRoles = rolImp.encontrarTodo();
-		
+
 		ExportarExcelRol excelExportar = new ExportarExcelRol(this.listaRoles);
 		excelExportar.export(response);
 

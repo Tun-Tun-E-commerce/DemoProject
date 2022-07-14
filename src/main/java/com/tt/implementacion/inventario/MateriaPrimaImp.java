@@ -8,7 +8,6 @@ import javax.persistence.Query;
 
 import com.tt.fachada.inventario.IMateriaPrima;
 import com.tt.modelo.inventario.MateriaPrima;
-import com.tt.modelo.inventario.ReferenciaProducto;
 import com.tt.utilidades.JPAUtil;
 
 public class MateriaPrimaImp implements IMateriaPrima {
@@ -18,7 +17,7 @@ public class MateriaPrimaImp implements IMateriaPrima {
 	public MateriaPrimaImp() {
 		entity = JPAUtil.getEntityManagerFactory().createEntityManager();
 	}
-	
+
 	private List<MateriaPrima> listaMateriaPrima = new ArrayList<MateriaPrima>();
 	Query q;
 
@@ -26,7 +25,7 @@ public class MateriaPrimaImp implements IMateriaPrima {
 	public List<MateriaPrima> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT mt FROM MateriaPrima mt");
+			Query q = this.entity.createQuery("SELECT m FROM MateriaPrima m");
 			listaMateriaPrima = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -44,10 +43,10 @@ public class MateriaPrimaImp implements IMateriaPrima {
 
 	@Override
 	public MateriaPrima econtrarId(int id) {
-		MateriaPrima mt = new MateriaPrima();
+		MateriaPrima m = new MateriaPrima();
 		try {
 			this.entity.getTransaction().begin();
-			mt = this.entity.find(MateriaPrima.class, id);
+			m = this.entity.find(MateriaPrima.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +58,7 @@ public class MateriaPrimaImp implements IMateriaPrima {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return mt;
+		return m;
 	}
 
 	@Override
@@ -101,10 +100,10 @@ public class MateriaPrimaImp implements IMateriaPrima {
 	@Override
 	public void eliminar(int id) {
 		try {
-			MateriaPrima mt = new MateriaPrima();
-			mt = this.entity.find(MateriaPrima.class, id);
+			MateriaPrima m = new MateriaPrima();
+			m = this.entity.find(MateriaPrima.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(mt);
+			this.entity.remove(m);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

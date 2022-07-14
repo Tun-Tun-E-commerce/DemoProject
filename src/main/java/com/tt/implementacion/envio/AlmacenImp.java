@@ -116,14 +116,14 @@ public class AlmacenImp implements IAlmacen {
 			}
 		}
 	}
-	
+
 	public List<Almacen> exportarCantidad(int idAlmacenCantidad) {
 		AlmacenImp aImp = new AlmacenImp();
 		Almacen a = new Almacen();
 		try {
 			a = aImp.econtrarId(idAlmacenCantidad);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.cantidad.id="+idAlmacenCantidad+"");
+			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.cantidad.id=" + idAlmacenCantidad + "");
 			this.listaAlmacen = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,14 +136,14 @@ public class AlmacenImp implements IAlmacen {
 		}
 		return listaAlmacen;
 	}
-	
-	public List<Almacen> exportarProducto(int id) {
+
+	public List<Almacen> exportarProducto(int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
-			p = pImp.econtrarId(id);
+			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id=" + idProducto + "");
 			this.listaAlmacen = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,17 +156,18 @@ public class AlmacenImp implements IAlmacen {
 		}
 		return listaAlmacen;
 	}
-	
-	public List<Almacen> exportarMultiCriterio(int id, int idAlmacenCantidad) {
+
+	public List<Almacen> exportarMultiCriterio(int idProducto, int idAlmacenCantidad) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		AlmacenImp aImp = new AlmacenImp();
 		Almacen a = new Almacen();
 		try {
-			a= aImp.econtrarId(idAlmacenCantidad);
-			p = pImp.econtrarId(id);
+			a = aImp.econtrarId(idAlmacenCantidad);
+			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id="+id+"AND a.cantidad.id="+idAlmacenCantidad+"");
+			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id=" + idProducto
+					+ "AND a.cantidad.id=" + idAlmacenCantidad + "");
 			this.listaAlmacen = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

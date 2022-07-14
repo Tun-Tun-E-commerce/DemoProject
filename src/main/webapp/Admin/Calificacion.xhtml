@@ -84,7 +84,6 @@
 		<!-- End Topbar header -->
 
 		<!-- Left Sidebar -->
-		<!-- Aside bar - Start-->
 		<aside class="left-sidebar" data-sidebarbg="skin6">
 			<!-- Sidebar scroll-->
 			<div class="scroll-sidebar scrollsa">
@@ -215,7 +214,6 @@
 			<!-- End Sidebar scroll-->
 		</aside>
 		<!-- Aside bar - End -->
-		<!-- Aside bar - End -->
 		<!-- End Left Sidebar  -->
 		<!-- Page wrapper  -->
 		<div class="page-wrapper">
@@ -223,7 +221,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Tipos de Documentos</h4>
+						<h4 class="page-title">Calificaciones</h4>
 					</div>
 
 				</div>
@@ -242,6 +240,16 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:selectOneMenu value="#{CalificacionBean.idPqr}"
+													class="form-control">
+													<f:selectItems value="#{CalificacionBean.listaPqr}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{CalificacionBean.listaPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.titulo}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -252,36 +260,37 @@
 											<div
 												class="d-grid gap-2 d-md-flex justify-content-md-center py-3">
 												<h:commandButton values="Export"
-													action="#{tdBean.exportar()}" value="Excel"
+													action="#{CalificacionBean.exportar()}" value="Excel"
 													class="btn btn-success"></h:commandButton>
 											</div>
-											<h:dataTable value="${tdBean.encontrarTodo()}" var="td"
-												border="1" class="table table-striped">
+											<h:dataTable value="${CalificacionBean.encontrarTodo()}"
+												var="c" border="1" class="table table-striped">
 												<h:column>
 													<f:facet name="header">Id</f:facet>
-													<h:outputText value="${td.id}"></h:outputText>
+													<h:outputText value="${c.id}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Nombre TD</f:facet>
-													<h:outputText value="${td.nombre}"></h:outputText>
+													<f:facet name="header">Nota</f:facet>
+													<h:outputText value="${c.nota}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Abreviatura TD</f:facet>
-													<h:outputText value="${td.abreviatura}"></h:outputText>
+													<f:facet name="header">PQR</f:facet>
+													<h:outputText value="${c.idPqr.titulo}"></h:outputText>
 												</h:column>
-
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton action="#{tdBean.encontrarId(td.id)}"
+													<h:commandButton
+														action="#{CalificacionBean.econtrarId(c.id)}"
 														value="Editar" class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton action="#{tdBean.eliminar(td.id)}"
+													<h:commandButton
+														action="#{CalificacionBean.eliminar(c.id)}"
 														value="Eliminar" class="btn btn-danger"></h:commandButton>
 												</h:column>
 
@@ -305,67 +314,41 @@
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Agregar Tipo
-									de Documento</h5>
+								<h5 class="modal-title" id="exampleModalLabel">Agregar
+									Calificacion</h5>
 							</div>
+
 							<h:form>
+
+
 								<div class="modal-body">
 									<div class="form-group">
-										<h:outputText class="form-label" value="Nombre Tipo Documento"></h:outputText>
-										<h:inputText value="#{tdBean.tipoDocumento.nombre}"
+										<h:outputText value="Nota" class="form-label"></h:outputText>
+										<h:inputText value="#{CalificacionBean.calificacion.nota}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Abreviatura Tipo Documento"
-											class="form-label"></h:outputText>
-										<h:inputText value="#{tdBean.tipoDocumento.abreviatura}"
-											class="form-control" placeholder="First name"></h:inputText>
+										<h:selectOneMenu value="#{CalificacionBean.idPqr}"
+											class="form-control">
+											<f:selectItems value="#{CalificacionBean.listaPqr}" var="pqr"
+												itemValue="#{pqr.id}" itemLabel="#{pqr.titulo}" />
+										</h:selectOneMenu>
 
 									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Cerrar</button>
-										<h:commandButton action="#{tdBean.agregar()}"
-											value="Agregar Tipo Documento" class="btn btn-success"></h:commandButton>
-									</div>
+
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Cerrar</button>
+									<h:commandButton action="#{CalificacionBean.agregar()}"
+										value="Agregar Calificacion" class="btn btn-success"></h:commandButton>
 								</div>
 							</h:form>
-
 						</div>
 					</div>
 				</div>
 				<!-- Full screen modal -->
-				<!-- The Modal -->
-				<div class="modal" id="myModal">
-					<div class="modal-dialog modal-fullscreen">
-						<div class="modal-content">
-
-							<!-- Modal Header -->
-							<div class="modal-header">
-								<h4 class="modal-title">Modal Heading</h4>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-							</div>
-
-							<!-- Modal body -->
-							<div class="modal-body align-items-center">
-								<script src="/Admin/reportes/app.js"></script>
-								<div id="chartContainer" style="height: 300px; width: 100%;">
-									<script
-										src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-								</div>
-
-							</div>
-
-							<!-- Modal footer -->
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger"
-									data-bs-dismiss="modal">Close</button>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 		<!-- End Page wrapper  -->

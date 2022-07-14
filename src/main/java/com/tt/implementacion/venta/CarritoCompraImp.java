@@ -27,7 +27,7 @@ public class CarritoCompraImp implements ICarritoCompra {
 	public List<CarritoCompra> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT cc FROM CarritoCompra cc");
+			Query q = this.entity.createQuery("SELECT c FROM CarritoCompra c");
 			listaCarritoCompra = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -64,10 +64,10 @@ public class CarritoCompraImp implements ICarritoCompra {
 	}
 
 	@Override
-	public void agregar(CarritoCompra cc) {
+	public void agregar(CarritoCompra carritoCompra) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.persist(cc);
+			this.entity.persist(carritoCompra);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,10 +82,10 @@ public class CarritoCompraImp implements ICarritoCompra {
 	}
 
 	@Override
-	public void actualizar(CarritoCompra cc) {
+	public void actualizar(CarritoCompra carritoCompra) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.merge(cc);
+			this.entity.merge(carritoCompra);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,13 +118,13 @@ public class CarritoCompraImp implements ICarritoCompra {
 		}
 	}
 
-	public List<CarritoCompra> exportarProductoId(int id) {
+	public List<CarritoCompra> exportarProductoId(int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
-			p = pImp.econtrarId(id);
+			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idProducto.id=" + id + "");
+			Query q = this.entity.createQuery("SELECT c FROM CarritoCompra c WHERE c.idProducto.id=" + idProducto + "");
 			this.listaCarritoCompra = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,13 +138,13 @@ public class CarritoCompraImp implements ICarritoCompra {
 		return listaCarritoCompra;
 	}
 
-	public List<CarritoCompra> exportarUsuarioId(int id) {
+	public List<CarritoCompra> exportarUsuarioId(int idUsuario) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
 		try {
-			u = uImp.econtrarId(id);
+			u = uImp.econtrarId(idUsuario);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idUsuario.id="+id+"");
+			Query q = this.entity.createQuery("SELECT c FROM CarritoCompra c WHERE c.idUsuario.id=" + idUsuario + "");
 			this.listaCarritoCompra = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,7 +157,7 @@ public class CarritoCompraImp implements ICarritoCompra {
 		}
 		return listaCarritoCompra;
 	}
-	
+
 	public List<CarritoCompra> exportarMulticriterio(int idUsuario, int idProducto) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
@@ -167,10 +167,12 @@ public class CarritoCompraImp implements ICarritoCompra {
 			p = pImp.econtrarId(idProducto);
 			u = uImp.econtrarId(idUsuario);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idUsuario.id="+idUsuario+"AND a.idProducto.id="+idProducto+"");
-			//Query q1 = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE a.idProducto.id="+idProducto+"");
+			Query q = this.entity.createQuery("SELECT c FROM CarritoCompra c WHERE c.idUsuario.id=" + idUsuario
+					+ "AND c.idProducto.id=" + idProducto + "");
+			// Query q1 = this.entity.createQuery("SELECT a FROM CarritoCompra a WHERE
+			// a.idProducto.id="+idProducto+"");
 			this.listaCarritoCompra = q.getResultList();
-			//this.listaCarritoCompra = q1.getResultList();
+			// this.listaCarritoCompra = q1.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

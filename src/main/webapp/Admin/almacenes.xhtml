@@ -113,6 +113,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -351,9 +353,9 @@
 
 										<div class="form-group">
 											<h:outputText value="ID Proveedor" class="form-label"></h:outputText>
-											<h:selectOneMenu value="#{aBean.idProveedor}"
+											<h:selectOneMenu value="#{aBean.idProveedorEmpresa}"
 												class="form-control">
-												<f:selectItems value="#{aBean.listaProveedor}" var="p"
+												<f:selectItems value="#{aBean.listaProveedorEmpresa}" var="p"
 													itemValue="#{p.id}" itemLabel="#{p.nombre}" />
 											</h:selectOneMenu>
 

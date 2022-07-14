@@ -26,7 +26,7 @@ public class InventarioMateriaPrimaImp implements IinventarioMateriaPrima {
 	public List<InventarioMateriaPrima> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT inv FROM InventarioMateriaPrima inv");
+			Query q = this.entity.createQuery("SELECT i FROM InventarioMateriaPrima i");
 			listaInvMt = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -44,10 +44,10 @@ public class InventarioMateriaPrimaImp implements IinventarioMateriaPrima {
 
 	@Override
 	public InventarioMateriaPrima econtrarId(int id) {
-		InventarioMateriaPrima invMt = new InventarioMateriaPrima();
+		InventarioMateriaPrima i = new InventarioMateriaPrima();
 		try {
 			this.entity.getTransaction().begin();
-			invMt = this.entity.find(InventarioMateriaPrima.class, id);
+			i = this.entity.find(InventarioMateriaPrima.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class InventarioMateriaPrimaImp implements IinventarioMateriaPrima {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return invMt;
+		return i;
 	}
 
 	@Override
@@ -116,14 +116,15 @@ public class InventarioMateriaPrimaImp implements IinventarioMateriaPrima {
 			}
 		}
 	}
-	
-	public List<InventarioMateriaPrima> exportIMP(int id) {
+
+	public List<InventarioMateriaPrima> exportarMateriaPrima(int idMateriaPrima) {
 		MateriaPrimaImp mImp = new MateriaPrimaImp();
 		MateriaPrima m = new MateriaPrima();
 		try {
-			m = mImp.econtrarId(id);
+			m = mImp.econtrarId(idMateriaPrima);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT i FROM InventarioMateriaPrima i WHERE i.idMateriaPrima.id="+id+"");
+			Query q = this.entity.createQuery(
+					"SELECT i FROM InventarioMateriaPrima i WHERE i.idMateriaPrima.id=" + idMateriaPrima + "");
 			this.listaInvMt = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

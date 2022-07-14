@@ -28,7 +28,7 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 	public List<DetallePedidoProducto> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dtp FROM DetallePedidoProducto dtp");
+			Query q = this.entity.createQuery("SELECT dpp FROM DetallePedidoProducto dpp");
 			listaDetallePedidoProducto = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -46,10 +46,10 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 
 	@Override
 	public DetallePedidoProducto econtrarId(int id) {
-		DetallePedidoProducto dtp = new DetallePedidoProducto();
+		DetallePedidoProducto dpp = new DetallePedidoProducto();
 		try {
 			this.entity.getTransaction().begin();
-			dtp = this.entity.find(DetallePedidoProducto.class, id);
+			dpp = this.entity.find(DetallePedidoProducto.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return dtp;
+		return dpp;
 	}
 
 	@Override
@@ -103,10 +103,10 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 	@Override
 	public void eliminar(int id) {
 		try {
-			DetallePedidoProducto dtp = new DetallePedidoProducto();
-			dtp = this.entity.find(DetallePedidoProducto.class, id);
+			DetallePedidoProducto dpp = new DetallePedidoProducto();
+			dpp = this.entity.find(DetallePedidoProducto.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(dtp);
+			this.entity.remove(dpp);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,14 +119,14 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		}
 	}
 
-	public List<DetallePedidoProducto> exportarValorTotal(int idValorTotal) {
+	public List<DetallePedidoProducto> exportarValorTotal(int idDppValorTotal) {
 		DetallePedidoProductoImp dppImp = new DetallePedidoProductoImp();
 		DetallePedidoProducto dpp = new DetallePedidoProducto();
 		try {
-			dpp = dppImp.econtrarId(idValorTotal);
+			dpp = dppImp.econtrarId(idDppValorTotal);
 			this.entity.getTransaction().begin();
-			Query q = this.entity
-					.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.valorTotal.id=" + idValorTotal + "");
+			Query q = this.entity.createQuery(
+					"SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.valorTotal.id=" + idDppValorTotal + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,8 +146,8 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		try {
 			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity
-					.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idProducto.id=" + idProducto + "");
+			Query q = this.entity.createQuery(
+					"SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.idProducto.id=" + idProducto + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -193,9 +193,9 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		try {
 			pe = peImp.econtrarId(idPedido);
 			dpp = dppImp.econtrarId(idValor);
-
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.valorTotal.id="+idValor+"");
+			Query q = this.entity.createQuery("SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.idPedido.id="
+					+ idPedido + "AND dpp.valorTotal.id=" + idValor + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -208,8 +208,8 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		}
 		return listaDetallePedidoProducto;
 	}
-	
-	public List<DetallePedidoProducto> exportarMulticriterio2(int idValor, int idProducto) {
+
+	public List<DetallePedidoProducto> exportarMulticriterio2(int idDppValorTotal, int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 
@@ -217,10 +217,11 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		DetallePedidoProducto dpp = new DetallePedidoProducto();
 
 		try {
-			dpp = dppImp.econtrarId(idValor);
+			dpp = dppImp.econtrarId(idDppValorTotal);
 			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.valorTotal.id="+idValor+"AND a.idProducto.id="+idProducto+"");
+			Query q = this.entity.createQuery("SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.valorTotal.id="
+					+ idDppValorTotal + "AND dpp.idProducto.id=" + idProducto + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -233,7 +234,7 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		}
 		return listaDetallePedidoProducto;
 	}
-	
+
 	public List<DetallePedidoProducto> exportarMulticriterio3(int idPedido, int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
@@ -245,7 +246,8 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 			pe = peImp.econtrarId(idPedido);
 			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.idProducto.id="+idProducto+"");
+			Query q = this.entity.createQuery("SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.idPedido.id="
+					+ idPedido + "AND dpp.idProducto.id=" + idProducto + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -258,8 +260,8 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 		}
 		return listaDetallePedidoProducto;
 	}
-	
-	public List<DetallePedidoProducto> exportarMulticriterio(int idPedido, int idValor, int idProducto) {
+
+	public List<DetallePedidoProducto> exportarMulticriterio(int idPedido, int idDppValorTotal, int idProducto) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 
@@ -271,10 +273,12 @@ public class DetallePedidoProductoImp implements IDetallePedidoProducto {
 
 		try {
 			pe = peImp.econtrarId(idPedido);
-			dpp = dppImp.econtrarId(idValor);
+			dpp = dppImp.econtrarId(idDppValorTotal);
 			p = pImp.econtrarId(idProducto);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM DetallePedidoProducto a WHERE a.idPedido.id="+idPedido+"AND a.valorTotal.id="+idValor+"AND a.idProducto.id="+idProducto+"");
+			Query q = this.entity
+					.createQuery("SELECT dpp FROM DetallePedidoProducto dpp WHERE dpp.idPedido.id=" + idPedido
+							+ "AND dpp.valorTotal.id=" + idDppValorTotal + "AND dpp.idProducto.id=" + idProducto + "");
 			this.listaDetallePedidoProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

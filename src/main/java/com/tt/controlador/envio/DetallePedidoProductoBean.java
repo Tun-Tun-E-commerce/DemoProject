@@ -30,9 +30,7 @@ public class DetallePedidoProductoBean {
 	List<Producto> listaProducto = new ArrayList<Producto>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idPedido;
-	private int idProducto;
-	private int idValor;
+	private int idPedido, idProducto, idValor;
 
 	private void LlenarDetallePedidoProducto() {
 		DetallePedidoProductoImp pImp = new DetallePedidoProductoImp();

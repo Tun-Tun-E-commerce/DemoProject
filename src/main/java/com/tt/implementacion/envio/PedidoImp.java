@@ -27,7 +27,7 @@ public class PedidoImp implements IPedido {
 	public List<Pedido> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT ped FROM Pedido ped");
+			Query q = this.entity.createQuery("SELECT p FROM Pedido p");
 			listaPedido = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -121,14 +121,14 @@ public class PedidoImp implements IPedido {
 
 	public List<Pedido> exportarEnvio(int idEnvio) {
 		EnvioImp eImp = new EnvioImp();
-		Envio en = new Envio();
+		Envio e = new Envio();
 		try {
-			en = eImp.econtrarId(idEnvio);
+			e = eImp.econtrarId(idEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idEnvio.id="+idEnvio+"");
+			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idEnvio.id=" + idEnvio + "");
 			this.listaPedido = q.getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		} finally {
 			if (this.entity != null) {
 				this.entity.close();
@@ -145,7 +145,7 @@ public class PedidoImp implements IPedido {
 		try {
 			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idFactura.id="+idFactura+"");
+			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idFactura.id=" + idFactura + "");
 			this.listaPedido = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -161,17 +161,18 @@ public class PedidoImp implements IPedido {
 
 	public List<Pedido> exportarMulticriterio(int idFactura, int idEnvio) {
 		EnvioImp eImp = new EnvioImp();
-		Envio en = new Envio();
+		Envio e = new Envio();
 		FacturaImp fImp = new FacturaImp();
 		Factura f = new Factura();
 		try {
 			f = fImp.econtrarId(idFactura);
-			en = eImp.econtrarId(idEnvio);
+			e = eImp.econtrarId(idEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pedido a WHERE a.idFactura.id="+idFactura+"AND a.idEnvio.id="+idEnvio+"");
+			Query q = this.entity.createQuery(
+					"SELECT p FROM Pedido p WHERE p.idFactura.id=" + idFactura + "AND p.idEnvio.id=" + idEnvio + "");
 			this.listaPedido = q.getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		} finally {
 			if (this.entity != null) {
 				this.entity.close();

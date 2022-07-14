@@ -27,7 +27,7 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 	public List<DetalleOrdenProduccion> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dt FROM DetalleOrdenProduccion dt");
+			Query q = this.entity.createQuery("SELECT dop FROM DetalleOrdenProduccion dop");
 			listaDetalleOrdenProduccion = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -45,10 +45,10 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 
 	@Override
 	public DetalleOrdenProduccion econtrarId(int id) {
-		DetalleOrdenProduccion dt = new DetalleOrdenProduccion();
+		DetalleOrdenProduccion dop = new DetalleOrdenProduccion();
 		try {
 			this.entity.getTransaction().begin();
-			dt = this.entity.find(DetalleOrdenProduccion.class, id);
+			dop = this.entity.find(DetalleOrdenProduccion.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,7 +60,7 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return dt;
+		return dop;
 	}
 
 	@Override
@@ -103,10 +103,10 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 	@Override
 	public void eliminar(int id) {
 		try {
-			DetalleOrdenProduccion dt = new DetalleOrdenProduccion();
-			dt = this.entity.find(DetalleOrdenProduccion.class, id);
+			DetalleOrdenProduccion dop = new DetalleOrdenProduccion();
+			dop = this.entity.find(DetalleOrdenProduccion.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(dt);
+			this.entity.remove(dop);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,14 +118,15 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 			}
 		}
 	}
-	
-	public List<DetalleOrdenProduccion> exportarMateriaId(int id) {
+
+	public List<DetalleOrdenProduccion> exportarMateriaId(int idMateriaPrima) {
 		MateriaPrimaImp mImp = new MateriaPrimaImp();
 		MateriaPrima m = new MateriaPrima();
 		try {
-			m = mImp.econtrarId(id);
+			m = mImp.econtrarId(idMateriaPrima);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idMateriaPrima.id="+id+"");
+			Query q = this.entity.createQuery(
+					"SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idMateriaPrima.id=" + idMateriaPrima + "");
 			this.listaDetalleOrdenProduccion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,14 +139,16 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 		}
 		return listaDetalleOrdenProduccion;
 	}
-	
-	public List<DetalleOrdenProduccion> exportarOrdenpId(int id) {
-		OrdenProduccionImp oImp = new OrdenProduccionImp();
+
+	public List<DetalleOrdenProduccion> exportarOrdenpId(int idOrdenProduccion) {
+		OrdenProduccionImp opImp = new OrdenProduccionImp();
 		OrdenProduccion op = new OrdenProduccion();
 		try {
-			op = oImp.econtrarId(id);
+			op = opImp.econtrarId(idOrdenProduccion);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idOrdenProduccion.id="+id+"");
+			Query q = this.entity
+					.createQuery("SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idOrdenProduccion.id="
+							+ idOrdenProduccion + "");
 			this.listaDetalleOrdenProduccion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,17 +161,18 @@ public class DetalleOrdenProduccionImp implements IDetalleOrdenProduccion {
 		}
 		return listaDetalleOrdenProduccion;
 	}
-	
-	public List<DetalleOrdenProduccion> exportarMulticriterioO(int idMateriaPrima , int idOrdenProduccion) {
-		OrdenProduccionImp oImp = new OrdenProduccionImp();
+
+	public List<DetalleOrdenProduccion> exportarMulticriterioO(int idMateriaPrima, int idOrdenProduccion) {
+		OrdenProduccionImp opImp = new OrdenProduccionImp();
 		OrdenProduccion op = new OrdenProduccion();
 		MateriaPrimaImp mImp = new MateriaPrimaImp();
 		MateriaPrima m = new MateriaPrima();
 		try {
 			m = mImp.econtrarId(idMateriaPrima);
-			op = oImp.econtrarId(idOrdenProduccion);
+			op = opImp.econtrarId(idOrdenProduccion);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idMateriaPrima.id="+idMateriaPrima+"AND dop.idOrdenProduccion.id="+idOrdenProduccion+"");
+			Query q = this.entity.createQuery("SELECT dop FROM DetalleOrdenProduccion dop WHERE dop.idMateriaPrima.id="
+					+ idMateriaPrima + "AND dop.idOrdenProduccion.id=" + idOrdenProduccion + "");
 			this.listaDetalleOrdenProduccion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

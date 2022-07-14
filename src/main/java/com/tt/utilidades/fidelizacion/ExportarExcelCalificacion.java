@@ -13,20 +13,20 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.tt.modelo.fidelizacion.Pqr;
+import com.tt.modelo.fidelizacion.Calificacion;
 
-public class ExportarExcelPqr {
+public class ExportarExcelCalificacion {
 	private XSSFWorkbook workbook;
 	private XSSFSheet sheet;
-	private List<Pqr> pqrList;
+	private List<Calificacion> calificacionList;
 
-	public ExportarExcelPqr(List<Pqr> listaPqr) {
-		this.pqrList = listaPqr;
+	public ExportarExcelCalificacion(List<Calificacion> listaCalificacion) {
+		this.calificacionList = listaCalificacion;
 		workbook = new XSSFWorkbook();
 	}
 
 	private void writeHeaderLine() {
-		sheet = workbook.createSheet("listaPqr");
+		sheet = workbook.createSheet("listaCalificacion");
 
 		Row row = sheet.createRow(0);
 
@@ -37,11 +37,8 @@ public class ExportarExcelPqr {
 		style.setFont(font);
 
 		createCell(row, 0, "Id", style);
-		createCell(row, 1, "Titulo", style);
-		createCell(row, 2, "Descripcion", style);
-		createCell(row, 3, "Fecha", style);
-		createCell(row, 4, "Tipo", style);
-
+		createCell(row, 1, "Nota", style);
+		createCell(row, 2, "Pqr", style);
 	}
 
 	private void createCell(Row row, int columnCount, Object value, CellStyle style) {
@@ -65,14 +62,12 @@ public class ExportarExcelPqr {
 		font.setFontHeight(14);
 		style.setFont(font);
 
-		for (Pqr pqr : this.pqrList) {
+		for (Calificacion c : this.calificacionList) {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
-			createCell(row, columnCount++, pqr.getId(), style);
-			createCell(row, columnCount++, pqr.getTitulo(), style);
-			createCell(row, columnCount++, pqr.getDescripcion(), style);
-			createCell(row, columnCount++, pqr.getFecha().toString(), style);
-			createCell(row, columnCount++, pqr.getTipo(), style);
+			createCell(row, columnCount++, c.getId(), style);
+			createCell(row, columnCount++, String.valueOf(c.getNota()), style);
+			createCell(row, columnCount++, c.getIdPqr().getTitulo(), style);
 		}
 	}
 

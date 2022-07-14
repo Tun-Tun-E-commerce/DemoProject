@@ -9,9 +9,9 @@ public interface ICarritoCompra {
 
 	public CarritoCompra econtrarId(int id);
 
-	public void agregar(CarritoCompra cc);
+	public void agregar(CarritoCompra carritoCompra);
 
-	public void actualizar(CarritoCompra cc);
+	public void actualizar(CarritoCompra carritoCompra);
 
 	public void eliminar(int id);
 }

@@ -26,7 +26,7 @@ public class DevolucionImp implements IDevolucion {
 	public List<Devolucion> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT dev FROM Devolucion dev");
+			Query q = this.entity.createQuery("SELECT d FROM Devolucion d");
 			listaDevolucion = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -124,7 +124,7 @@ public class DevolucionImp implements IDevolucion {
 		try {
 			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.idFactura.id=" + idFactura + "");
+			Query q = this.entity.createQuery("SELECT d FROM Devolucion d WHERE d.idFactura.id=" + idFactura + "");
 			this.listaDevolucion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -139,11 +139,11 @@ public class DevolucionImp implements IDevolucion {
 	}
 
 	public List<Devolucion> exportarFecha(int idFechaDev) {
-		
+
 		try {
 			econtrarId(idFechaDev);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.fecha.id=" + idFechaDev + "");
+			Query q = this.entity.createQuery("SELECT d FROM Devolucion d WHERE d.fecha.id=" + idFechaDev + "");
 			this.listaDevolucion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,7 +166,8 @@ public class DevolucionImp implements IDevolucion {
 			d = dImp.econtrarId(idFechaDev);
 			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Devolucion a WHERE a.idFactura.id="+idFactura+"AND a.fecha.id="+idFechaDev+"");
+			Query q = this.entity.createQuery("SELECT d FROM Devolucion d WHERE d.idFactura.id=" + idFactura
+					+ "AND d.fecha.id=" + idFechaDev + "");
 			this.listaDevolucion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

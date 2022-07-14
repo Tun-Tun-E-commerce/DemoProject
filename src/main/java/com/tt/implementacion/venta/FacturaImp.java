@@ -116,14 +116,14 @@ public class FacturaImp implements IFactura {
 			}
 		}
 	}
-	
-	public List<Factura> exportarMetodoPago(int id) {
+
+	public List<Factura> exportarMetodoPago(int idMetodoPago) {
 		MetodoPagoImp mImp = new MetodoPagoImp();
 		MetodoPago m = new MetodoPago();
 		try {
-			m = mImp.econtrarId(id);
+			m = mImp.econtrarId(idMetodoPago);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Factura a WHERE a.idMetodoPago.id="+id+"");
+			Query q = this.entity.createQuery("SELECT f FROM Factura f WHERE f.idMetodoPago.id=" + idMetodoPago + "");
 			this.listaFactura = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,14 +136,14 @@ public class FacturaImp implements IFactura {
 		}
 		return listaFactura;
 	}
-	
-	public List<Factura> exportarCarritoCompra(int id) {
+
+	public List<Factura> exportarCarritoCompra(int idCarritoCompra) {
 		CarritoCompraImp cImp = new CarritoCompraImp();
 		CarritoCompra c = new CarritoCompra();
 		try {
-			c = cImp.econtrarId(id);
+			c = cImp.econtrarId(idCarritoCompra);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Factura a WHERE a.idCarrito.id="+id+"");
+			Query q = this.entity.createQuery("SELECT f FROM Factura f WHERE f.idCarrito.id=" + idCarritoCompra + "");
 			this.listaFactura = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,7 +156,7 @@ public class FacturaImp implements IFactura {
 		}
 		return listaFactura;
 	}
-	
+
 	public List<Factura> exportarMulticriterio(int idMetodoPago, int idCarrito) {
 		CarritoCompraImp cImp = new CarritoCompraImp();
 		CarritoCompra c = new CarritoCompra();
@@ -166,7 +166,8 @@ public class FacturaImp implements IFactura {
 			m = mImp.econtrarId(idMetodoPago);
 			c = cImp.econtrarId(idCarrito);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT f FROM Factura f WHERE f.idMetodoPago.id="+idMetodoPago+"AND f.idCarrito.id="+idCarrito+"");
+			Query q = this.entity.createQuery("SELECT f FROM Factura f WHERE f.idMetodoPago.id=" + idMetodoPago
+					+ "AND f.idCarrito.id=" + idCarrito + "");
 			this.listaFactura = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

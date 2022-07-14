@@ -110,6 +110,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+								<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -238,16 +240,16 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-										<div class="col-sm-4">
-							<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Calificacion</h:outputLabel>
-								<h:selectOneMenu value="#{PqrBean.idPqr}"
-								class="form-control">
-									<f:selectItems value="#{PqrBean.listPqr}" itemValue=""
-									itemLabel="Seleccionar" />
-									<f:selectItems value="#{PqrBean.listPqr}" var="var"
-									itemValue="#{var.id}" itemLabel="#{var.calificacion}" />
-							   </h:selectOneMenu>
-							 </div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
+												<h:selectOneMenu value="#{pqrBean.idPqrFecha}"
+													class="form-control">
+													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{pqrBean.listPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.fecha}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -284,8 +286,8 @@
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Calificacion</f:facet>
-													<h:outputText value="${p.calificacion}"></h:outputText>
+													<f:facet name="header">Tipo</f:facet>
+													<h:outputText value="${p.tipo}"></h:outputText>
 												</h:column>
 
 												<h:column>
@@ -326,8 +328,8 @@
 							</div>
 
 							<h:form>
-							
-							
+
+
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Titulo"></h:outputText>
@@ -341,15 +343,13 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
-										<h:inputText value="#{pqrBean.pqr.fecha}"
-											class="form-control">
+										<h:inputText value="#{pqrBean.pqr.fecha}" class="form-control">
 											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
 										</h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Calificacion" class="form-label"></h:outputText>
-										<h:inputText value="#{pqrBean.pqr.calificacion}"
-											class="form-control"></h:inputText>
+										<h:outputText value="Tipo de PQR" class="form-label"></h:outputText>
+										<h:inputText value="#{pqrBean.pqr.tipo}" class="form-control"></h:inputText>
 									</div>
 
 								</div>

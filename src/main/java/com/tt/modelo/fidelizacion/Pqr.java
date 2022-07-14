@@ -36,59 +36,81 @@ public class Pqr implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha")
 	private Date fecha;
-	@Column(name = "calificacion")
-	private int calificacion;
+	@Column(name = "tipo", length = 50)
+	private String tipo;
 	@OneToMany(targetEntity = RespuestaPqr.class, mappedBy = "idPqr")
 	private List<RespuestaPqr> listaRespuestaPqr;
+	@OneToMany(targetEntity = Calificacion.class, mappedBy = "idPqr")
+	private List<RespuestaPqr> listaCalificacion;
 	@ManyToMany(mappedBy = "listaPqr", cascade = { CascadeType.MERGE })
 	private List<Usuario> listaUsuario;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 	public Date getFecha() {
 		return fecha;
 	}
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public int getCalificacion() {
-		return calificacion;
+
+	public String getTipo() {
+		return tipo;
 	}
-	public void setCalificacion(int calificacion) {
-		this.calificacion = calificacion;
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
+
 	public List<RespuestaPqr> getListaRespuestaPqr() {
 		return listaRespuestaPqr;
 	}
+
 	public void setListaRespuestaPqr(List<RespuestaPqr> listaRespuestaPqr) {
 		this.listaRespuestaPqr = listaRespuestaPqr;
 	}
+
 	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
 	}
+
 	public void setListaUsuario(List<Usuario> listaUsuario) {
 		this.listaUsuario = listaUsuario;
 	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	
-	
+	public List<RespuestaPqr> getListaCalificacion() {
+		return listaCalificacion;
+	}
+
+	public void setListaCalificacion(List<RespuestaPqr> listaCalificacion) {
+		this.listaCalificacion = listaCalificacion;
+	}
 
 }

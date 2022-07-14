@@ -26,7 +26,7 @@ public class ProveedorMateriaPrimaImp implements IProveedorMateriaPrima {
 	public List<ProveedorMateriaPrima> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT pmt FROM ProveedorMateriaPrima pmt");
+			Query q = this.entity.createQuery("SELECT p FROM ProveedorMateriaPrima p");
 			listaPmt = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -44,10 +44,10 @@ public class ProveedorMateriaPrimaImp implements IProveedorMateriaPrima {
 
 	@Override
 	public ProveedorMateriaPrima econtrarId(int id) {
-		ProveedorMateriaPrima pmt = new ProveedorMateriaPrima();
+		ProveedorMateriaPrima p = new ProveedorMateriaPrima();
 		try {
 			this.entity.getTransaction().begin();
-			pmt = this.entity.find(ProveedorMateriaPrima.class, id);
+			p = this.entity.find(ProveedorMateriaPrima.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class ProveedorMateriaPrimaImp implements IProveedorMateriaPrima {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return pmt;
+		return p;
 	}
 
 	@Override
@@ -101,10 +101,10 @@ public class ProveedorMateriaPrimaImp implements IProveedorMateriaPrima {
 	@Override
 	public void eliminar(int id) {
 		try {
-			ProveedorMateriaPrima pmt = new ProveedorMateriaPrima();
-			pmt = this.entity.find(ProveedorMateriaPrima.class, id);
+			ProveedorMateriaPrima p = new ProveedorMateriaPrima();
+			p = this.entity.find(ProveedorMateriaPrima.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(pmt);
+			this.entity.remove(p);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -116,14 +116,15 @@ public class ProveedorMateriaPrimaImp implements IProveedorMateriaPrima {
 			}
 		}
 	}
-	
-	public List<ProveedorMateriaPrima> exportPEM(int id) {
+
+	public List<ProveedorMateriaPrima> exportarMateriaPrima(int idMateriaPrima) {
 		MateriaPrimaImp mImp = new MateriaPrimaImp();
 		MateriaPrima m = new MateriaPrima();
 		try {
-			m = mImp.econtrarId(id);
+			m = mImp.econtrarId(idMateriaPrima);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT pem FROM ProveedorMateriaPrima pem WHERE pem.idMateriaPrima.id="+id+"");
+			Query q = this.entity.createQuery(
+					"SELECT p FROM ProveedorMateriaPrima p WHERE p.idMateriaPrima.id=" + idMateriaPrima + "");
 			this.listaPmt = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

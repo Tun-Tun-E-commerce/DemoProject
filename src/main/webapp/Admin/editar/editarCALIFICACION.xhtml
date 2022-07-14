@@ -13,7 +13,7 @@
 	<meta name="description"
 		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
 	<meta name="robots" content="noindex,nofollow"></meta>
-	<title>Perfil</title>
+	<title>Editar</title>
 	<link rel="canonical"
 		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
 	<!-- Favicon icon -->
@@ -28,13 +28,6 @@
 </h:head>
 
 <h:body>
-	<!--  
-   <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-   -->
 
 
 
@@ -96,41 +89,31 @@
 
 				<div class="card rounded-2">
 					<div class="card-body">
-
 						<h:form>
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText class="form-label" value="Cantidad"></h:outputText>
-									<h:inputText value="#{a.cantidad}" class="form-control"></h:inputText>
+									<h:outputText value="nota" class="form-label"></h:outputText>
+									<h:inputText value="#{calificacion.nota}" class="form-control"></h:inputText>
 								</div>
 							</div>
 
-							<div class="form-group mb-4">
-								<div class="col-md-12 border-bottom p-0">
-									<h:outputText value="ID Producto" class="form-label"></h:outputText>
-									<h:selectOneMenu value="#{a.idProducto.id}"
-										class="form-control">
-										<f:selectItems value="#{aBean.listaProducto}" var="a"
-											itemValue="#{a.id}" itemLabel="#{a.nombre}" />
-									</h:selectOneMenu>
-								</div>
-							</div>
 
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText value="ID Proveedor" class="form-label"></h:outputText>
-									<h:selectOneMenu value="#{a.idProveedorEmpresa.id}"
+									<h:outputText value="Titulo Pqr" class="form-label"></h:outputText>
+									<h:selectOneMenu value="#{CalificacionBean.idPqr}"
 										class="form-control">
-										<f:selectItems value="#{aBean.listaProveedorEmpresa}" var="p"
-											itemValue="#{p.id}" itemLabel="#{p.nombre}" />
+										<f:selectItems value="#{CalificacionBean.listaPqr}" var="pqr"
+											itemValue="#{pqr.id}" itemLabel="#{pqr.titulo}" />
 									</h:selectOneMenu>
 								</div>
 							</div>
 
 							<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-								<h:commandButton action="#{aBean.actualizar(a)}"
+								<h:commandButton
+									action="#{CalificacionBean.actualizar(calificacion)}"
 									value="Actualizar" class="btn btn-success ms-5 mt-5"></h:commandButton>
-								<h:link outcome="/Admin/almacenes.xhtml?faces-redirect=true"
+								<h:link outcome="/Admin/Calificacion.xhtml?faces-redirect=true"
 									class="btn btn-danger ms-5 mt-5">Regresar</h:link>
 							</div>
 						</h:form>

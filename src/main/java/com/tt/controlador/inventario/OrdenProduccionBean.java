@@ -133,9 +133,9 @@ public class OrdenProduccionBean {
 		response.setHeader(headerKey, headerValue);
 
 		OrdenProduccionImp oImp = new OrdenProduccionImp();
-		if(idIventarioMateriaPrima !=0) {
-			this.listaOrdenProduccion = oImp.exportOrdenProduccion(idIventarioMateriaPrima);
-		}else {
+		if (idIventarioMateriaPrima != 0) {
+			this.listaOrdenProduccion = oImp.exportarInventario(idIventarioMateriaPrima);
+		} else {
 			this.listaOrdenProduccion = oImp.encontrarTodo();
 		}
 
