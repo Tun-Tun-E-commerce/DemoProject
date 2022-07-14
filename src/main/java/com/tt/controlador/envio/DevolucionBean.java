@@ -91,7 +91,7 @@ public class DevolucionBean {
 		f = fImp.econtrarId(idFactura);
 		d.setIdFactura(f);
 		dImp.agregar(d);
-		return "/faces/Admin/return.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/devolucion.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -99,7 +99,7 @@ public class DevolucionBean {
 		DevolucionImp dImp = new DevolucionImp();
 		d = dImp.econtrarId(id);
 		this.sessionMap.put("d", d);
-		return "/faces/Admin/editar/devolucion.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/devolucion.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Devolucion d) {
@@ -112,14 +112,14 @@ public class DevolucionBean {
 		System.out.println("Factura" + f.toString());
 		d.setIdFactura(f);
 		dImp.actualizar(d);
-		return "/faces/Admin/return.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/devolucion.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		DevolucionImp dImp = new DevolucionImp();
 		dImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/return.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/devolucion.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

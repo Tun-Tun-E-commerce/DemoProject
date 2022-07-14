@@ -121,7 +121,7 @@ public class EnvioBean {
 		en.setIdUsuario(u);
 		en.setIdCompaniaEnvio(ce);
 		eImp.agregar(en);
-		return "/faces/Admin/delivery.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -146,14 +146,14 @@ public class EnvioBean {
 		en.setIdUsuario(u);
 		en.setIdCompaniaEnvio(ce);
 		eImp.actualizar(en);
-		return "/faces/Admin/delivery.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		EnvioImp eImp = new EnvioImp();
 		eImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/delivery.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
