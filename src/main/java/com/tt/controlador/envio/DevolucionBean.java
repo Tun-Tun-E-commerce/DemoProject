@@ -99,7 +99,7 @@ public class DevolucionBean {
 		DevolucionImp dImp = new DevolucionImp();
 		d = dImp.econtrarId(id);
 		this.sessionMap.put("d", d);
-		return "/faces/Admin/editar/editarDEVOLUCION.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/devolucion.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Devolucion d) {

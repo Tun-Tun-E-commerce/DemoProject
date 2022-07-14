@@ -65,7 +65,7 @@ public class CompaniaEnvioBean {
 		CompaniaEnvioImp ceImp = new CompaniaEnvioImp();
 		ce = ceImp.econtrarId(id);
 		this.sessionMap.put("ce", ce);
-		return "/faces/Admin/editar/editarCE.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/companiaenvio.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(CompaniaEnvio ce) {
