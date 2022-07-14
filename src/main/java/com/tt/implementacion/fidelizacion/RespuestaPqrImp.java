@@ -26,7 +26,7 @@ public class RespuestaPqrImp implements IRespuestaPqr {
 	public List<RespuestaPqr> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT rpqr FROM RespuestaPqr rpqr");
+			Query q = this.entity.createQuery("SELECT r FROM RespuestaPqr r");
 			listaRespuestaPqr = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -44,10 +44,10 @@ public class RespuestaPqrImp implements IRespuestaPqr {
 
 	@Override
 	public RespuestaPqr econtrarId(int id) {
-		RespuestaPqr rPqr = new RespuestaPqr();
+		RespuestaPqr r = new RespuestaPqr();
 		try {
 			this.entity.getTransaction().begin();
-			rPqr = this.entity.find(RespuestaPqr.class, id);
+			r = this.entity.find(RespuestaPqr.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class RespuestaPqrImp implements IRespuestaPqr {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return rPqr;
+		return r;
 	}
 
 	@Override
@@ -101,10 +101,10 @@ public class RespuestaPqrImp implements IRespuestaPqr {
 	@Override
 	public void eliminar(int id) {
 		try {
-			RespuestaPqr rPqr = new RespuestaPqr();
-			rPqr = this.entity.find(RespuestaPqr.class, id);
+			RespuestaPqr r = new RespuestaPqr();
+			r = this.entity.find(RespuestaPqr.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(rPqr);
+			this.entity.remove(r);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,13 +117,13 @@ public class RespuestaPqrImp implements IRespuestaPqr {
 		}
 	}
 
-	public List<RespuestaPqr> exportRespuestaPqr(int id) {
+	public List<RespuestaPqr> exportarPqr(int idPqr) {
 		PqrImp pqrImp = new PqrImp();
 		Pqr pqr = new Pqr();
 		try {
-			pqr = pqrImp.econtrarId(id);
+			pqr = pqrImp.econtrarId(idPqr);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT rp FROM RespuestaPqr rp WHERE rp.idPqr.id="+id+"");
+			Query q = this.entity.createQuery("SELECT r FROM RespuestaPqr r WHERE r.idPqr.id=" + idPqr + "");
 			this.listaRespuestaPqr = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

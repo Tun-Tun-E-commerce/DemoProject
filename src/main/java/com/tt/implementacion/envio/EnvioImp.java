@@ -139,13 +139,13 @@ public class EnvioImp implements IEnvio {
 		return listaEnvio;
 	}
 
-	public List<Envio> exportarCompaniaEnvio(int idCe) {
+	public List<Envio> exportarCompaniaEnvio(int idCompaniaEnvio) {
 		CompaniaEnvioImp cImp = new CompaniaEnvioImp();
 		CompaniaEnvio c = new CompaniaEnvio();
 		try {
-			c = cImp.econtrarId(idCe);
+			c = cImp.econtrarId(idCompaniaEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idCompaniaEnvio.id="+idCe+"");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idCompaniaEnvio.id=" + idCompaniaEnvio + "");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,17 +158,18 @@ public class EnvioImp implements IEnvio {
 		}
 		return listaEnvio;
 	}
-	
-	public List<Envio> exportarMulticriterio(int idUsuario , int idCe) {
+
+	public List<Envio> exportarMulticriterio(int idUsuario, int idCompaniaEnvio) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
 		CompaniaEnvioImp cImp = new CompaniaEnvioImp();
 		CompaniaEnvio c = new CompaniaEnvio();
 		try {
 			u = uImp.econtrarId(idUsuario);
-			c = cImp.econtrarId(idCe);
+			c = cImp.econtrarId(idCompaniaEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idUsuario.id="+idUsuario+"AND e.idCompaniaEnvio.id="+idCe+"");
+			Query q = this.entity.createQuery("SELECT e FROM Envio e WHERE e.idUsuario.id=" + idUsuario
+					+ "AND e.idCompaniaEnvio.id=" + idCompaniaEnvio + "");
 			this.listaEnvio = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -30,8 +30,7 @@ public class EnvioBean {
 	List<CompaniaEnvio> listaCompania = new ArrayList<CompaniaEnvio>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idUsuario;
-	private int idCompania;
+	private int idUsuario, idCompania;
 
 	private void LlenarUsuario() {
 		UsuarioImp uImp = new UsuarioImp();

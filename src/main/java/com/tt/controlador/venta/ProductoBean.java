@@ -36,17 +36,7 @@ public class ProductoBean {
 	List<ProveedorMateriaPrima> listaProveedorM = new ArrayList<ProveedorMateriaPrima>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idProductoValor;
-
-	private int idProductoCantidad;
-
-	private int idUsuario;
-
-	private int idProveedorE;
-
-	private int idReferenciaP;
-
-	private int idProveedorM;
+	private int idProductoValor, idProductoCantidad, idUsuario, idProveedorE, idReferenciaP, idProveedorM;
 
 	private void LlenarProducto() {
 		ProductoImp pImp = new ProductoImp();

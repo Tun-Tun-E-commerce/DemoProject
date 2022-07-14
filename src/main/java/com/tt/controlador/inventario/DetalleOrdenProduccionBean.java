@@ -30,8 +30,7 @@ public class DetalleOrdenProduccionBean {
 	List<OrdenProduccion> listaOrdenProdccion = new ArrayList<OrdenProduccion>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idMateriaPrima;
-	private int idOrdenProduccion;
+	private int idMateriaPrima, idOrdenProduccion;
 
 	private void LlenarMateriaPrima() {
 		MateriaPrimaImp mtImp = new MateriaPrimaImp();
@@ -166,19 +165,20 @@ public class DetalleOrdenProduccionBean {
 		response.setHeader(headerKey, headerValue);
 
 		DetalleOrdenProduccionImp dopImp = new DetalleOrdenProduccionImp();
-		if(idMateriaPrima !=0 && idOrdenProduccion !=0) {
+		if (idMateriaPrima != 0 && idOrdenProduccion != 0) {
 			this.listaDetalleOrdenProduccion = dopImp.exportarMulticriterioO(idMateriaPrima, idOrdenProduccion);
-		}	
-		if(idMateriaPrima !=0) {
+		}
+		if (idMateriaPrima != 0) {
 			this.listaDetalleOrdenProduccion = dopImp.exportarMateriaId(idMateriaPrima);
 		}
-		if(idOrdenProduccion !=0) {
+		if (idOrdenProduccion != 0) {
 			this.listaDetalleOrdenProduccion = dopImp.exportarOrdenpId(idOrdenProduccion);
-		}else {
+		} else {
 			this.listaDetalleOrdenProduccion = dopImp.encontrarTodo();
 		}
 
-		ExportarExcelDetalleOrdenProduccion excelExportar = new ExportarExcelDetalleOrdenProduccion(this.listaDetalleOrdenProduccion);
+		ExportarExcelDetalleOrdenProduccion excelExportar = new ExportarExcelDetalleOrdenProduccion(
+				this.listaDetalleOrdenProduccion);
 		excelExportar.export(response);
 
 	}

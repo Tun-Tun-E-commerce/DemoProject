@@ -43,10 +43,10 @@ public class PeriodoImp implements IPeriodo {
 
 	@Override
 	public Periodo econtrarId(int id) {
-		Periodo periodo = new Periodo();
+		Periodo p = new Periodo();
 		try {
 			this.entity.getTransaction().begin();
-			periodo = this.entity.find(Periodo.class, id);
+			p = this.entity.find(Periodo.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class PeriodoImp implements IPeriodo {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return periodo;
+		return p;
 	}
 
 	@Override
@@ -100,10 +100,10 @@ public class PeriodoImp implements IPeriodo {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Periodo periodo = new Periodo();
-			periodo = this.entity.find(Periodo.class, id);
+			Periodo p = new Periodo();
+			p = this.entity.find(Periodo.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(periodo);
+			this.entity.remove(p);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

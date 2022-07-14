@@ -117,14 +117,14 @@ public class PqrImp implements IPqr {
 			}
 		}
 	}
-	
-	public List<Pqr> exportarPqrFecha(int idFecha) {
+
+	public List<Pqr> exportarPqrFecha(int idPqrFecha) {
 		PqrImp pqrImp = new PqrImp();
 		Pqr p = new Pqr();
 		try {
-			p = pqrImp.econtrarId(idFecha);
+			p = pqrImp.econtrarId(idPqrFecha);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT p FROM Pqr p WHERE p.fecha.id=" +idFecha+ "");
+			Query q = this.entity.createQuery("SELECT p FROM Pqr p WHERE p.fecha.id=" + idPqrFecha + "");
 			this.listaPqr = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

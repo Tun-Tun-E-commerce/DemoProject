@@ -125,7 +125,7 @@ public class PedidoImp implements IPedido {
 		try {
 			e = eImp.econtrarId(idEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idEnvio.id="+idEnvio+"");
+			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idEnvio.id=" + idEnvio + "");
 			this.listaPedido = q.getResultList();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -145,7 +145,7 @@ public class PedidoImp implements IPedido {
 		try {
 			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idFactura.id="+idFactura+"");
+			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idFactura.id=" + idFactura + "");
 			this.listaPedido = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,7 +168,8 @@ public class PedidoImp implements IPedido {
 			f = fImp.econtrarId(idFactura);
 			e = eImp.econtrarId(idEnvio);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT p FROM Pedido p WHERE p.idFactura.id="+idFactura+"AND p.idEnvio.id="+idEnvio+"");
+			Query q = this.entity.createQuery(
+					"SELECT p FROM Pedido p WHERE p.idFactura.id=" + idFactura + "AND p.idEnvio.id=" + idEnvio + "");
 			this.listaPedido = q.getResultList();
 		} catch (Exception ex) {
 			ex.printStackTrace();

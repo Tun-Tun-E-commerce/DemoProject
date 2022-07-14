@@ -7,12 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.usuario.IUsuario;
-import com.tt.implementacion.venta.ProductoImp;
 import com.tt.modelo.usuario.Rol;
 import com.tt.modelo.usuario.TipoDocumento;
 import com.tt.modelo.usuario.Usuario;
-import com.tt.modelo.venta.CarritoCompra;
-import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
 public class UsuarioImp implements IUsuario {
@@ -48,10 +45,10 @@ public class UsuarioImp implements IUsuario {
 
 	@Override
 	public Usuario econtrarId(int id) {
-		Usuario usuario = new Usuario();
+		Usuario u = new Usuario();
 		try {
 			this.entity.getTransaction().begin();
-			usuario = this.entity.find(Usuario.class, id);
+			u = this.entity.find(Usuario.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,7 +60,7 @@ public class UsuarioImp implements IUsuario {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return usuario;
+		return u;
 	}
 
 	@Override
@@ -107,10 +104,10 @@ public class UsuarioImp implements IUsuario {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Usuario usuario = new Usuario();
-			usuario = this.entity.find(Usuario.class, id);
+			Usuario u = new Usuario();
+			u = this.entity.find(Usuario.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(usuario);
+			this.entity.remove(u);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,13 +120,13 @@ public class UsuarioImp implements IUsuario {
 		}
 	}
 
-	public List<Usuario> exportarRolId(int id) {
-		RolImp rolImp = new RolImp();
-		Rol rol = new Rol();
+	public List<Usuario> exportarRolId(int idRol) {
+		RolImp rImp = new RolImp();
+		Rol r = new Rol();
 		try {
-			rol = rolImp.econtrarId(id);
+			r = rImp.econtrarId(idRol);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.idRol.id=" + id + "");
+			Query q = this.entity.createQuery("SELECT u FROM Usuario u WHERE u.idRol.id=" + idRol + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,15 +139,15 @@ public class UsuarioImp implements IUsuario {
 		}
 		return listaUsuario;
 	}
-	
-	
-	public List<Usuario> exportarTipoDId(int id) {
-		TipoDocumentoImp tipImp = new TipoDocumentoImp();
-		TipoDocumento tip = new TipoDocumento();
+
+	public List<Usuario> exportarTipoDId(int idTipoDocumento) {
+		TipoDocumentoImp tImp = new TipoDocumentoImp();
+		TipoDocumento t = new TipoDocumento();
 		try {
-			tip = tipImp.econtrarId(id);
+			t = tImp.econtrarId(idTipoDocumento);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.idTipoDocumento.id=" + id + "");
+			Query q = this.entity
+					.createQuery("SELECT u FROM Usuario u WHERE u.idTipoDocumento.id=" + idTipoDocumento + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -163,14 +160,14 @@ public class UsuarioImp implements IUsuario {
 		}
 		return listaUsuario;
 	}
-	
-	public List<Usuario> exportarNombre(int idUsuarioN) {
+
+	public List<Usuario> exportarNombre(int idUsuarioNombre) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
 		try {
-			u = uImp.econtrarId(idUsuarioN);
+			u = uImp.econtrarId(idUsuarioNombre);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.nombre.id=" + idUsuarioN + "");
+			Query q = this.entity.createQuery("SELECT u FROM Usuario u WHERE u.nombre.id=" + idUsuarioNombre + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -183,15 +180,15 @@ public class UsuarioImp implements IUsuario {
 		}
 		return listaUsuario;
 	}
-	
-	
-	public List<Usuario> exportarApellido(int idUsuarioA) {
+
+	public List<Usuario> exportarApellido(int idUsuarioApellido) {
 		UsuarioImp uImp = new UsuarioImp();
 		Usuario u = new Usuario();
 		try {
-			u = uImp.econtrarId(idUsuarioA);
+			u = uImp.econtrarId(idUsuarioApellido);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.apellido.id=" + idUsuarioA + "");
+			Query q = this.entity
+					.createQuery("SELECT u FROM Usuario u WHERE usu.apellido.id=" + idUsuarioApellido + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -208,13 +205,14 @@ public class UsuarioImp implements IUsuario {
 	public List<Usuario> exportarMulticriterioU(int idRol, int idTipoDocumento) {
 		RolImp rImp = new RolImp();
 		Rol r = new Rol();
-		TipoDocumentoImp tpImp = new TipoDocumentoImp();
-		TipoDocumento tp = new TipoDocumento();
+		TipoDocumentoImp tImp = new TipoDocumentoImp();
+		TipoDocumento t = new TipoDocumento();
 		try {
 			r = rImp.econtrarId(idRol);
-			tp = tpImp.econtrarId(idTipoDocumento);
+			t = tImp.econtrarId(idTipoDocumento);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento + "");
+			Query q = this.entity.createQuery("SELECT u FROM Usuario u WHERE  u.idRol.id=" + idRol
+					+ "AND u.idTipoDocumento.id=" + idTipoDocumento + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -225,12 +223,10 @@ public class UsuarioImp implements IUsuario {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return listaUsuario ;
+		return listaUsuario;
 	}
-	
-	
 
-	public List<Usuario> exportarMulticriterioNt(int idRol, int idTipoDocumento , int idUsuarioN ) {
+	public List<Usuario> exportarMulticriterioNt(int idRol, int idTipoDocumento, int idUsuarioNombre) {
 		RolImp rImp = new RolImp();
 		Rol r = new Rol();
 		TipoDocumentoImp tpImp = new TipoDocumentoImp();
@@ -240,10 +236,10 @@ public class UsuarioImp implements IUsuario {
 		try {
 			r = rImp.econtrarId(idRol);
 			tp = tpImp.econtrarId(idTipoDocumento);
-			u = uImp.econtrarId(idUsuarioN);
+			u = uImp.econtrarId(idUsuarioNombre);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
-					""+"AND usu.nombre.id=" + idUsuarioN + "");
+			Query q = this.entity.createQuery("SELECT u FROM Usuario u WHERE  u.idRol.id=" + idRol
+					+ "AND u.idTipoDocumento.id=" + idTipoDocumento + "" + "AND u.nombre.id=" + idUsuarioNombre + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -254,12 +250,10 @@ public class UsuarioImp implements IUsuario {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return listaUsuario ;
+		return listaUsuario;
 	}
-	
-	
 
-	public List<Usuario> exportarMulticriterioAt(int idRol, int idTipoDocumento , int idUsuarioA ) {
+	public List<Usuario> exportarMulticriterioAt(int idRol, int idTipoDocumento, int idUsuarioApellido) {
 		RolImp rImp = new RolImp();
 		Rol r = new Rol();
 		TipoDocumentoImp tpImp = new TipoDocumentoImp();
@@ -269,10 +263,11 @@ public class UsuarioImp implements IUsuario {
 		try {
 			r = rImp.econtrarId(idRol);
 			tp = tpImp.econtrarId(idTipoDocumento);
-			u = uImp.econtrarId(idUsuarioA);
+			u = uImp.econtrarId(idUsuarioApellido);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
-					""+"AND usu.apellido.id=" + idUsuarioA + "");
+			Query q = this.entity
+					.createQuery("SELECT u FROM Usuario u WHERE  u.idRol.id=" + idRol + "AND u.idTipoDocumento.id="
+							+ idTipoDocumento + "" + "AND u.apellido.id=" + idUsuarioApellido + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -283,25 +278,27 @@ public class UsuarioImp implements IUsuario {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return listaUsuario ;
+		return listaUsuario;
 	}
-	
-	public List<Usuario> exportarMulticriterioTu(int idRol, int idTipoDocumento , int idUsuarioN , int idUsuarioA) {
+
+	public List<Usuario> exportarMulticriterioTu(int idRol, int idTipoDocumento, int idUsuarioNombre,
+			int idUsuarioApellido) {
 		RolImp rImp = new RolImp();
 		Rol r = new Rol();
 		TipoDocumentoImp tpImp = new TipoDocumentoImp();
 		TipoDocumento tp = new TipoDocumento();
 		Usuario u = new Usuario();
 		UsuarioImp uImp = new UsuarioImp();
-	
+
 		try {
 			r = rImp.econtrarId(idRol);
 			tp = tpImp.econtrarId(idTipoDocumento);
-			u = uImp.econtrarId(idUsuarioN);
-			u = uImp.econtrarId(idUsuarioA);
+			u = uImp.econtrarId(idUsuarioNombre);
+			u = uImp.econtrarId(idUsuarioApellido);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE  usu.idRol.id="+idRol+"AND usu.idTipoDocumento.id=" + idTipoDocumento +
-					""+"AND usu.nombre.id=" + idUsuarioN + ""+"AND usu.apellido.id=" + idUsuarioA + "");
+			Query q = this.entity.createQuery("SELECT u FROM Usuario u WHERE  u.idRol.id=" + idRol
+					+ "AND u.idTipoDocumento.id=" + idTipoDocumento + "" + "AND u.nombre.id=" + idUsuarioNombre + ""
+					+ "AND u.apellido.id=" + idUsuarioApellido + "");
 			this.listaUsuario = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -312,18 +309,16 @@ public class UsuarioImp implements IUsuario {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return listaUsuario ;
+		return listaUsuario;
 	}
-	
-	
 
-	public String validarUsuario(Usuario usu) {
+	public String validarUsuario(Usuario u) {
 		String roles = "none";
 
 		try {
 			this.entity.getTransaction().begin();
-			q = this.entity.createQuery("SELECT usu FROM Usuario usu WHERE usu.contrasena='"
-					+ usu.getContrasena() + "' And usu.correo='" + usu.getCorreo() + "'");
+			q = this.entity.createQuery("SELECT u FROM Usuario u WHERE u.contrasena='" + u.getContrasena()
+					+ "' And usu.correo='" + u.getCorreo() + "'");
 			this.listaUsuario = q.getResultList();
 			for (Usuario us : this.listaUsuario) {
 				System.out.println("us" + us.toString());

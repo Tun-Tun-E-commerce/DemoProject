@@ -113,25 +113,24 @@ public class PrivilegioBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/privilegios.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaPrivielgio" + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		PrivilegioImp pImp = new PrivilegioImp();
-		if(idRol !=0) {
-			this.listaPrivilegios = pImp.exportPrivilegio(idRol);
-		}else {
+		if (idRol != 0) {
+			this.listaPrivilegios = pImp.exportarRol(idRol);
+		} else {
 			this.listaPrivilegios = pImp.encontrarTodo();
 		}
-		
-		
-		
+
 		ExportarExcelPrivilegio excelExportar = new ExportarExcelPrivilegio(this.listaPrivilegios);
 		excelExportar.export(response);
 

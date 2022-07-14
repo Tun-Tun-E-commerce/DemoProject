@@ -139,7 +139,7 @@ public class DevolucionImp implements IDevolucion {
 	}
 
 	public List<Devolucion> exportarFecha(int idFechaDev) {
-		
+
 		try {
 			econtrarId(idFechaDev);
 			this.entity.getTransaction().begin();
@@ -166,7 +166,8 @@ public class DevolucionImp implements IDevolucion {
 			d = dImp.econtrarId(idFechaDev);
 			f = fImp.econtrarId(idFactura);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT d FROM Devolucion d WHERE d.idFactura.id="+idFactura+"AND d.fecha.id="+idFechaDev+"");
+			Query q = this.entity.createQuery("SELECT d FROM Devolucion d WHERE d.idFactura.id=" + idFactura
+					+ "AND d.fecha.id=" + idFechaDev + "");
 			this.listaDevolucion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

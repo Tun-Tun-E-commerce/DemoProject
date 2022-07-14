@@ -14,13 +14,12 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tt.implementacion.fidelizacion.PqrImp;
-import com.tt.implementacion.usuario.UsuarioImp;
 import com.tt.modelo.fidelizacion.Pqr;
 import com.tt.utilidades.fidelizacion.ExportarExcelPqr;
 
 @ManagedBean(name = "pqrBean")
 @RequestScoped
-public class PqrBean {
+public class PqrBeanAdministrador {
 	Pqr pqr = new Pqr();
 	List<Pqr> listPqr = new ArrayList<Pqr>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
@@ -64,7 +63,7 @@ public class PqrBean {
 		this.idPqrFecha = idPqrFecha;
 	}
 
-	public PqrBean() {
+	public PqrBeanAdministrador() {
 		this.LlenarPqr();
 	}
 
