@@ -7,11 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.fidelizacion.IPqr;
-import com.tt.implementacion.venta.ProductoImp;
 import com.tt.modelo.fidelizacion.Pqr;
-import com.tt.modelo.usuario.Rol;
-import com.tt.modelo.venta.CarritoCompra;
-import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
 public class PqrImp implements IPqr {
@@ -122,13 +118,33 @@ public class PqrImp implements IPqr {
 		}
 	}
 	
-	public List<Pqr> exportarPqrC(int id) {
+	public List<Pqr> exportarPqrC(int idPqr) {
 		PqrImp prImp = new PqrImp();
 		Pqr pr = new Pqr();
 		try {
-			pr = prImp.econtrarId(id);
+			pr = prImp.econtrarId(idPqr);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pqr a WHERE a.idPqr.id=" + id+ "");
+			Query q = this.entity.createQuery("SELECT pqr FROM Pqr pqr WHERE pqr.idPqr.id=" +idPqr+ "");
+			this.listaPqr = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaPqr;
+	}
+	
+	public List<Pqr> exportarPqrF(int idFecha) {
+		PqrImp prImp = new PqrImp();
+		Pqr pr = new Pqr();
+		try {
+			pr = prImp.econtrarId(idFecha);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT pqr FROM Pqr pqr WHERE pqr.idFecha.id=" +idFecha+ "");
 			this.listaPqr = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,4 +158,24 @@ public class PqrImp implements IPqr {
 		return listaPqr;
 	}
 
+	
+	public List<Pqr> exportarCompleto(int idFecha , int idPqr) {
+		PqrImp prImp = new PqrImp();
+		Pqr pr = new Pqr();
+		try {
+			pr = prImp.econtrarId(idFecha);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT pqr FROM Pqr pqr WHERE pqr.idFecha.id=" +idFecha+ "AND pqr.idPqr.id=" +idPqr+"");
+			this.listaPqr = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaPqr;
+	}
 }

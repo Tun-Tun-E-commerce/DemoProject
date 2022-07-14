@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
 import com.tt.implementacion.fidelizacion.PqrImp;
+import com.tt.implementacion.usuario.UsuarioImp;
 import com.tt.modelo.fidelizacion.Pqr;
 import com.tt.utilidades.fidelizacion.ExportarExcelPqr;
 
@@ -25,7 +26,19 @@ public class PqrBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idPqr;
+	private int idFecha;
 	
+	private void LlenarPqr() {
+		PqrImp prImp = new PqrImp();
+		this.listPqr = prImp.encontrarTodo();
+	}
+	
+	private void LlenarPqrfh() {
+		PqrImp prImp = new PqrImp();
+		this.listPqr = prImp.encontrarTodo();
+	}
+	
+
 	public Pqr getPqr() {
 		return pqr;
 	}
@@ -50,6 +63,31 @@ public class PqrBean {
 		this.sessionMap = sessionMap;
 	}
 
+	
+	public int getIdPqr() {
+		return idPqr;
+	}
+
+	public void setIdPqr(int idPqr) {
+		this.idPqr = idPqr;
+	}
+	
+	
+	
+	public int getIdFecha() {
+		return idFecha;
+	}
+
+	public void setIdFecha(int idFecha) {
+		this.idFecha = idFecha;
+	}
+
+	public PqrBean() {
+		this.LlenarPqr();
+		this.LlenarPqrfh();
+		
+		}
+	
 	public List<Pqr> encontrarTodo() {
 		PqrImp pqrImp = new PqrImp();
 		this.listPqr = pqrImp.encontrarTodo();
@@ -96,10 +134,14 @@ public class PqrBean {
 		
 		PqrImp pqrImp = new PqrImp();
 		
-		
-		if (idPqr != 0) {
+		if (idFecha != 0 && idPqr !=0) {
+			this.listPqr  = pqrImp.exportarCompleto(idFecha, idPqr);
+		} 
+		else if (idFecha != 0) {
+			this.listPqr  = pqrImp.exportarPqrF(idFecha);
+		} 
+		else if (idPqr != 0) {
 			this.listPqr  = pqrImp.exportarPqrC(idPqr);
-		
 		} else {
 			this.listPqr = pqrImp.encontrarTodo();
 		}

@@ -238,16 +238,26 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-										<div class="col-sm-4">
-							<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Calificacion</h:outputLabel>
-								<h:selectOneMenu value="#{PqrBean.idPqr}"
-								class="form-control">
-									<f:selectItems value="#{PqrBean.listPqr}" itemValue=""
-									itemLabel="Seleccionar" />
-									<f:selectItems value="#{PqrBean.listPqr}" var="var"
-									itemValue="#{var.id}" itemLabel="#{var.calificacion}" />
-							   </h:selectOneMenu>
-							 </div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Calificacion</h:outputLabel>
+												<h:selectOneMenu value="#{pqrBean.idPqr}"
+													class="form-control">
+													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{pqrBean.listPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.calificacion}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
+												<h:selectOneMenu value="#{pqrBean.idFecha}"
+													class="form-control">
+													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{pqrBean.listPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.fecha}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -326,8 +336,8 @@
 							</div>
 
 							<h:form>
-							
-							
+
+
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Titulo"></h:outputText>
@@ -341,8 +351,7 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
-										<h:inputText value="#{pqrBean.pqr.fecha}"
-											class="form-control">
+										<h:inputText value="#{pqrBean.pqr.fecha}" class="form-control">
 											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
 										</h:inputText>
 									</div>
