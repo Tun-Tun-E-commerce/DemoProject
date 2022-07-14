@@ -221,7 +221,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">PQRS</h4>
+						<h4 class="page-title">Calificaciones</h4>
 					</div>
 
 				</div>
@@ -240,7 +240,7 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-
+											
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -250,35 +250,35 @@
 											</div>
 											<div
 												class="d-grid gap-2 d-md-flex justify-content-md-center py-3">
-												<h:commandButton values="Export" action="#"
-													value="Excel" class="btn btn-success"></h:commandButton>
+												<h:commandButton values="Export" action="#{CalificacionBean.exportar()}" value="Excel"
+													class="btn btn-success"></h:commandButton>
 											</div>
-											<h:dataTable value="" var="p" border="1"
+											<h:dataTable value="${CalificacionBean.encontrarTodo()}" var="c" border="1"
 												class="table table-striped">
 												<h:column>
 													<f:facet name="header">Id</f:facet>
-													<h:outputText value="#"></h:outputText>
+													<h:outputText value="${c.id}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">Nota</f:facet>
-													<h:outputText value="#"></h:outputText>
+													<h:outputText value="${c.nota}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">PQR</f:facet>
-													<h:outputText value="#"></h:outputText>
+													<h:outputText value="${c.idPqr.titulo}"></h:outputText>
 												</h:column>
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton action="#" value="Editar"
+													<h:commandButton action="#{CalificacionBean.econtrarId(c.id)}" value="Editar"
 														class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton action="#" value="Eliminar"
+													<h:commandButton action="#{CalificacionBean.eliminar(c.id)}" value="Eliminar"
 														class="btn btn-danger"></h:commandButton>
 												</h:column>
 
@@ -312,15 +312,19 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Id"></h:outputText>
-										<h:inputText value="#" class="form-control"></h:inputText>
+										<h:inputText value="#{CalificacionBean.calificacion.id}" class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText value="Nota" class="form-label"></h:outputText>
-										<h:inputText value="#" class="form-control"></h:inputText>
+										<h:inputText value="#{CalificacionBean.calificacion.nota}" class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Pqr" class="form-label"></h:outputText>
-										<h:inputText value="#" class="form-control"></h:inputText>
+										<h:selectOneMenu value="#{CalificacionBean.calificacion.idPqr}"
+											class="form-control">
+											<f:selectItems value="#{CalificacionBean.listaPqr}" var="pqr"
+												itemValue="#{pqr.id}" itemLabel="#{pqr.titulo}" />
+										</h:selectOneMenu>
+									
 									</div>
 
 
@@ -328,7 +332,7 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-bs-dismiss="modal">Cerrar</button>
-									<h:commandButton action="#" value="Agregar Pqr"
+									<h:commandButton action="#{CalificacionBean.agregar()}" value="Agregar Calificacion"
 										class="btn btn-success"></h:commandButton>
 								</div>
 							</h:form>
