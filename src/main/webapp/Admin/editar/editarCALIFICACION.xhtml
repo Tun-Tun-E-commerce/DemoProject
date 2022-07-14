@@ -92,13 +92,6 @@
 						<h:form>
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
-									<h:outputText class="form-label" value="ID"></h:outputText>
-									<h:inputText value="#{calificacion.id}" class="form-control"></h:inputText>
-								</div>
-							</div>
-
-							<div class="form-group mb-4">
-								<div class="col-md-12 border-bottom p-0">
 									<h:outputText value="nota" class="form-label"></h:outputText>
 									<h:inputText value="#{calificacion.nota}" class="form-control"></h:inputText>
 								</div>
@@ -108,7 +101,7 @@
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
 									<h:outputText value="Titulo Pqr" class="form-label"></h:outputText>
-									<h:selectOneMenu value="#{CalificacionBean.calificacion.idPqr}"
+									<h:selectOneMenu value="#{CalificacionBean.idPqr}"
 										class="form-control">
 										<f:selectItems value="#{CalificacionBean.listaPqr}" var="pqr"
 											itemValue="#{pqr.id}" itemLabel="#{pqr.titulo}" />

@@ -318,7 +318,7 @@ public class UsuarioImp implements IUsuario {
 		try {
 			this.entity.getTransaction().begin();
 			q = this.entity.createQuery("SELECT u FROM Usuario u WHERE u.contrasena='" + u.getContrasena()
-					+ "' And usu.correo='" + u.getCorreo() + "'");
+					+ "' And u.correo='" + u.getCorreo() + "'");
 			this.listaUsuario = q.getResultList();
 			for (Usuario us : this.listaUsuario) {
 				System.out.println("us" + us.toString());

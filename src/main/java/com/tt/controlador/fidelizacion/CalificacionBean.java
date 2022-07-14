@@ -21,7 +21,6 @@ import com.tt.modelo.fidelizacion.Pqr;
 
 import com.tt.utilidades.fidelizacion.ExportarExcelCalificacion;
 
-
 @ManagedBean(name = "CalificacionBean")
 @RequestScoped
 public class CalificacionBean {
@@ -31,52 +30,35 @@ public class CalificacionBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idPqr;
-	
+
 	private void LlenarPqr() {
 		PqrImp pImp = new PqrImp();
 		this.listaPqr = pImp.encontrarTodo();
 	}
-	
-
 
 	public Calificacion getCalificacion() {
 		return calificacion;
 	}
 
-
-
 	public void setCalificacion(Calificacion calificacion) {
 		this.calificacion = calificacion;
 	}
-
-
-
-	
 
 	public List<Calificacion> getListaCalificacion() {
 		return listaCalificacion;
 	}
 
-
-
 	public void setListaCalificacion(List<Calificacion> listaCalificacion) {
 		this.listaCalificacion = listaCalificacion;
 	}
-
-	
-
 
 	public List<Pqr> getListaPqr() {
 		return listaPqr;
 	}
 
-
-
 	public void setListaPqr(List<Pqr> listaPqr) {
 		this.listaPqr = listaPqr;
 	}
-
-
 
 	public Map<String, Object> getSessionMap() {
 		return sessionMap;
@@ -86,7 +68,6 @@ public class CalificacionBean {
 		this.sessionMap = sessionMap;
 	}
 
-	
 	public int getIdPqr() {
 		return idPqr;
 	}
@@ -94,15 +75,12 @@ public class CalificacionBean {
 	public void setIdPqr(int idPqr) {
 		this.idPqr = idPqr;
 	}
-	
+
 	public CalificacionBean() {
 		this.LlenarPqr();
-		
-		}
 
-	
+	}
 
-	
 	public List<Calificacion> encontrarTodo() {
 		CalificacionImp cImp = new CalificacionImp();
 		this.listaCalificacion = cImp.encontrarTodo();
@@ -112,13 +90,12 @@ public class CalificacionBean {
 	public String agregar() {
 		CalificacionImp cImp = new CalificacionImp();
 		PqrImp pImp = new PqrImp();
-		Pqr pqr =  new Pqr();
+		Pqr pqr = new Pqr();
 		pqr = pImp.econtrarId(idPqr);
 		calificacion.setIdPqr(pqr);
 		cImp.agregar(calificacion);
 		return "/faces/Admin/Calificacion.xhtml?faces-redirect=true";
 	}
-
 
 	public String econtrarId(int id) {
 		System.out.println("Entro al editar" + id);
@@ -132,7 +109,7 @@ public class CalificacionBean {
 		System.out.println("Entro a actualizar Calificacion");
 		CalificacionImp cImp = new CalificacionImp();
 		PqrImp pImp = new PqrImp();
-		Pqr pqr =  new Pqr();
+		Pqr pqr = new Pqr();
 		pqr = pImp.econtrarId(calificacion.getIdPqr().getId());
 		calificacion.setIdPqr(pqr);
 		cImp.actualizar(calificacion);
@@ -145,25 +122,25 @@ public class CalificacionBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/Calificacion.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaPqr " + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		CalificacionImp cImp = new CalificacionImp();
-		
+
 		if (idPqr != 0) {
-			this.listaCalificacion  = cImp.exportarPqrC(idPqr);
+			this.listaCalificacion = cImp.exportarPqr(idPqr);
 		} else {
 			this.listaCalificacion = cImp.encontrarTodo();
 		}
 
-		
 		ExportarExcelCalificacion excelExportar = new ExportarExcelCalificacion(this.listaCalificacion);
 		excelExportar.export(response);
 
