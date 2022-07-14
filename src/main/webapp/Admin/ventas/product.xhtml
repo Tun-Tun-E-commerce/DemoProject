@@ -248,14 +248,27 @@
 										<h:form>
 											<div class="col-sm-4">
 												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
-												<h:selectOneMenu value="#{proBean.idUsuario}"
+												<h:selectOneMenu value="#{proBean.idProductoValor}"
 													class="form-control">
-													<f:selectItems value="#{proBean.listaUsuario}" itemValue=""
+													<f:selectItems value="#{proBean.listaProducto}" itemValue=""
 														itemLabel="Seleccionar" />
-													<f:selectItems value="#{proBean.listaUsuario}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+													<f:selectItems value="#{proBean.listaProducto}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.valorUnitario}" />
 												</h:selectOneMenu>
 											</div>
+											
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:selectOneMenu value="#{proBean.idProductoCantidad}"
+													class="form-control">
+													<f:selectItems value="#{proBean.listaProducto}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{proBean.listaProducto}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.cantidad}" />
+												</h:selectOneMenu>
+											</div>
+											
+											
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"

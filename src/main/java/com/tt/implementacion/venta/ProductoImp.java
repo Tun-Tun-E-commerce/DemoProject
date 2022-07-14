@@ -119,13 +119,53 @@ public class ProductoImp implements IProducto {
 		}
 	}
 	
-	public List<Producto> exportProducto(int id) {
-		UsuarioImp uImp = new UsuarioImp();
-		Usuario u = new Usuario();
+	public List<Producto> exportProductoValor(int idProductoValor) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
 		try {
-			u = uImp.econtrarId(id);
+			p = pImp.econtrarId(idProductoValor);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.idUsuario.id="+id+"");
+			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.valorUnitario.id="+idProductoValor+"");
+			this.listaProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaProducto;
+	}
+	
+	public List<Producto> exportProductoCantidad(int idProductoCantidad) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+		try {
+			p = pImp.econtrarId(idProductoCantidad);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.cantidad.id="+idProductoCantidad+"");
+			this.listaProducto = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaProducto;
+	}
+	
+	public List<Producto> exportarMulticriterio(int idProductoValor, int idProductoCantidad) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+		try {
+			p = pImp.econtrarId(idProductoValor);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.valorUnitario.id="+idProductoValor+"AND a.cantidad.id="+idProductoCantidad+"");
 			this.listaProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

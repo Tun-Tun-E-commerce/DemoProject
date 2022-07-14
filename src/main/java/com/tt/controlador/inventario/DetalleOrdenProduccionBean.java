@@ -166,8 +166,14 @@ public class DetalleOrdenProduccionBean {
 		response.setHeader(headerKey, headerValue);
 
 		DetalleOrdenProduccionImp dopImp = new DetalleOrdenProduccionImp();
+		if(idMateriaPrima !=0 && idOrdenProduccion !=0) {
+			this.listaDetalleOrdenProduccion = dopImp.exportarMulticriterioO(idMateriaPrima, idOrdenProduccion);
+		}	
 		if(idMateriaPrima !=0) {
-			this.listaDetalleOrdenProduccion = dopImp.exportDOP(idMateriaPrima);
+			this.listaDetalleOrdenProduccion = dopImp.exportarMateriaId(idMateriaPrima);
+		}
+		if(idOrdenProduccion !=0) {
+			this.listaDetalleOrdenProduccion = dopImp.exportarOrdenpId(idOrdenProduccion);
 		}else {
 			this.listaDetalleOrdenProduccion = dopImp.encontrarTodo();
 		}

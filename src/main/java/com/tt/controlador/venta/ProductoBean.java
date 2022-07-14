@@ -36,6 +36,10 @@ public class ProductoBean {
 	List<ProveedorMateriaPrima> listaProveedorM = new ArrayList<ProveedorMateriaPrima>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
+	private int idProductoValor;
+
+	private int idProductoCantidad;
+
 	private int idUsuario;
 
 	private int idProveedorE;
@@ -43,6 +47,11 @@ public class ProductoBean {
 	private int idReferenciaP;
 
 	private int idProveedorM;
+
+	private void LlenarProducto() {
+		ProductoImp pImp = new ProductoImp();
+		this.listaProducto = pImp.encontrarTodo();
+	}
 
 	private void LlenarUsuario() {
 		UsuarioImp uImp = new UsuarioImp();
@@ -152,7 +161,24 @@ public class ProductoBean {
 		this.idProveedorM = idProveedorM;
 	}
 
+	public int getIdProductoValor() {
+		return idProductoValor;
+	}
+
+	public int getIdProductoCantidad() {
+		return idProductoCantidad;
+	}
+
+	public void setIdProductoCantidad(int idProductoCantidad) {
+		this.idProductoCantidad = idProductoCantidad;
+	}
+
+	public void setIdProductoValor(int idProductoValor) {
+		this.idProductoValor = idProductoValor;
+	}
+
 	public ProductoBean() {
+		this.LlenarProducto();
 		this.LlenarUsuario();
 		this.LlenarProveedorE();
 		this.LlenarReferencia();
@@ -240,8 +266,12 @@ public class ProductoBean {
 		response.setHeader(headerKey, headerValue);
 
 		ProductoImp pImp = new ProductoImp();
-		if (idUsuario != 0) {
-			this.listaProducto = pImp.exportProducto(idUsuario);
+		if (idProductoValor != 0 && idProductoCantidad != 0) {
+			this.listaProducto = pImp.exportarMulticriterio(idProductoValor, idProductoCantidad);
+		} else if (idProductoValor != 0) {
+			this.listaProducto = pImp.exportProductoValor(idProductoValor);
+		} else if (idProductoCantidad != 0) {
+			this.listaProducto = pImp.exportProductoCantidad(idProductoCantidad);
 		} else {
 			this.listaProducto = pImp.encontrarTodo();
 		}

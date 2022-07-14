@@ -31,7 +31,6 @@ public class CarritoCompraBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idProducto;
-
 	private int idUsuario;
 
 	private void LlenarProducto() {
@@ -156,7 +155,7 @@ public class CarritoCompraBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
 	}
-
+	
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
 				.getResponse();
@@ -168,8 +167,14 @@ public class CarritoCompraBean {
 		response.setHeader(headerKey, headerValue);
 
 		CarritoCompraImp cImp = new CarritoCompraImp();
-		if (idProducto != 0) {
-			this.listaCarritoCompra = cImp.exportCarritoCompra(idProducto);
+
+		if (idUsuario!= 0 && idProducto != 0) {
+			this.listaCarritoCompra = cImp.exportarMulticriterio(idUsuario, idProducto);
+		}
+		else if (idUsuario != 0) {
+			this.listaCarritoCompra = cImp.exportarUsuarioId(idUsuario);
+		} else if (idProducto != 0) {
+			this.listaCarritoCompra = cImp.exportarProductoId(idProducto);
 		} else {
 			this.listaCarritoCompra = cImp.encontrarTodo();
 		}

@@ -32,6 +32,14 @@ public class UsuarioBean {
 
 	private int idRol;
 	private int idTipoDocumento;
+	private int idUsuarioN;
+	private int idUsuarioA;
+
+	private void LlenarUsuarios() {
+		UsuarioImp UsuImp = new UsuarioImp();
+		this.listaUsuarios = UsuImp.encontrarTodo();
+	}
+	
 
 	private void LlenarRoles() {
 		RolImp rolImp = new RolImp();
@@ -98,11 +106,28 @@ public class UsuarioBean {
 	public void setIdTipoDocumento(int idTipoDocumento) {
 		this.idTipoDocumento = idTipoDocumento;
 	}
+	
+	public int getIdUsuarioN() {
+		return idUsuarioN;
+	}
+
+	public void setIdUsuarioN(int idUsuarioN) {
+		this.idUsuarioN = idUsuarioN;
+	}
+
+	public int getIdUsuarioA() {
+		return idUsuarioA;
+	}
+
+	public void setIdUsuarioA(int idUsuarioA) {
+		this.idUsuarioA = idUsuarioA;
+	}
 
 	public UsuarioBean() {
 		this.LlenarRoles();
 		this.LlenarTipoDocumento();
-	}
+		this.LlenarUsuarios();	
+		}
 
 	public List<Usuario> encontrarTodo() {
 		UsuarioImp usuarioImp = new UsuarioImp();
@@ -164,9 +189,33 @@ public class UsuarioBean {
 		response.setHeader(headerKey, headerValue);
 		
 		UsuarioImp usuarioImp = new UsuarioImp();
-		if(idRol !=0) {
-			this.listaUsuarios = usuarioImp.exportUsuario(idRol);
-		}else {
+		
+		 if(idRol !=0 && idTipoDocumento !=0 && idUsuarioN !=0 && idUsuarioA !=0  ) {
+				this.listaUsuarios = usuarioImp.exportarMulticriterioTu(idRol, idTipoDocumento, idUsuarioN, idUsuarioA);
+			}
+		 else if(idRol !=0 && idTipoDocumento !=0 && idUsuarioN !=0  ) {
+				this.listaUsuarios = usuarioImp.exportarMulticriterioNt(idRol, idTipoDocumento, idUsuarioN);
+		 }
+		 else if(idRol !=0 && idTipoDocumento !=0 && idUsuarioA !=0  ) {
+				this.listaUsuarios = usuarioImp.exportarMulticriterioAt(idRol, idTipoDocumento, idUsuarioA);
+		 }
+		else if(idRol !=0 && idTipoDocumento !=0) {
+			this.listaUsuarios = usuarioImp.exportarMulticriterioU(idRol, idTipoDocumento);
+		}
+		else if (idRol !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarRolId(idRol);
+		}
+		else if (idTipoDocumento !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarTipoDId(idTipoDocumento);
+		}
+		else if (idUsuarioN !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarNombre(idUsuarioN);
+		}
+		else if (idUsuarioA !=0 ) {
+			this.listaUsuarios = usuarioImp.exportarApellido(idUsuarioA);
+		}
+			
+		else {
 			this.listaUsuarios = usuarioImp.encontrarTodo();
 		}
 		

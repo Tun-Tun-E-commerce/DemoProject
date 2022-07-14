@@ -37,7 +37,7 @@ public class ExportarExcelDetallePedidoProducto {
 		style.setFont(font);
 
 		createCell(row, 0, "Id", style);
-		createCell(row, 1, "Destinatario", style);
+		createCell(row, 1, "Fecha Entrega", style);
 		createCell(row, 2, "Producto", style);
 		createCell(row, 3, "Valor Total", style);
 		createCell(row, 4, "Cantidad Total", style);
@@ -68,7 +68,7 @@ public class ExportarExcelDetallePedidoProducto {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
 			createCell(row, columnCount++, dpp.getId(), style);
-			createCell(row, columnCount++, dpp.getIdPedido().getDestinatario(), style);
+			createCell(row, columnCount++, dpp.getIdPedido().getFechaEntrega().toString(), style);
 			createCell(row, columnCount++, dpp.getIdProducto().getNombre(), style);
 			createCell(row, columnCount++, String.valueOf(dpp.getValorTotal()), style);
 			createCell(row, columnCount++, dpp.getCantidadTotal(), style);

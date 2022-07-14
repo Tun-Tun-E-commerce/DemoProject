@@ -31,7 +31,13 @@ public class AlmacenBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idProducto;
+	private int idAlmacenCantidad;
 	private int idProveedor;
+
+	private void LlenarAlmacen() {
+		AlmacenImp aImp = new AlmacenImp();
+		this.listaAlmacen = aImp.encontrarTodo();
+	}
 
 	private void LlenarProducto() {
 		ProductoImp proImp = new ProductoImp();
@@ -99,7 +105,16 @@ public class AlmacenBean {
 		this.idProveedor = idProveedor;
 	}
 
+	public int getIdAlmacenCantidad() {
+		return idAlmacenCantidad;
+	}
+
+	public void setIdAlmacenCantidad(int idAlmacenCantidad) {
+		this.idAlmacenCantidad = idAlmacenCantidad;
+	}
+
 	public AlmacenBean() {
+		this.LlenarAlmacen();
 		this.LlenarProducto();
 		this.LlenarProveedor();
 	}
@@ -155,24 +170,28 @@ public class AlmacenBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/envios/almacenes.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaAlmacen " + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		AlmacenImp aImp = new AlmacenImp();
-		if(idProducto !=0) {
-			this.listaAlmacen = aImp.exportAlmacen(idProducto);
-		}else {
+		if (idAlmacenCantidad != 0 && idProducto != 0) {
+			this.listaAlmacen = aImp.exportarMultiCriterio(idAlmacenCantidad, idProducto);
+		} else if (idProducto != 0) {
+			this.listaAlmacen = aImp.exportarProducto(idProducto);
+		} else if (idAlmacenCantidad != 0) {
+			this.listaAlmacen = aImp.exportarCantidad(idAlmacenCantidad);
+		} else {
 			this.listaAlmacen = aImp.encontrarTodo();
 		}
 
-		
 		ExportarExcelAlmacen excelExportar = new ExportarExcelAlmacen(this.listaAlmacen);
 		excelExportar.export(response);
 

@@ -28,6 +28,12 @@ public class DevolucionBean {
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
 	private int idFactura;
+	private int idFechaDev;
+
+	private void LlenarDevolucion() {
+		DevolucionImp dImp = new DevolucionImp();
+		this.listaDevolucion = dImp.encontrarTodo();
+	}
 
 	private void LlenarFactura() {
 		FacturaImp fImp = new FacturaImp();
@@ -74,7 +80,16 @@ public class DevolucionBean {
 		this.idFactura = idFactura;
 	}
 
+	public int getIdFechaDev() {
+		return idFechaDev;
+	}
+
+	public void setIdFechaDev(int idFechaDev) {
+		this.idFechaDev = idFechaDev;
+	}
+
 	public DevolucionBean() {
+		this.LlenarDevolucion();
 		this.LlenarFactura();
 	}
 
@@ -133,12 +148,15 @@ public class DevolucionBean {
 		response.setHeader(headerKey, headerValue);
 
 		DevolucionImp dImp = new DevolucionImp();
-		if(idFactura !=0) {
-			this.listaDevolucion = dImp.exportDevolucion(idFactura);
-		}else {
+		if (idFactura != 0 && idFechaDev != 0) {
+			this.listaDevolucion = dImp.exportarMulticriterio(idFactura, idFechaDev);
+		} else if (idFactura != 0) {
+			this.listaDevolucion = dImp.exportarFactura(idFactura);
+		} else if (idFechaDev != 0) {
+			this.listaDevolucion = dImp.exportarFecha(idFechaDev);
+		} else {
 			this.listaDevolucion = dImp.encontrarTodo();
 		}
-
 
 		ExportarExcelDevolucion excelExportar = new ExportarExcelDevolucion(this.listaDevolucion);
 		excelExportar.export(response);

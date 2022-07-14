@@ -117,13 +117,56 @@ public class AlmacenImp implements IAlmacen {
 		}
 	}
 	
-	public List<Almacen> exportAlmacen(int id) {
+	public List<Almacen> exportarCantidad(int idAlmacenCantidad) {
+		AlmacenImp aImp = new AlmacenImp();
+		Almacen a = new Almacen();
+		try {
+			a = aImp.econtrarId(idAlmacenCantidad);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.cantidad.id="+idAlmacenCantidad+"");
+			this.listaAlmacen = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaAlmacen;
+	}
+	
+	public List<Almacen> exportarProducto(int id) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
 			p = pImp.econtrarId(id);
 			this.entity.getTransaction().begin();
 			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id="+id+"");
+			this.listaAlmacen = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaAlmacen;
+	}
+	
+	public List<Almacen> exportarMultiCriterio(int id, int idAlmacenCantidad) {
+		ProductoImp pImp = new ProductoImp();
+		Producto p = new Producto();
+		AlmacenImp aImp = new AlmacenImp();
+		Almacen a = new Almacen();
+		try {
+			a= aImp.econtrarId(idAlmacenCantidad);
+			p = pImp.econtrarId(id);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT a FROM Almacen a WHERE a.idProducto.id="+id+"AND a.cantidad.id="+idAlmacenCantidad+"");
 			this.listaAlmacen = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
