@@ -79,7 +79,7 @@ public class ReferenciaProductoBean {
 		ReferenciaProductoImp refImp = new ReferenciaProductoImp();
 		refImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/inventario/referenciaproducto.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/referenciaproducto.xhtml?faces-redirect=true";	
 	}
 
 	public void exportar() throws IOException {
