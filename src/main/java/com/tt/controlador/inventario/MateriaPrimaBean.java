@@ -59,27 +59,27 @@ public class MateriaPrimaBean {
 		MateriaPrimaImp mtImp = new MateriaPrimaImp();
 		materiaPrima = mtImp.econtrarId(id);
 		this.sessionMap.put("materiaPrima", materiaPrima);
-		return "/faces/Admin/editar/editarMP.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario/materiaprima.xhtml?faces-redirect=true";
 	}
 
 	public String agregar() {
 		MateriaPrimaImp mtImp = new MateriaPrimaImp();
 		mtImp.agregar(materiaPrima);
-		return "/faces/Admin/materiaPrima.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/materiaPrima.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(MateriaPrima materiaPrima) {
 		System.out.println("Entro a actualizar Materia Prima");
 		MateriaPrimaImp mtImp = new MateriaPrimaImp();
 		mtImp.actualizar(materiaPrima);
-		return "/faces/Admin/materiaPrima.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/materiaPrima.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		MateriaPrimaImp mtImp = new MateriaPrimaImp();
 		mtImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/materiaPrima.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/materiaPrima.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
