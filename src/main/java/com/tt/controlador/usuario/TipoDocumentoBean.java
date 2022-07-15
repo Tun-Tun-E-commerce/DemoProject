@@ -49,7 +49,7 @@ public class TipoDocumentoBean {
 	public String agregar() {
 		TipoDocumentoImp tipoDocImp = new TipoDocumentoImp();
 		tipoDocImp.agregar(tipoDocumento);
-		return "/faces/Admin/tipodoc.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -58,21 +58,21 @@ public class TipoDocumentoBean {
 		TipoDocumentoImp tipoDocumentoImp = new TipoDocumentoImp();
 		tipoDocumento = tipoDocumentoImp.econtrarId(id);
 		this.sessionMap.put("tipoDocumento", tipoDocumento);
-		return "/faces/Admin/editar/editarTD.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/usuario/tipodocumento.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(TipoDocumento tipoDocumento) {
 		System.out.println("Entro a actualizar Tipo Documento");
 		TipoDocumentoImp tipoDocumentoImp = new TipoDocumentoImp();
 		tipoDocumentoImp.actualizar(tipoDocumento);
-		return "/faces/Admin/tipodoc.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		TipoDocumentoImp tipoDocumento = new TipoDocumentoImp();
 		tipoDocumento.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/tipodoc.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
 
 	}
 
