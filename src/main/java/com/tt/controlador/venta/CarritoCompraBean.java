@@ -121,7 +121,7 @@ public class CarritoCompraBean {
 		c.setIdProducto(p);
 		c.setIdUsuarioFk(usuario);
 		cImp.agregar(c);
-		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/carrito.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -129,7 +129,7 @@ public class CarritoCompraBean {
 		CarritoCompraImp cImp = new CarritoCompraImp();
 		c = cImp.econtrarId(id);
 		this.sessionMap.put("c", c);
-		return "/faces/Admin/editar/editarCARRITO.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/venta/carrito.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(CarritoCompra c) {
@@ -146,14 +146,14 @@ public class CarritoCompraBean {
 		c.setIdProducto(p);
 		c.setIdUsuarioFk(usuario);
 		cImp.actualizar(c);
-		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/carrito.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		CarritoCompraImp cImp = new CarritoCompraImp();
 		cImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/Carrito.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/carrito.xhtml?faces-redirect=true";
 	}
 	
 	public void exportar() throws IOException {
