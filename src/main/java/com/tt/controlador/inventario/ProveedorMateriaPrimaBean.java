@@ -92,7 +92,7 @@ public class ProveedorMateriaPrimaBean {
 		mt = mtImp.econtrarId(idMateriaPrima);
 		pmt.setIdMateriaPrima(mt);
 		pmtImp.agregar(pmt);
-		return "/faces/Admin/proveedorM.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -100,7 +100,7 @@ public class ProveedorMateriaPrimaBean {
 		ProveedorMateriaPrimaImp pmtImp = new ProveedorMateriaPrimaImp();
 		pmt = pmtImp.econtrarId(id);
 		this.sessionMap.put("pmt", pmt);
-		return "/faces/Admin/editar/editarPMP.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(ProveedorMateriaPrima pmt) {
@@ -112,14 +112,14 @@ public class ProveedorMateriaPrimaBean {
 		System.out.println("MateriaPrima" + mt.toString());
 		pmt.setIdMateriaPrima(mt);
 		pmtImp.actualizar(pmt);
-		return "/faces/Admin/proveedorM.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		ProveedorMateriaPrimaImp pmtImp = new ProveedorMateriaPrimaImp();
 		pmtImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/proveedorM.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

@@ -92,7 +92,7 @@ public class RespuestaPqrBean {
 		pqr = pqrImp.econtrarId(idPqr);
 		respuestaPqr.setIdPqr(pqr);
 		rPqrImp.agregar(respuestaPqr);
-		return "/faces/Admin/RespuestaPQR.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/respuestapqr.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -100,7 +100,7 @@ public class RespuestaPqrBean {
 		RespuestaPqrImp rPqrImp = new RespuestaPqrImp();
 		respuestaPqr = rPqrImp.econtrarId(id);
 		this.sessionMap.put("respuestaPqr", respuestaPqr);
-		return "/faces/Admin/editar/editarRESPUESTA.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/fidelizacion/respuestapqr.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(RespuestaPqr respuestaPqr) {
@@ -112,14 +112,14 @@ public class RespuestaPqrBean {
 		System.out.println("Pqr" + pqr.toString());
 		respuestaPqr.setIdPqr(pqr);
 		rPqrImp.actualizar(respuestaPqr);
-		return "/faces/Admin/RespuestaPQR.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/respuestapqr.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		RespuestaPqrImp rPqrImp = new RespuestaPqrImp();
 		rPqrImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/RespuestaPQR.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/respuestapqr.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

@@ -57,7 +57,7 @@ public class CategoriaBean {
 	public String agregar() {
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.agregar(c);
-		return "/faces/Admin/categories.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -65,21 +65,21 @@ public class CategoriaBean {
 		CategoriaImp cImp = new CategoriaImp();
 		c = cImp.econtrarId(id);
 		this.sessionMap.put("c", c);
-		return "/faces/Admin/editar/editarCATEGORIA.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/venta/categoria.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Categoria c) {
 		System.out.println("Entro a actualizar Categoria");
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.actualizar(c);
-		return "/faces/Admin/categories.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/categories.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

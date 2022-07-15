@@ -149,7 +149,7 @@ public class FacturaBean {
 		f.setIdCarrito(c);
 		f.setIdPeriodo(p);
 		fImp.agregar(f);
-		return "/faces/Admin/facturas.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/factura.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -157,7 +157,7 @@ public class FacturaBean {
 		FacturaImp fImp = new FacturaImp();
 		f = fImp.econtrarId(id);
 		this.sessionMap.put("f", f);
-		return "/faces/Admin/editar/editarFACTURA.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/venta/factura.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Factura f) {
@@ -177,14 +177,14 @@ public class FacturaBean {
 		f.setIdCarrito(c);
 		f.setIdPeriodo(p);
 		fImp.actualizar(f);
-		return "/faces/Admin/facturas.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/factura.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		FacturaImp fImp = new FacturaImp();
 		fImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/facturas.xhtml?faces-redirect=true";
+		return "/faces/Admin/venta/factura.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

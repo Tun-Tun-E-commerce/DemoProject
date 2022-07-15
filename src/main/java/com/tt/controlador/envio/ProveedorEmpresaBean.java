@@ -57,7 +57,7 @@ public class ProveedorEmpresaBean {
 	public String agregar() {
 		ProveedorEmpresaImp peImp = new ProveedorEmpresaImp();
 		peImp.agregar(pe);
-		return "/faces/Admin/ProveedorEmpresa.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio/proveedorempresa.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -65,21 +65,21 @@ public class ProveedorEmpresaBean {
 		ProveedorEmpresaImp peImp = new ProveedorEmpresaImp();
 		pe = peImp.econtrarId(id);
 		this.sessionMap.put("pe", pe);
-		return "/faces/Admin/editar/editarPE.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/proveedorempresa.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(ProveedorEmpresa pe) {
 		System.out.println("Entro a actualizar Rol");
 		ProveedorEmpresaImp peImp = new ProveedorEmpresaImp();
 		peImp.actualizar(pe);
-		return "/faces/Admin/ProveedorEmpresa.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio/proveedorempresa.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		ProveedorEmpresaImp peImp = new ProveedorEmpresaImp();
 		peImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/ProveedorEmpresa.xhtml?faces-redirect=true";
+		return "/faces/Admin/envio/proveedorempresa.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

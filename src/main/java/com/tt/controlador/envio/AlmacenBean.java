@@ -134,7 +134,7 @@ public class AlmacenBean {
 		a.setIdProducto(p);
 		a.setIdProveedorEmpresa(pe);
 		aImp.agregar(a);
-		return "/faces/Admin/almacenes.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/almacenes.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -142,7 +142,7 @@ public class AlmacenBean {
 		AlmacenImp aImp = new AlmacenImp();
 		a = aImp.econtrarId(id);
 		this.sessionMap.put("a", a);
-		return "/faces/Admin/editar/editarALMACEN.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/almacen.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Almacen a) {
@@ -159,14 +159,14 @@ public class AlmacenBean {
 		a.setIdProducto(p);
 		a.setIdProveedorEmpresa(pe);
 		aImp.actualizar(a);
-		return "/faces/Admin/almacenes.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/almacenes.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		AlmacenImp aImp = new AlmacenImp();
 		aImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/almacenes.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/almacenes.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

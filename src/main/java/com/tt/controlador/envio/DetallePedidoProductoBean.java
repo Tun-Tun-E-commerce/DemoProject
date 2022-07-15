@@ -134,7 +134,7 @@ public class DetallePedidoProductoBean {
 		dpp.setIdPedido(p);
 		dpp.setIdProducto(pro);
 		dtImp.agregar(dpp);
-		return "/faces/Admin/detallepedidop.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -142,7 +142,7 @@ public class DetallePedidoProductoBean {
 		DetallePedidoProductoImp dtImp = new DetallePedidoProductoImp();
 		dpp = dtImp.econtrarId(id);
 		this.sessionMap.put("dpp", dpp);
-		return "/faces/Admin/editar/editarDPP.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(DetallePedidoProducto dpp) {
@@ -159,7 +159,7 @@ public class DetallePedidoProductoBean {
 		dpp.setIdPedido(p);
 		dpp.setIdProducto(pro);
 		dtImp.actualizar(dpp);
-		return "/faces/Admin/detallepedidop.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {

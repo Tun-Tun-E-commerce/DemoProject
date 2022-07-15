@@ -57,7 +57,7 @@ public class ReferenciaProductoBean {
 	public String agregar() {
 		ReferenciaProductoImp refImp = new ReferenciaProductoImp();
 		refImp.agregar(referenciaProducto);
-		return "/faces/Admin/referenciaP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/referenciaproducto.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -65,21 +65,21 @@ public class ReferenciaProductoBean {
 		ReferenciaProductoImp refImp = new ReferenciaProductoImp();
 		referenciaProducto = refImp.econtrarId(id);
 		this.sessionMap.put("referenciaProducto", referenciaProducto);
-		return "/faces/Admin/editar/editarrp.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario/referenciaproducto.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(ReferenciaProducto referenciaProducto) {
 		System.out.println("Entro a actualizar Rol");
 		ReferenciaProductoImp refImp = new ReferenciaProductoImp();
 		refImp.actualizar(referenciaProducto);
-		return "/faces/Admin/referenciaP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/referenciaproducto.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		ReferenciaProductoImp refImp = new ReferenciaProductoImp();
 		refImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/referenciaP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/referenciaproducto.xhtml?faces-redirect=true";	
 	}
 
 	public void exportar() throws IOException {

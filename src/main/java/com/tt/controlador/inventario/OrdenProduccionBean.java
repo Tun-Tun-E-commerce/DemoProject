@@ -92,7 +92,7 @@ public class OrdenProduccionBean {
 		inv = invImp.econtrarId(idIventarioMateriaPrima);
 		ordenP.setIdInventarioMateriaPrima(inv);
 		ordenImp.agregar(ordenP);
-		return "/faces/Admin/ordenP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/ordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -100,7 +100,7 @@ public class OrdenProduccionBean {
 		OrdenProduccionImp ordenImp = new OrdenProduccionImp();
 		ordenP = ordenImp.econtrarId(id);
 		this.sessionMap.put("ordenP", ordenP);
-		return "/faces/Admin/editar/editarOrdenP.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario/ordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(OrdenProduccion ordenP) {
@@ -112,14 +112,14 @@ public class OrdenProduccionBean {
 		System.out.println("InventarioMt" + inv.toString());
 		ordenP.setIdInventarioMateriaPrima(inv);
 		ordenImp.actualizar(ordenP);
-		return "/faces/Admin/ordenP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/ordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		OrdenProduccionImp ordenImp = new OrdenProduccionImp();
 		ordenImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/ordenP.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/ordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

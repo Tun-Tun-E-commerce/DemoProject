@@ -57,7 +57,7 @@ public class CompaniaEnvioBean {
 	public String agregar() {
 		CompaniaEnvioImp ceImp = new CompaniaEnvioImp();
 		ceImp.agregar(ce);
-		return "/faces/Admin/companiaenvio.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/companiaenvio.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -65,21 +65,21 @@ public class CompaniaEnvioBean {
 		CompaniaEnvioImp ceImp = new CompaniaEnvioImp();
 		ce = ceImp.econtrarId(id);
 		this.sessionMap.put("ce", ce);
-		return "/faces/Admin/editar/editarCE.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/companiaenvio.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(CompaniaEnvio ce) {
 		System.out.println("Entro a actualizar CompaniaEnvio");
 		CompaniaEnvioImp ceImp = new CompaniaEnvioImp();
 		ceImp.actualizar(ce);
-		return "/faces/Admin/companiaenvio.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/companiaenvio.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		CompaniaEnvioImp ceImp = new CompaniaEnvioImp();
 		ceImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/companiaenvio.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/companiaenvio.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

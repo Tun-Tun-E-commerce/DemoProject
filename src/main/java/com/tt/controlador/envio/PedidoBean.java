@@ -120,7 +120,7 @@ public class PedidoBean {
 		p.setIdFactura(f);
 		p.setIdEnvio(en);
 		pImp.agregar(p);
-		return "/faces/Admin/order.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/pedido.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -128,7 +128,7 @@ public class PedidoBean {
 		PedidoImp pImp = new PedidoImp();
 		p = pImp.econtrarId(id);
 		this.sessionMap.put("p", p);
-		return "/faces/Admin/editar/editarPEDIDO.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envios/pedido.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Pedido p) {
@@ -143,14 +143,14 @@ public class PedidoBean {
 		p.setIdFactura(f);
 		p.setIdEnvio(en);
 		pImp.actualizar(p);
-		return "/faces/Admin/order.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/pedido.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		PedidoImp pImp = new PedidoImp();
 		pImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/order.xhtml?faces-redirect=true";
+		return "/faces/Admin/envios/pedido.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

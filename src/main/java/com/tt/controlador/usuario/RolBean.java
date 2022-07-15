@@ -49,7 +49,7 @@ public class RolBean {
 	public String agregar() {
 		RolImp rolImp = new RolImp();
 		rolImp.agregar(rol);
-		return "/faces/Admin/roles.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -57,21 +57,21 @@ public class RolBean {
 		RolImp rolImp = new RolImp();
 		rol = rolImp.econtrarId(id);
 		this.sessionMap.put("rol", rol);
-		return "/faces/Admin/editar/editarROL.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/usuario/roles.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Rol rol) {
 		System.out.println("Entro a actualizar Rol");
 		RolImp rolImp = new RolImp();
 		rolImp.actualizar(rol);
-		return "/faces/Admin/roles.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		RolImp rol = new RolImp();
 		rol.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/roles.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
