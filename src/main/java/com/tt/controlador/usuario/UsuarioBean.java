@@ -146,7 +146,7 @@ public class UsuarioBean {
 		usuario.setIdRol(rol);
 		usuario.setIdTipoDocumento(tipoDoc);
 		usuarioImp.agregar(usuario);
-		return "/faces/Admin/Usuarios.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -154,7 +154,7 @@ public class UsuarioBean {
 		UsuarioImp usuarioImp = new UsuarioImp();
 		usuario = usuarioImp.econtrarId(id);
 		this.sessionMap.put("usuario", usuario);
-		return "/faces/Admin/editar/editarUSUARIO.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/usuario/usuario.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Usuario usuario) {
@@ -169,14 +169,14 @@ public class UsuarioBean {
 		usuario.setIdRol(rol);
 		usuario.setIdTipoDocumento(tipoDoc);
 		usuarioImp.actualizar(usuario);
-		return "/faces/Admin/Usuarios.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		UsuarioImp usuarioImp = new UsuarioImp();
 		usuarioImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/Usuarios.xhtml?faces-redirect=true";
+		return "/faces/Admin/usuario.xhtml?faces-redirect=true";
 	}
 	
 	public void exportar() throws IOException {
