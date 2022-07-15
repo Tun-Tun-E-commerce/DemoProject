@@ -59,7 +59,7 @@ public class PqrBean {
 	public String agregar() {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.agregar(pqr);
-		return "/faces/Admin/PQRS.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
 
 
@@ -68,21 +68,21 @@ public class PqrBean {
 		PqrImp pqrImp = new PqrImp();
 		pqr = pqrImp.econtrarId(id);
 		this.sessionMap.put("pqr", pqr);
-		return "/faces/Admin/editar/editarPQR.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Pqr pqr) {
 		System.out.println("Entro a actualizar Rol");
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.actualizar(pqr);
-		return "/faces/Admin/PQRS.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/PQRS.xhtml?faces-redirect=true";
+		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
 	
 	public void exportar() throws IOException {
