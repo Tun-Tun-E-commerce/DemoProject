@@ -91,7 +91,7 @@ public class InventarioMateriaPrimaBean {
 		mt = mtImp.econtrarId(idMateriaPrima);
 		invMT.setIdMateriaPrima(mt);
 		invImp.agregar(invMT);
-		return "/faces/Admin/inventario.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/inventario.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -99,7 +99,7 @@ public class InventarioMateriaPrimaBean {
 		InventarioMateriaPrimaImp invImp = new InventarioMateriaPrimaImp();
 		invMT = invImp.econtrarId(id);
 		this.sessionMap.put("invMT", invMT);
-		return "/faces/Admin/editar/editarINV.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(InventarioMateriaPrima invMT) {
@@ -111,14 +111,14 @@ public class InventarioMateriaPrimaBean {
 		System.out.println("MateriaPrima" + mt.toString());
 		invMT.setIdMateriaPrima(mt);
 		invImp.actualizar(invMT);
-		return "/faces/Admin/inventario.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/inventario.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		InventarioMateriaPrimaImp invImp = new InventarioMateriaPrimaImp();
 		invImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/inventario.xhtml?faces-redirect=true";
+		return "/faces/Admin/inventario/inventario.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
