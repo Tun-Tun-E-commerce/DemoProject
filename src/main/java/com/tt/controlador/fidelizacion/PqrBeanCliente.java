@@ -18,6 +18,14 @@ public class PqrBeanCliente {
 	List<Pqr> listPqr = new ArrayList<Pqr>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
+	
+	
+	private void LlenarPqr() {
+		PqrImp prImp = new PqrImp();
+		this.listPqr = prImp.encontrarTodo();
+	}
+
+	
 	public Pqr getPqr() {
 		return pqr;
 	}
@@ -40,6 +48,11 @@ public class PqrBeanCliente {
 
 	public void setSessionMap(Map<String, Object> sessionMap) {
 		this.sessionMap = sessionMap;
+	}
+
+	
+	public PqrBeanCliente() {
+		this.LlenarPqr();
 	}
 
 	public String agregarU() {

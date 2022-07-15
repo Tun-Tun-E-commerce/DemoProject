@@ -704,6 +704,13 @@
 											<div class="container">
 												<div class="row">
 													<div class="col-sm-6">
+
+												
+
+														<h:outputText value="Qué vas a enviar?" class="form-label"></h:outputText>
+														<h:inputText value="#{pqrBeanU.pqr.tipo}"
+															class="form-control"></h:inputText>
+
 														<select class="form-select"
 															aria-label="Default select example" id="floatingpqr">
 															<option value="0">Qué vas a enviar?</option>
@@ -712,6 +719,8 @@
 															<option value="3">Una inquietud</option>
 														</select>
 													</div>
+
+
 													<div class="col-sm-6">
 														<h:outputText value="Titulo de la PQR" class="form-label"></h:outputText>
 														<h:inputText value="#{pqrBeanU.pqr.titulo}"
@@ -729,11 +738,7 @@
 
 												<br />
 												<div class="row">
-													<div class="col-sm-6">
-														<h:outputText value="Calificacion" class="form-label"></h:outputText>
-														<h:inputText value="#{pqrBeanU.pqr.calificacion}"
-															class="form-control"></h:inputText>
-													</div>
+
 													<div class="col-sm-4">
 														<h:outputText value="Fecha" class="form-label"></h:outputText>
 														<h:inputText value="#{pqrBeanU.pqr.fecha}"
