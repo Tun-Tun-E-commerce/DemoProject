@@ -50,7 +50,7 @@ public class PqrBeanU {
 	public String agregarU() {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.agregar(pqr);
-		return "/faces/autenticacion/user-account.xhtml?faces-redirect=true";
+		return "/faces/autenticacion/usuario/cuentausuario.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -58,21 +58,21 @@ public class PqrBeanU {
 		PqrImp pqrImp = new PqrImp();
 		pqr = pqrImp.econtrarId(id);
 		this.sessionMap.put("pqr", pqr);
-		return "/faces/autenticacion/editarPQR?faces-redirect=true";
+		return "/faces/Admin/editar/fidelizacion/pqr?faces-redirect=true";
 	}
 
 	public String actualizar(Pqr pqr) {
 		System.out.println("Entro a actualizar Pqr");
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.actualizar(pqr);
-		return "/faces/autenticacion/user-account.xhtml?faces-redirect=true";
+		return "/faces/autenticacion/usuario/cuentausuario.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.eliminar(id);
 		System.out.print("Se elimino su Pqr");
-		return "/faces/autenticacion/user-account.xhtml?faces-redirect=true";
+		return "/faces/autenticacion/usuario/cuentausuario.xhtml?faces-redirect=true";
 	}
 	
 	
