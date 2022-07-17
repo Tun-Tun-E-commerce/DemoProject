@@ -65,11 +65,25 @@
 					data-navbarbg="skin5">
 					<!-- Right side toggle and nav items -->
 					<ul class="navbar-nav ms-auto d-flex align-items-center">
-						<!-- User profile and search -->
-						<li><a class="profile-pic" href="#"> <img
+						<div class="dropstart"> 
+  						<img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class=" dropdown-toggle" 
+  						id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></img>
+    					
+  						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  						
+    					<li><a class="dropdown-item" href="usuario/administrador.html">Ver Perfil</a></li>
+    					<li><a class="dropdown-item" href="../autenticacion/usuario/login.xhtml">Cerrar Sesión</a></li>
+    					
+  						</ul>
+						</div>
+						<!-- User profile and search 
+						<li>
+						<a class="profile-pic" href="#"> <img
 								src="plugins/images/users/varun.jpg" alt="user-img" width="36"
 								class="img-circle" /><span class="text-dark font-medium">
-									Admin</span></a></li>
+									Admin</span></a>
+									</li>
+									-->
 						<!-- User profile and search -->
 					</ul>
 				</div>
@@ -108,9 +122,9 @@
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="PQRS.xhtml"> PQRS </h:link></li>
+											outcome="fidelizacion/pqr.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+											outcome="fidelizacion/respuestapqr.xhtml"> Respuestas PQRS </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -122,13 +136,13 @@
 							<div class="collapse" id="collapseExample2">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="tipodoc.xhtml"> Tipo de Documento </h:link></li>
+											outcome="usuario/tipodocumento.xhtml"> Tipo de Documento </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="roles.xhtml"> Roles </h:link></li>
+											outcome="usuario/roles.xhtml"> Roles </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="privilegios.xhtml"> Privilegios </h:link></li>
+											outcome="usuario/privilegios.xhtml"> Privilegios </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="Usuarios.xhtml"> Usuarios </h:link></li>
+											outcome="usuario/usuario.xhtml"> Usuarios </h:link></li>
 
 								</ul>
 							</div></li>
@@ -141,18 +155,19 @@
 							<div class="collapse" id="collapseExample3">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="referenciaP.xhtml"> Referencia Producto </h:link></li>
+											outcome="inventario/referenciaproducto.xhtml"> Referencia Producto </h:link></li>
+									
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="materiaPrima.xhtml">Materia Prima </h:link></li>
+											outcome="inventario/ordenproduccion.xhtml">Orden Producccion </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="ordenP.xhtml">Orden Producccion </h:link></li>
+											outcome="inventario/inventario.xhtml">Inventario </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario.xhtml">Inventario </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="proveedorM.xhtml">Proveedor Materia Prima </h:link>
+											outcome="inventario/proveedormateriaprima.xhtml">Proveedor Materia Prima </h:link>
 									</li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="detalleOP.xhtml">Detalle Orden Producccion </h:link>
+											outcome="inventario/materiaprima.xhtml">Materia Prima </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="inventario/detalleordenproduccion.xhtml">Detalle Orden Producccion </h:link>
 									</li>
 
 
@@ -169,15 +184,15 @@
 							<div class="collapse" id="collapseExample4">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="metodopago.xhtml"> Método de Pago</h:link></li>
+											outcome="venta/metodopago.xhtml"> Método de Pago</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="facturas.xhtml">Factura</h:link></li>
+											outcome="venta/factura.xhtml">Factura</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="product.xhtml"> Productos</h:link></li>
+											outcome="venta/producto.xhtml"> Productos</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="categories.xhtml">Categorias</h:link></li>
+											outcome="venta/categoria.xhtml">Categorias</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="Carrito.xhtml">Carrito de Compras</h:link></li>
+											outcome="venta/carrito.xhtml">Carrito de Compras</h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -190,19 +205,19 @@
 							<div class="collapse" id="collapseExample5">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="almacenes.xhtml">Almacenes</h:link></li>
+											outcome="envio/almacenes.xhtml">Almacenes</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="companiaenvio.xhtml">Compañías de Envío</h:link></li>
+											outcome="envio/companiaenvio.xhtml">Compañías de Envío</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="order.xhtml">Pedidos</h:link></li>
+											outcome="envio/pedido.xhtml">Pedidos</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="detallepedidop.xhtml">Detalle de los Pedidos</h:link></li>
+											outcome="envio/detallepedidoproducto.xhtml">Detalle de los Pedidos</h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="delivery.xhtml"> Envio </h:link></li>
+											outcome="envio/envio.xhtml"> Envio </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="return.xhtml"> Devoluciones </h:link></li>
+											outcome="envio/devolucion.xhtml"> Devoluciones </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="ProveedorEmpresa.xhtml"> Proveedores de la empresa </h:link>
+											outcome="envio/proveedorempresa.xhtml"> Proveedores de la empresa </h:link>
 									</li>
 								</ul>
 							</div></li>
@@ -408,93 +423,49 @@
 							<div class="card-body">
 								<ul class="chatonline">
 									<li>
-										<div class="call-chat">
-											<button class="btn btn-success text-white btn-circle btn"
-												type="button">
-												<i class="fas fa-phone"></i>
-											</button>
-											<button class="btn btn-info btn-circle btn" type="button">
-												<i class="far fa-comments text-white"></i>
-											</button>
-										</div> <a href="javascript:void(0)"
-										class="d-flex align-items-center"><img
+										 <a href="javascript:void(0)"
+										class="d-flex align-items-center">
+										<img
 											src="plugins/images/users/d1.jpg" alt="user-img"
 											class="img-circle" />
 											<div class="ms-2">
-												<span class="text-dark">Jose <small
-													class="d-block text-muted d-block">Offline</small></span>
+												<span class="text-dark">Jose </span>
 											</div> </a>
 									</li>
 									<li>
-										<div class="call-chat">
-											<button class="btn btn-success text-white btn-circle btn"
-												type="button">
-												<i class="fas fa-phone"></i>
-											</button>
-											<button class="btn btn-info btn-circle btn" type="button">
-												<i class="far fa-comments text-white"></i>
-											</button>
-										</div> <a href="javascript:void(0)"
+										 <a href="javascript:void(0)"
 										class="d-flex align-items-center"><img
 											src="plugins/images/users/d2.jpg" alt="user-img"
 											class="img-circle" />
 											<div class="ms-2">
-												<span class="text-dark">Karen <small
-													class="d-block text-muted">Offline</small></span>
+												<span class="text-dark">Karen </span>
 											</div> </a>
 									</li>
 									<li>
-										<div class="call-chat">
-											<button class="btn btn-success text-white btn-circle btn"
-												type="button">
-												<i class="fas fa-phone"></i>
-											</button>
-											<button class="btn btn-info btn-circle btn" type="button">
-												<i class="far fa-comments text-white"></i>
-											</button>
-										</div> <a href="javascript:void(0)"
+										<a href="javascript:void(0)"
 										class="d-flex align-items-center"><img
 											src="plugins/images/users/d3.jpg" alt="user-img"
 											class="img-circle" />
 											<div class="ms-2">
-												<span class="text-dark">Michael <small
-													class="d-block text-muted">Offline</small></span>
+												<span class="text-dark">Michael</span>
 											</div> </a>
 									</li>
 									<li>
-										<div class="call-chat">
-											<button class="btn btn-success text-white btn-circle btn"
-												type="button">
-												<i class="fas fa-phone"></i>
-											</button>
-											<button class="btn btn-info btn-circle btn" type="button">
-												<i class="far fa-comments text-white"></i>
-											</button>
-										</div> <a href="javascript:void(0)"
+										<a href="javascript:void(0)"
 										class="d-flex align-items-center"><img
 											src="plugins/images/users/arijit.jpg" alt="user-img"
 											class="img-circle" />
 											<div class="ms-2">
-												<span class="text-dark">Miguel <small
-													class="d-block text-muted">Offline</small></span>
+												<span class="text-dark">Miguel</span>
 											</div> </a>
 									</li>
 									<li>
-										<div class="call-chat">
-											<button class="btn btn-success text-white btn-circle btn"
-												type="button">
-												<i class="fas fa-phone"></i>
-											</button>
-											<button class="btn btn-info btn-circle btn" type="button">
-												<i class="far fa-comments text-white"></i>
-											</button>
-										</div> <a href="javascript:void(0)"
+										 <a href="javascript:void(0)"
 										class="d-flex align-items-center"><img
 											src="plugins/images/users/govinda.jpg" alt="user-img"
 											class="img-circle" />
 											<div class="ms-2">
-												<span class="text-dark">Govinda Star <small
-													class="d-block text-muted">Offline</small></span>
+												<span class="text-dark">Govinda Star</span>
 											</div> </a>
 									</li>
 								</ul>
