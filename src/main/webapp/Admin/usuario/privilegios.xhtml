@@ -111,6 +111,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="RespuestaPQR.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -248,8 +250,7 @@
 													<f:selectItems value="#{privilegioBean.listaRoles}"
 														itemValue="" itemLabel="Seleccionar" />
 													<f:selectItems value="#{privilegioBean.listaRoles}"
-														var="rol" itemValue="#{rol.id}"
-														itemLabel="#{rol.nombre}" />
+														var="rol" itemValue="#{rol.id}" itemLabel="#{rol.nombre}" />
 												</h:selectOneMenu>
 											</div>
 
@@ -329,8 +330,7 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Nombre Privilegio"></h:outputText>
-										<h:inputText
-											value="#{privilegioBean.privilegio.nombre}"
+										<h:inputText value="#{privilegioBean.privilegio.nombre}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">

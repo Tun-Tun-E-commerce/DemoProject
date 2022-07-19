@@ -110,6 +110,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -254,8 +256,9 @@
 													class="form-control">
 													<f:selectItems value="#{pedidoBean.listaFactura}"
 														itemValue="" itemLabel="Seleccionar" />
-													<f:selectItems value="#{pedidoBean.listaFactura}" var="var1"
-														itemValue="#{var1.id}" itemLabel="#{var1.codigo}" />
+													<f:selectItems value="#{pedidoBean.listaFactura}"
+														var="var1" itemValue="#{var1.id}"
+														itemLabel="#{var1.codigo}" />
 												</h:selectOneMenu>
 											</div>
 											<div class="text-center">

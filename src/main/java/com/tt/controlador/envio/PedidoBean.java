@@ -30,8 +30,7 @@ public class PedidoBean {
 	List<Envio> listaEnvio = new ArrayList<Envio>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idFactura;
-	private int idEnvio;
+	private int idFactura, idEnvio;
 
 	private void LlenarFactura() {
 		FacturaImp fImp = new FacturaImp();

@@ -7,11 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.fidelizacion.IPqr;
-import com.tt.implementacion.venta.ProductoImp;
 import com.tt.modelo.fidelizacion.Pqr;
-import com.tt.modelo.usuario.Rol;
-import com.tt.modelo.venta.CarritoCompra;
-import com.tt.modelo.venta.Producto;
 import com.tt.utilidades.JPAUtil;
 
 public class PqrImp implements IPqr {
@@ -29,7 +25,7 @@ public class PqrImp implements IPqr {
 	public List<Pqr> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT pqr FROM Pqr pqr");
+			Query q = this.entity.createQuery("SELECT p FROM Pqr p");
 			listaPqr = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -121,14 +117,14 @@ public class PqrImp implements IPqr {
 			}
 		}
 	}
-	
-	public List<Pqr> exportarPqrC(int id) {
-		PqrImp prImp = new PqrImp();
-		Pqr pr = new Pqr();
+
+	public List<Pqr> exportarPqrFecha(int idPqrFecha) {
+		PqrImp pqrImp = new PqrImp();
+		Pqr p = new Pqr();
 		try {
-			pr = prImp.econtrarId(id);
+			p = pqrImp.econtrarId(idPqrFecha);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Pqr a WHERE a.idPqr.id=" + id+ "");
+			Query q = this.entity.createQuery("SELECT p FROM Pqr p WHERE p.fecha.id=" + idPqrFecha + "");
 			this.listaPqr = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

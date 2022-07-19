@@ -127,9 +127,14 @@
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary">
-									<h:link outcome="fidelizacion/pqr.xhtml"> PQRS </h:link></li>
+									<a href="fidelizacion/pqr.xhtml"> PQRS </a></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="fidelizacion/respuestapqr.xhtml"> Respuestas PQRS </h:link></li>
+											outcome="fidelizacion/respuestapqr.xhtml"> Respuestas PQRS </h:link>
+									</li>
+								
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="fidelizacion/calificacion.xhtml"> Calificaciones PQR </h:link></li>
+
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -326,8 +331,7 @@
 
 											<h:column>
 												<f:facet name="header">Carrito</f:facet>
-												<h:outputText
-													value="${f.idCarrito.cantidad}"></h:outputText>
+												<h:outputText value="${f.idCarrito.cantidad}"></h:outputText>
 											</h:column>
 
 											<h:column>

@@ -24,15 +24,13 @@ import com.tt.utilidades.envio.ExportarExcelAlmacen;
 @ManagedBean(name = "aBean")
 @RequestScoped
 public class AlmacenBean {
+
 	Almacen a = new Almacen();
 	List<Almacen> listaAlmacen = new ArrayList<Almacen>();
 	List<Producto> listaProducto = new ArrayList<Producto>();
-	List<ProveedorEmpresa> listaProveedor = new ArrayList<ProveedorEmpresa>();
+	List<ProveedorEmpresa> listaProveedorEmpresa = new ArrayList<ProveedorEmpresa>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-
-	private int idProducto;
-	private int idAlmacenCantidad;
-	private int idProveedor;
+	private int idProducto, idAlmacenCantidad, idProveedorEmpresa;
 
 	private void LlenarAlmacen() {
 		AlmacenImp aImp = new AlmacenImp();
@@ -40,13 +38,13 @@ public class AlmacenBean {
 	}
 
 	private void LlenarProducto() {
-		ProductoImp proImp = new ProductoImp();
-		this.listaProducto = proImp.encontrarTodo();
+		ProductoImp pImp = new ProductoImp();
+		this.listaProducto = pImp.encontrarTodo();
 	}
 
 	private void LlenarProveedor() {
 		ProveedorEmpresaImp peImp = new ProveedorEmpresaImp();
-		this.listaProveedor = peImp.encontrarTodo();
+		this.listaProveedorEmpresa = peImp.encontrarTodo();
 	}
 
 	public Almacen getA() {
@@ -73,12 +71,12 @@ public class AlmacenBean {
 		this.listaProducto = listaProducto;
 	}
 
-	public List<ProveedorEmpresa> getListaProveedor() {
-		return listaProveedor;
+	public List<ProveedorEmpresa> getListaProveedorEmpresa() {
+		return listaProveedorEmpresa;
 	}
 
-	public void setListaProveedor(List<ProveedorEmpresa> listaProveedor) {
-		this.listaProveedor = listaProveedor;
+	public void setListaProveedorEmpresa(List<ProveedorEmpresa> listaProveedorEmpresa) {
+		this.listaProveedorEmpresa = listaProveedorEmpresa;
 	}
 
 	public Map<String, Object> getSessionMap() {
@@ -97,20 +95,20 @@ public class AlmacenBean {
 		this.idProducto = idProducto;
 	}
 
-	public int getIdProveedor() {
-		return idProveedor;
-	}
-
-	public void setIdProveedor(int idProveedor) {
-		this.idProveedor = idProveedor;
-	}
-
 	public int getIdAlmacenCantidad() {
 		return idAlmacenCantidad;
 	}
 
 	public void setIdAlmacenCantidad(int idAlmacenCantidad) {
 		this.idAlmacenCantidad = idAlmacenCantidad;
+	}
+
+	public int getIdProveedorEmpresa() {
+		return idProveedorEmpresa;
+	}
+
+	public void setIdProveedorEmpresa(int idProveedorEmpresa) {
+		this.idProveedorEmpresa = idProveedorEmpresa;
 	}
 
 	public AlmacenBean() {
@@ -132,7 +130,7 @@ public class AlmacenBean {
 		Producto p = new Producto();
 		ProveedorEmpresa pe = new ProveedorEmpresa();
 		p = pImp.econtrarId(idProducto);
-		pe = peImp.econtrarId(idProveedor);
+		pe = peImp.econtrarId(idProveedorEmpresa);
 		a.setIdProducto(p);
 		a.setIdProveedorEmpresa(pe);
 		aImp.agregar(a);

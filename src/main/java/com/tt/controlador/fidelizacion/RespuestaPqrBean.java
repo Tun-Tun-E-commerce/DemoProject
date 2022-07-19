@@ -133,9 +133,9 @@ public class RespuestaPqrBean {
 		response.setHeader(headerKey, headerValue);
 
 		RespuestaPqrImp rImp = new RespuestaPqrImp();
-		if(idPqr !=0) {
-			this.listaRespuestaPqr = rImp.exportRespuestaPqr(idPqr);
-		}else {
+		if (idPqr != 0) {
+			this.listaRespuestaPqr = rImp.exportarPqr(idPqr);
+		} else {
 			this.listaRespuestaPqr = rImp.encontrarTodo();
 		}
 

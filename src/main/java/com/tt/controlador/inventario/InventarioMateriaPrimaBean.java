@@ -133,7 +133,7 @@ public class InventarioMateriaPrimaBean {
 
 		InventarioMateriaPrimaImp iIMP = new InventarioMateriaPrimaImp();
 		if (idMateriaPrima != 0) {
-			this.listaInvMT = iIMP.exportIMP(idMateriaPrima);
+			this.listaInvMT = iIMP.exportarMateriaPrima(idMateriaPrima);
 		} else {
 			this.listaInvMT = iIMP.encontrarTodo();
 		}

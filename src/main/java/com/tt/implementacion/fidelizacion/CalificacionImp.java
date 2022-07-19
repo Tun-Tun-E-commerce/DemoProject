@@ -1,4 +1,4 @@
-package com.tt.implementacion.envio;
+package com.tt.implementacion.fidelizacion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,27 +6,27 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.tt.fachada.envio.ICompaniaEnvio;
-import com.tt.modelo.envio.CompaniaEnvio;
+import com.tt.fachada.fidelizacion.ICalificacion;
+import com.tt.modelo.fidelizacion.Calificacion;
+import com.tt.modelo.fidelizacion.Pqr;
 import com.tt.utilidades.JPAUtil;
 
-public class CompaniaEnvioImp implements ICompaniaEnvio {
-
+public class CalificacionImp implements ICalificacion {
 	EntityManager entity;
 
-	public CompaniaEnvioImp() {
+	public CalificacionImp() {
 		entity = JPAUtil.getEntityManagerFactory().createEntityManager();
 	}
 
-	private List<CompaniaEnvio> listaCompaniaEnvio = new ArrayList<CompaniaEnvio>();
+	private List<Calificacion> listaCalificacion = new ArrayList<Calificacion>();
 	Query q;
 
 	@Override
-	public List<CompaniaEnvio> encontrarTodo() {
+	public List<Calificacion> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT ce FROM CompaniaEnvio ce");
-			listaCompaniaEnvio = q.getResultList();
+			Query q = this.entity.createQuery("SELECT c FROM Calificacion c");
+			listaCalificacion = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,15 +38,15 @@ public class CompaniaEnvioImp implements ICompaniaEnvio {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return listaCompaniaEnvio;
+		return listaCalificacion;
 	}
 
 	@Override
-	public CompaniaEnvio econtrarId(int id) {
-		CompaniaEnvio ce = new CompaniaEnvio();
+	public Calificacion econtrarId(int id) {
+		Calificacion c = new Calificacion();
 		try {
 			this.entity.getTransaction().begin();
-			ce = this.entity.find(CompaniaEnvio.class, id);
+			c = this.entity.find(Calificacion.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,14 +58,14 @@ public class CompaniaEnvioImp implements ICompaniaEnvio {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return ce;
+		return c;
 	}
 
 	@Override
-	public void agregar(CompaniaEnvio companiaEnvio) {
+	public void agregar(Calificacion calificacion) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.persist(companiaEnvio);
+			this.entity.persist(calificacion);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,14 +77,13 @@ public class CompaniaEnvioImp implements ICompaniaEnvio {
 				System.out.println("Cerrando la entity");
 			}
 		}
-
 	}
 
 	@Override
-	public void actualizar(CompaniaEnvio companiaEnvio) {
+	public void actualizar(Calificacion calificacion) {
 		try {
 			this.entity.getTransaction().begin();
-			this.entity.merge(companiaEnvio);
+			this.entity.merge(calificacion);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,10 +100,10 @@ public class CompaniaEnvioImp implements ICompaniaEnvio {
 	@Override
 	public void eliminar(int id) {
 		try {
-			CompaniaEnvio ce = new CompaniaEnvio();
-			ce = this.entity.find(CompaniaEnvio.class, id);
+			Calificacion c = new Calificacion();
+			c = this.entity.find(Calificacion.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(ce);
+			this.entity.remove(c);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -116,6 +115,27 @@ public class CompaniaEnvioImp implements ICompaniaEnvio {
 				System.out.println("Cerrando la entity");
 			}
 		}
+	}
+
+	public List<Calificacion> exportarPqr(int idPqr) {
+		PqrImp pqrImp = new PqrImp();
+		Pqr pqr = new Pqr();
+		try {
+			pqr = pqrImp.econtrarId(idPqr);
+			this.entity.getTransaction().begin();
+			Query q = this.entity.createQuery("SELECT c FROM Calificacion c WHERE c.idPqr.id=" + idPqr + "");
+			this.listaCalificacion = q.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (this.entity != null) {
+				this.entity.close();
+				this.q = null;
+				System.out.println("Cerrando la entity");
+			}
+		}
+		return listaCalificacion;
+
 	}
 
 }

@@ -110,6 +110,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -245,8 +247,7 @@
 													<f:selectItems value="#{invBean.listaMateriaPrima}"
 														itemValue="" itemLabel="Seleccionar" />
 													<f:selectItems value="#{invBean.listaMateriaPrima}"
-														var="var" itemValue="#{var.id}"
-														itemLabel="#{var.nombre}" />
+														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
 
@@ -277,8 +278,7 @@
 
 												<h:column>
 													<f:facet name="header">Id Materia Prima</f:facet>
-													<h:outputText
-														value="${i.idMateriaPrima.nombre}"></h:outputText>
+													<h:outputText value="${i.idMateriaPrima.nombre}"></h:outputText>
 												</h:column>
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
@@ -321,8 +321,7 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Salario"></h:outputText>
-										<h:inputText
-											value="#{invBean.invMT.saldo}"
+										<h:inputText value="#{invBean.invMT.saldo}"
 											class="form-control"></h:inputText>
 
 									</div>

@@ -111,6 +111,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -247,8 +249,7 @@
 													<f:selectItems value="#{ordenBean.listaInvMT}" itemValue=""
 														itemLabel="Seleccionar" />
 													<f:selectItems value="#{ordenBean.listaInvMT}" var="var"
-														itemValue="#{var.id}"
-														itemLabel="#{var.saldo}" />
+														itemValue="#{var.id}" itemLabel="#{var.saldo}" />
 												</h:selectOneMenu>
 											</div>
 
@@ -290,8 +291,7 @@
 
 												<h:column>
 													<f:facet name="header">Saldo Inventario Materia Prima</f:facet>
-													<h:outputText
-														value="${o.idInventarioMateriaPrima.saldo}"></h:outputText>
+													<h:outputText value="${o.idInventarioMateriaPrima.saldo}"></h:outputText>
 												</h:column>
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
@@ -342,14 +342,12 @@
 									</div>
 									<div class="form-group">
 										<h:outputText class="form-label" value="Cantidad"></h:outputText>
-										<h:inputText
-											value="#{ordenBean.ordenP.cantidad}"
+										<h:inputText value="#{ordenBean.ordenP.cantidad}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText class="form-label" value="Observacion"></h:outputText>
-										<h:inputText
-											value="#{ordenBean.ordenP.observacion}"
+										<h:inputText value="#{ordenBean.ordenP.observacion}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
@@ -358,8 +356,7 @@
 										<h:selectOneMenu value="#{ordenBean.idIventarioMateriaPrima}"
 											class="form-control">
 											<f:selectItems value="#{ordenBean.listaInvMT}" var="o"
-												itemValue="#{o.id}"
-												itemLabel="#{o.saldo}" />
+												itemValue="#{o.id}" itemLabel="#{o.saldo}" />
 										</h:selectOneMenu>
 									</div>
 									<div class="modal-footer">

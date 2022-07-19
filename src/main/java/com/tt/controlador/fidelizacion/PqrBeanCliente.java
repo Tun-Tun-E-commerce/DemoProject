@@ -1,6 +1,5 @@
 package com.tt.controlador.fidelizacion;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +11,19 @@ import javax.faces.context.FacesContext;
 import com.tt.implementacion.fidelizacion.PqrImp;
 import com.tt.modelo.fidelizacion.Pqr;
 
-
 @ManagedBean(name = "pqrBeanU")
 @RequestScoped
-public class PqrBeanU {
+public class PqrBeanCliente {
 	Pqr pqr = new Pqr();
 	List<Pqr> listPqr = new ArrayList<Pqr>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
+	
+	
+	private void LlenarPqr() {
+		PqrImp prImp = new PqrImp();
+		this.listPqr = prImp.encontrarTodo();
+	}
 
 	
 	public Pqr getPqr() {
@@ -47,6 +51,10 @@ public class PqrBeanU {
 	}
 
 	
+	public PqrBeanCliente() {
+		this.LlenarPqr();
+	}
+
 	public String agregarU() {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.agregar(pqr);
@@ -74,7 +82,5 @@ public class PqrBeanU {
 		System.out.print("Se elimino su Pqr");
 		return "/faces/autenticacion/usuario/cuentausuario.xhtml?faces-redirect=true";
 	}
-	
-	
 
 }

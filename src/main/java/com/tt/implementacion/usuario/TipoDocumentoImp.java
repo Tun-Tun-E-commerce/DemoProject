@@ -31,7 +31,7 @@ public class TipoDocumentoImp implements ITipoDocumento {
 		} catch (Exception e) {
 			e.printStackTrace();
 			JPAUtil.shutdown();
-		}finally {
+		} finally {
 			if (this.entity != null) {
 				this.entity.close();
 				this.q = null;
@@ -43,22 +43,22 @@ public class TipoDocumentoImp implements ITipoDocumento {
 
 	@Override
 	public TipoDocumento econtrarId(int id) {
-		TipoDocumento tipoDocumento = new TipoDocumento();
+		TipoDocumento t = new TipoDocumento();
 		try {
 			this.entity.getTransaction().begin();
-			tipoDocumento = this.entity.find(TipoDocumento.class, id);
+			t = this.entity.find(TipoDocumento.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			JPAUtil.shutdown();
-		}finally {
+		} finally {
 			if (this.entity != null) {
 				this.entity.close();
 				this.q = null;
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return tipoDocumento;
+		return t;
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class TipoDocumentoImp implements ITipoDocumento {
 		} catch (Exception e) {
 			e.printStackTrace();
 			JPAUtil.shutdown();
-		}finally {
+		} finally {
 			if (this.entity != null) {
 				this.entity.close();
 				this.q = null;
@@ -88,7 +88,7 @@ public class TipoDocumentoImp implements ITipoDocumento {
 		} catch (Exception e) {
 			e.printStackTrace();
 			JPAUtil.shutdown();
-		}finally {
+		} finally {
 			if (this.entity != null) {
 				this.entity.close();
 				this.q = null;
@@ -100,15 +100,15 @@ public class TipoDocumentoImp implements ITipoDocumento {
 	@Override
 	public void eliminar(int id) {
 		try {
-			TipoDocumento tipoDocumento = new TipoDocumento();
-			tipoDocumento = this.entity.find(TipoDocumento.class, id);
+			TipoDocumento t = new TipoDocumento();
+			t = this.entity.find(TipoDocumento.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(tipoDocumento);
+			this.entity.remove(t);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			JPAUtil.shutdown();
-		}finally {
+		} finally {
 			if (this.entity != null) {
 				this.entity.close();
 				this.q = null;

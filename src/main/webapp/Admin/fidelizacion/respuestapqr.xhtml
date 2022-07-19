@@ -111,6 +111,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -339,8 +341,7 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
-										<h:inputText
-											value="#{rPqrBean.respuestaPqr.fecha}"
+										<h:inputText value="#{rPqrBean.respuestaPqr.fecha}"
 											class="form-control">
 											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
 										</h:inputText>
@@ -354,7 +355,8 @@
 									<div class="form-group">
 										<h:outputText class="form-label"
 											value="Nombre del Administrador"></h:outputText>
-										<h:inputText value="#{rPqrBean.respuestaPqr.nombreAdministrador}"
+										<h:inputText
+											value="#{rPqrBean.respuestaPqr.nombreAdministrador}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">

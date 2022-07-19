@@ -30,16 +30,12 @@ public class UsuarioBean {
 	List<TipoDocumento> listaTipoDocumento = new ArrayList<TipoDocumento>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idRol;
-	private int idTipoDocumento;
-	private int idUsuarioN;
-	private int idUsuarioA;
+	private int idRol, idTipoDocumento, idUsuarioN, idUsuarioA;
 
 	private void LlenarUsuarios() {
 		UsuarioImp UsuImp = new UsuarioImp();
 		this.listaUsuarios = UsuImp.encontrarTodo();
 	}
-	
 
 	private void LlenarRoles() {
 		RolImp rolImp = new RolImp();
@@ -106,7 +102,7 @@ public class UsuarioBean {
 	public void setIdTipoDocumento(int idTipoDocumento) {
 		this.idTipoDocumento = idTipoDocumento;
 	}
-	
+
 	public int getIdUsuarioN() {
 		return idUsuarioN;
 	}
@@ -126,8 +122,8 @@ public class UsuarioBean {
 	public UsuarioBean() {
 		this.LlenarRoles();
 		this.LlenarTipoDocumento();
-		this.LlenarUsuarios();	
-		}
+		this.LlenarUsuarios();
+	}
 
 	public List<Usuario> encontrarTodo() {
 		UsuarioImp usuarioImp = new UsuarioImp();
@@ -178,47 +174,41 @@ public class UsuarioBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/usuario.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaUsuarios " + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		UsuarioImp usuarioImp = new UsuarioImp();
-		
-		 if(idRol !=0 && idTipoDocumento !=0 && idUsuarioN !=0 && idUsuarioA !=0  ) {
-				this.listaUsuarios = usuarioImp.exportarMulticriterioTu(idRol, idTipoDocumento, idUsuarioN, idUsuarioA);
-			}
-		 else if(idRol !=0 && idTipoDocumento !=0 && idUsuarioN !=0  ) {
-				this.listaUsuarios = usuarioImp.exportarMulticriterioNt(idRol, idTipoDocumento, idUsuarioN);
-		 }
-		 else if(idRol !=0 && idTipoDocumento !=0 && idUsuarioA !=0  ) {
-				this.listaUsuarios = usuarioImp.exportarMulticriterioAt(idRol, idTipoDocumento, idUsuarioA);
-		 }
-		else if(idRol !=0 && idTipoDocumento !=0) {
+
+		if (idRol != 0 && idTipoDocumento != 0 && idUsuarioN != 0 && idUsuarioA != 0) {
+			this.listaUsuarios = usuarioImp.exportarMulticriterioTu(idRol, idTipoDocumento, idUsuarioN, idUsuarioA);
+		} else if (idRol != 0 && idTipoDocumento != 0 && idUsuarioN != 0) {
+			this.listaUsuarios = usuarioImp.exportarMulticriterioNt(idRol, idTipoDocumento, idUsuarioN);
+		} else if (idRol != 0 && idTipoDocumento != 0 && idUsuarioA != 0) {
+			this.listaUsuarios = usuarioImp.exportarMulticriterioAt(idRol, idTipoDocumento, idUsuarioA);
+		} else if (idRol != 0 && idTipoDocumento != 0) {
 			this.listaUsuarios = usuarioImp.exportarMulticriterioU(idRol, idTipoDocumento);
-		}
-		else if (idRol !=0 ) {
+		} else if (idRol != 0) {
 			this.listaUsuarios = usuarioImp.exportarRolId(idRol);
-		}
-		else if (idTipoDocumento !=0 ) {
+		} else if (idTipoDocumento != 0) {
 			this.listaUsuarios = usuarioImp.exportarTipoDId(idTipoDocumento);
-		}
-		else if (idUsuarioN !=0 ) {
+		} else if (idUsuarioN != 0) {
 			this.listaUsuarios = usuarioImp.exportarNombre(idUsuarioN);
-		}
-		else if (idUsuarioA !=0 ) {
+		} else if (idUsuarioA != 0) {
 			this.listaUsuarios = usuarioImp.exportarApellido(idUsuarioA);
 		}
-			
+
 		else {
 			this.listaUsuarios = usuarioImp.encontrarTodo();
 		}
-		
+
 		ExportarExcelUsuario excelExportar = new ExportarExcelUsuario(this.listaUsuarios);
 		excelExportar.export(response);
 

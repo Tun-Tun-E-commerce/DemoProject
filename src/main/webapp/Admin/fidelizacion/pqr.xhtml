@@ -15,7 +15,7 @@
 	<link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
 	
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo/logo.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/llogo.png" />
 
 	<!-- Custom CSS -->
 	<link href="../plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
@@ -25,7 +25,6 @@
 	<link href="../css/style.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="../css/stylesadmin.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-
 </h:head>
 
 <h:body>
@@ -113,12 +112,12 @@
 							</div>
 						</li>
 						<!--User Profile -->
-						<li class="sidebar-item"><h:link
+						<li class="sidebar-item"><a
 								class="sidebar-link waves-effect waves-dark sidebar-link"
-								outcome="../dashboard.xhtml" aria-expanded="false">
+								href="../dashboard.xhtml" aria-expanded="false">
 								<i class="fa fa-clock" aria-hidden="true"></i>
 								<span class="hide-menu">Dashboard</span>
-							</h:link></li>
+							</a></li>
 						<li class="sidebar-item pt-2"><a
 							class="sidebar-link waves-effect waves-dark sidebar-link"
 							data-bs-toggle="collapse" href="#collapseExample" role="button"
@@ -129,9 +128,12 @@
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary">
-									<h:link outcome="fidelizacion/pqr.xhtml"> PQRS </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="fidelizacion/respuestapqr.xhtml"> Respuestas PQRS </h:link></li>
+									<a href="pqr.xhtml"> PQRS </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="respuestapqr.xhtml"> Respuestas PQRS </a></li>		
+								<li class="list-group-item list-group-item-secondary"><a
+											href="Calificacion.xhtml"> Calificaciones PQR </a></li>
+
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -142,14 +144,14 @@
 						</a>
 							<div class="collapse" id="collapseExample2">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="usuario/tipodocumento.xhtml"> Tipo de Documento </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="usuario/roles.xhtml"> Roles </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="usuario/privilegios.xhtml"> Privilegios </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="usuario/usuario.xhtml"> Usuarios </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="usuario/tipodocumento.xhtml"> Tipo de Documento </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="usuario/roles.xhtml"> Roles </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="usuario/privilegios.xhtml"> Privilegios </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="usuario/usuario.xhtml"> Usuarios </a></li>
 
 								</ul>
 							</div></li>
@@ -161,20 +163,20 @@
 						</a>
 							<div class="collapse" id="collapseExample3">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/referenciaproducto.xhtml"> Referencia Producto </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/referenciaproducto.xhtml"> Referencia Producto </a></li>
 									
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/ordenproduccion.xhtml">Orden Producccion </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/inventario.xhtml">Inventario </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/proveedormateriaprima.xhtml">Proveedor Materia Prima </h:link>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/ordenproduccion.xhtml">Orden Producccion </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/inventario.xhtml">Inventario </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/proveedormateriaprima.xhtml">Proveedor Materia Prima </a>
 									</li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/materiaprima.xhtml">Materia Prima </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario/detalleordenproduccion.xhtml">Detalle Orden Producccion </h:link>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/materiaprima.xhtml">Materia Prima </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario/detalleordenproduccion.xhtml">Detalle Orden Producccion </a>
 									</li>
 
 
@@ -190,16 +192,16 @@
 						</a>
 							<div class="collapse" id="collapseExample4">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="venta/metodopago.xhtml"> Método de Pago</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="venta/factura.xhtml">Factura</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="venta/producto.xhtml"> Productos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="venta/categoria.xhtml">Categorias</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="venta/carrito.xhtml">Carrito de Compras</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="venta/metodopago.xhtml"> Método de Pago</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="venta/factura.xhtml">Factura</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="venta/producto.xhtml"> Productos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="venta/categoria.xhtml">Categorias</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="venta/carrito.xhtml">Carrito de Compras</a></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -211,20 +213,20 @@
 						</a>
 							<div class="collapse" id="collapseExample5">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/almacenes.xhtml">Almacenes</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/companiaenvio.xhtml">Compañías de Envío</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/pedido.xhtml">Pedidos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/detallepedidoproducto.xhtml">Detalle de los Pedidos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/envio.xhtml"> Envio </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/devolucion.xhtml"> Devoluciones </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="envio/proveedorempresa.xhtml"> Proveedores de la empresa </h:link>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/almacenes.xhtml">Almacenes</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/companiaenvio.xhtml">Compañías de Envío</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/pedido.xhtml">Pedidos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/detallepedidoproducto.xhtml">Detalle de los Pedidos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/envio.xhtml"> Envio </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/devolucion.xhtml"> Devoluciones </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio/proveedorempresa.xhtml"> Proveedores de la empresa </a>
 									</li>
 								</ul>
 							</div></li>
@@ -262,16 +264,16 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-										<div class="col-sm-4">
-							<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Calificacion</h:outputLabel>
-								<h:selectOneMenu value="#{PqrBean.idPqr}"
-								class="form-control">
-									<f:selectItems value="#{PqrBean.listPqr}" itemValue=""
-									itemLabel="Seleccionar" />
-									<f:selectItems value="#{PqrBean.listPqr}" var="var"
-									itemValue="#{var.id}" itemLabel="#{var.calificacion}" />
-							   </h:selectOneMenu>
-							 </div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
+												<h:selectOneMenu value="#{pqrBean.idPqrFecha}"
+													class="form-control">
+													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
+														itemLabel="Seleccionar" />
+													<f:selectItems value="#{pqrBean.listPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.fecha}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -308,8 +310,8 @@
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Calificacion</f:facet>
-													<h:outputText value="${p.calificacion}"></h:outputText>
+													<f:facet name="header">Tipo</f:facet>
+													<h:outputText value="${p.tipo}"></h:outputText>
 												</h:column>
 
 												<h:column>
@@ -350,8 +352,8 @@
 							</div>
 
 							<h:form>
-							
-							
+
+
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Titulo"></h:outputText>
@@ -365,15 +367,17 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
+
 										<h:inputText value="#{PqrBean.pqr.fecha}"
-											class="form-control">
-											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+											class="form-control"></h:inputText>
+										<h:inputText value="#{pqrBean.pqr.fecha}" class="form-control">
+
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date"/>
 										</h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Calificacion" class="form-label"></h:outputText>
-										<h:inputText value="#{PqrBean.pqr.calificacion}"
-											class="form-control"></h:inputText>
+										<h:outputText value="Tipo de PQR" class="form-label"></h:outputText>
+										<h:inputText value="#{pqrBean.pqr.tipo}" class="form-control"></h:inputText>
 									</div>
 
 								</div>

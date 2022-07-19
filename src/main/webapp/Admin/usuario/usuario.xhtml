@@ -111,6 +111,8 @@
 											outcome="PQRS.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><h:link
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -239,14 +241,14 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-										<div class="col-sm-4">
+											<div class="col-sm-4">
 												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Nombre</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idUsuarioN}"
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaUsuarios}"
 														itemValue="" itemLabel="Seleccionar" />
-													<f:selectItems value="#{usuarioBean.listaUsuarios}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
 											<div class="col-sm-4">
@@ -255,8 +257,9 @@
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaUsuarios}"
 														itemValue="" itemLabel="Seleccionar" />
-													<f:selectItems value="#{usuarioBean.listaUsuarios}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.apellido}" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														var="var" itemValue="#{var.id}"
+														itemLabel="#{var.apellido}" />
 												</h:selectOneMenu>
 											</div>
 											<div class="col-sm-4">
@@ -275,11 +278,11 @@
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
 														itemValue="" itemLabel="Seleccionar" />
-													<f:selectItems value="#{usuarioBean.listaTipoDocumento}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+													<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
+														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
-	
+
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -348,8 +351,7 @@
 
 												<h:column>
 													<f:facet name="header">Tipo de Documento</f:facet>
-													<h:outputText
-														value="${u.idTipoDocumento.nombre}"></h:outputText>
+													<h:outputText value="${u.idTipoDocumento.nombre}"></h:outputText>
 												</h:column>
 
 
@@ -425,8 +427,7 @@
 									</div>
 									<div class="form-group">
 										<h:outputText value="Identificacion" class="form-label"></h:outputText>
-										<h:inputText
-											value="#{usuarioBean.usuario.identificacion}"
+										<h:inputText value="#{usuarioBean.usuario.identificacion}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
@@ -449,8 +450,7 @@
 										<h:selectOneMenu value="#{usuarioBean.idTipoDocumento}"
 											class="form-control">
 											<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
-												var="td" itemValue="#{td.id}"
-												itemLabel="#{td.nombre}" />
+												var="td" itemValue="#{td.id}" itemLabel="#{td.nombre}" />
 										</h:selectOneMenu>
 									</div>
 
@@ -466,7 +466,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- Full screen modal -->				
+				<!-- Full screen modal -->
 			</div>
 		</div>
 		<!-- End Page wrapper  -->

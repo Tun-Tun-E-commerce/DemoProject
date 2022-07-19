@@ -27,8 +27,7 @@ public class DevolucionBean {
 	List<Factura> listaFactura = new ArrayList<Factura>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idFactura;
-	private int idFechaDev;
+	private int idFactura, idFechaDev;
 
 	private void LlenarDevolucion() {
 		DevolucionImp dImp = new DevolucionImp();

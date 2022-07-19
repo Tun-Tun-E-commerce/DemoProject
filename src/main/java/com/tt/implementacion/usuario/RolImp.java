@@ -43,10 +43,10 @@ public class RolImp implements IRol {
 
 	@Override
 	public Rol econtrarId(int id) {
-		Rol rol = new Rol();
+		Rol r = new Rol();
 		try {
 			this.entity.getTransaction().begin();
-			rol = this.entity.find(Rol.class, id);
+			r = this.entity.find(Rol.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class RolImp implements IRol {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return rol;
+		return r;
 	}
 
 	@Override
@@ -101,10 +101,10 @@ public class RolImp implements IRol {
 	@Override
 	public void eliminar(int id) {
 		try {
-			Rol rol = new Rol();
-			rol = this.entity.find(Rol.class, id);
+			Rol r = new Rol();
+			r = this.entity.find(Rol.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(rol);
+			this.entity.remove(r);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

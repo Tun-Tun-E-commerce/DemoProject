@@ -133,9 +133,9 @@ public class ProveedorMateriaPrimaBean {
 		response.setHeader(headerKey, headerValue);
 
 		ProveedorMateriaPrimaImp pImp = new ProveedorMateriaPrimaImp();
-		if(idMateriaPrima !=0) {
-			this.listaPmt = pImp.exportPEM(idMateriaPrima);
-		}else {
+		if (idMateriaPrima != 0) {
+			this.listaPmt = pImp.exportarMateriaPrima(idMateriaPrima);
+		} else {
 			this.listaPmt = pImp.encontrarTodo();
 		}
 

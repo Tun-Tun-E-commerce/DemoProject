@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.tt.fachada.venta.ICategoria;
-import com.tt.modelo.envio.CompaniaEnvio;
 import com.tt.modelo.venta.Categoria;
 import com.tt.utilidades.JPAUtil;
 
@@ -26,7 +25,7 @@ public class CategoriaImp implements ICategoria {
 	public List<Categoria> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT ca FROM Categoria ca");
+			Query q = this.entity.createQuery("SELECT c FROM Categoria c");
 			listaCategoria = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {

@@ -33,11 +33,7 @@ public class FacturaBean {
 	List<Periodo> listaPeriodo = new ArrayList<Periodo>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idCarrito;
-
-	private int idMetodoPago;
-
-	private int idPeriodo;
+	private int idCarrito, idMetodoPago, idPeriodo;
 
 	private void LlenarCarrito() {
 		CarritoCompraImp cImp = new CarritoCompraImp();

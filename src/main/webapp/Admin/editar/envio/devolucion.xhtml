@@ -119,6 +119,9 @@
 
 							<div class="form-group mb-4">
 								<div class="col-md-12 border-bottom p-0">
+									<h:outputText value="tipo" class="form-label"></h:outputText>
+									<h:inputText value="#{pqr.tipo}"
+										class="form-control"></h:inputText>
 									<h:outputText value="Factura" class="form-label"></h:outputText>
 									<h:selectOneMenu value="#{d.idFactura.id}"
 										class="form-control">
@@ -135,6 +138,7 @@
 									value="Actualizar" class="btn btn-success ms-5 mt-5"></h:commandButton>
 								<h:link outcome="/Admin/envio/devolucion.xhtml?faces-redirect=true"
 									class="btn btn-danger ms-5 mt-5">Regresar</h:link>
+									<!-- Hola -->
 							</div>
 						</h:form>
 					</div>

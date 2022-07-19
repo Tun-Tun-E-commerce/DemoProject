@@ -28,7 +28,7 @@ public class ProductoImp implements IProducto {
 	public List<Producto> encontrarTodo() {
 		try {
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT pro FROM Producto pro");
+			Query q = this.entity.createQuery("SELECT p FROM Producto p");
 			listaProducto = q.getResultList();
 			this.entity.getTransaction();
 		} catch (Exception e) {
@@ -118,14 +118,15 @@ public class ProductoImp implements IProducto {
 			}
 		}
 	}
-	
+
 	public List<Producto> exportProductoValor(int idProductoValor) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
 			p = pImp.econtrarId(idProductoValor);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.valorUnitario.id="+idProductoValor+"");
+			Query q = this.entity
+					.createQuery("SELECT p FROM Producto p WHERE p.valorUnitario.id=" + idProductoValor + "");
 			this.listaProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,14 +139,15 @@ public class ProductoImp implements IProducto {
 		}
 		return listaProducto;
 	}
-	
+
 	public List<Producto> exportProductoCantidad(int idProductoCantidad) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
 			p = pImp.econtrarId(idProductoCantidad);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.cantidad.id="+idProductoCantidad+"");
+			Query q = this.entity
+					.createQuery("SELECT p FROM Producto p WHERE p.cantidad.id=" + idProductoCantidad + "");
 			this.listaProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,14 +160,15 @@ public class ProductoImp implements IProducto {
 		}
 		return listaProducto;
 	}
-	
+
 	public List<Producto> exportarMulticriterio(int idProductoValor, int idProductoCantidad) {
 		ProductoImp pImp = new ProductoImp();
 		Producto p = new Producto();
 		try {
 			p = pImp.econtrarId(idProductoValor);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT a FROM Producto a WHERE a.valorUnitario.id="+idProductoValor+"AND a.cantidad.id="+idProductoCantidad+"");
+			Query q = this.entity.createQuery("SELECT p FROM Producto p WHERE p.valorUnitario.id=" + idProductoValor
+					+ "AND p.cantidad.id=" + idProductoCantidad + "");
 			this.listaProducto = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

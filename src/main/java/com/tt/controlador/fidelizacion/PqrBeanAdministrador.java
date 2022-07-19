@@ -19,13 +19,18 @@ import com.tt.utilidades.fidelizacion.ExportarExcelPqr;
 
 @ManagedBean(name = "pqrBean")
 @RequestScoped
-public class PqrBean {
+public class PqrBeanAdministrador {
 	Pqr pqr = new Pqr();
 	List<Pqr> listPqr = new ArrayList<Pqr>();
 	private Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 
-	private int idPqr;
-	
+	private int idPqrFecha;
+
+	private void LlenarPqr() {
+		PqrImp prImp = new PqrImp();
+		this.listPqr = prImp.encontrarTodo();
+	}
+
 	public Pqr getPqr() {
 		return pqr;
 	}
@@ -50,6 +55,18 @@ public class PqrBean {
 		this.sessionMap = sessionMap;
 	}
 
+	public int getIdPqrFecha() {
+		return idPqrFecha;
+	}
+
+	public void setIdPqrFecha(int idPqrFecha) {
+		this.idPqrFecha = idPqrFecha;
+	}
+
+	public PqrBeanAdministrador() {
+		this.LlenarPqr();
+	}
+
 	public List<Pqr> encontrarTodo() {
 		PqrImp pqrImp = new PqrImp();
 		this.listPqr = pqrImp.encontrarTodo();
@@ -61,7 +78,6 @@ public class PqrBean {
 		pqrImp.agregar(pqr);
 		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
-
 
 	public String encontrarId(int id) {
 		System.out.println("Entro al editar" + id);
@@ -84,27 +100,25 @@ public class PqrBean {
 		System.out.print("Se elimino el dato");
 		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
 	}
-	
+
 	public void exportar() throws IOException {
-		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
+				.getResponse();
 		response.setContentType("application/octet-stream");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		String currentDateTime = dateFormatter.format(new Date());
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=listaPqr " + currentDateTime + ".xlsx";
 		response.setHeader(headerKey, headerValue);
-		
+
 		PqrImp pqrImp = new PqrImp();
-		
-		
-		if (idPqr != 0) {
-			this.listPqr  = pqrImp.exportarPqrC(idPqr);
-		
+
+		if (idPqrFecha != 0) {
+			this.listPqr = pqrImp.exportarPqrFecha(idPqrFecha);
 		} else {
 			this.listPqr = pqrImp.encontrarTodo();
 		}
 
-		
 		ExportarExcelPqr excelExportar = new ExportarExcelPqr(this.listPqr);
 		excelExportar.export(response);
 

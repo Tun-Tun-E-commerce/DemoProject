@@ -44,10 +44,10 @@ public class OrdenProduccionImp implements IOrdenProduccion {
 
 	@Override
 	public OrdenProduccion econtrarId(int id) {
-		OrdenProduccion ordenP = new OrdenProduccion();
+		OrdenProduccion o = new OrdenProduccion();
 		try {
 			this.entity.getTransaction().begin();
-			ordenP = this.entity.find(OrdenProduccion.class, id);
+			o = this.entity.find(OrdenProduccion.class, id);
 			this.entity.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class OrdenProduccionImp implements IOrdenProduccion {
 				System.out.println("Cerrando la entity");
 			}
 		}
-		return ordenP;
+		return o;
 	}
 
 	@Override
@@ -102,10 +102,10 @@ public class OrdenProduccionImp implements IOrdenProduccion {
 	@Override
 	public void eliminar(int id) {
 		try {
-			OrdenProduccion ordenP = new OrdenProduccion();
-			ordenP = this.entity.find(OrdenProduccion.class, id);
+			OrdenProduccion o = new OrdenProduccion();
+			o = this.entity.find(OrdenProduccion.class, id);
 			this.entity.getTransaction().begin();
-			this.entity.remove(ordenP);
+			this.entity.remove(o);
 			this.entity.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,14 +117,15 @@ public class OrdenProduccionImp implements IOrdenProduccion {
 			}
 		}
 	}
-	
-	public List<OrdenProduccion> exportOrdenProduccion(int id) {
-		InventarioMateriaPrimaImp iIMp = new InventarioMateriaPrimaImp();
+
+	public List<OrdenProduccion> exportarInventario(int idInventario) {
+		InventarioMateriaPrimaImp iImp = new InventarioMateriaPrimaImp();
 		InventarioMateriaPrima i = new InventarioMateriaPrima();
 		try {
-			i = iIMp.econtrarId(id);
+			i = iImp.econtrarId(idInventario);
 			this.entity.getTransaction().begin();
-			Query q = this.entity.createQuery("SELECT o FROM OrdenProduccion o WHERE o.idInventarioMateriaPrima.id="+id+"");
+			Query q = this.entity.createQuery(
+					"SELECT o FROM OrdenProduccion o WHERE o.idInventarioMateriaPrima.id=" + idInventario + "");
 			this.listaOrdenProduccion = q.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();

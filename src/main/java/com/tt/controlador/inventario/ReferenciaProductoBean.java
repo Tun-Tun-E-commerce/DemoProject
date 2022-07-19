@@ -95,7 +95,8 @@ public class ReferenciaProductoBean {
 		ReferenciaProductoImp rImp = new ReferenciaProductoImp();
 		this.listaReferenciaProducto = rImp.encontrarTodo();
 
-		ExportarExcelReferenciaProducto excelExportar = new ExportarExcelReferenciaProducto(this.listaReferenciaProducto);
+		ExportarExcelReferenciaProducto excelExportar = new ExportarExcelReferenciaProducto(
+				this.listaReferenciaProducto);
 		excelExportar.export(response);
 	}
 
