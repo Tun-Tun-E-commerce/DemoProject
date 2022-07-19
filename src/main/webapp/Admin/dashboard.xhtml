@@ -29,13 +29,14 @@
 
 <h:body>
 
-	<!-- Preloader  -->
+	<!-- Preloader  
 	<div class="preloader">
 		<div class="lds-ripple">
 			<div class="lds-pos"></div>
 			<div class="lds-pos"></div>
 		</div>
 	</div>
+	-->
 	<!-- Main wrapper -->
 	<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5"
 		data-sidebartype="full" data-sidebar-position="absolute"
@@ -65,17 +66,21 @@
 					data-navbarbg="skin5">
 					<!-- Right side toggle and nav items -->
 					<ul class="navbar-nav ms-auto d-flex align-items-center">
-						<div class="dropstart"> 
+						<div class="dropstart">
   						<img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class=" dropdown-toggle" 
   						id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></img>
     					
   						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
   						
-    					<li><a class="dropdown-item" href="usuario/administrador.html">Ver Perfil</a></li>
+    					<li><a class="dropdown-item" href="usuario/administrador.xhtml">Ver Perfil</a></li>
     					<li><a class="dropdown-item" href="../autenticacion/usuario/login.xhtml">Cerrar Sesión</a></li>
     					
+    					</ul>
+    					</div>
+    					
   						</ul>
-						</div>
+  						
+						
 						<!-- User profile and search 
 						<li>
 						<a class="profile-pic" href="#"> <img
@@ -85,7 +90,7 @@
 									</li>
 									-->
 						<!-- User profile and search -->
-					</ul>
+					
 				</div>
 			</nav>
 		</header>
@@ -121,8 +126,8 @@
 						</a>
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="fidelizacion/pqr.xhtml"> PQRS </h:link></li>
+									<li class="list-group-item list-group-item-secondary">
+									<h:link outcome="fidelizacion/pqr.xhtml"> PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="fidelizacion/respuestapqr.xhtml"> Respuestas PQRS </h:link></li>
 								</ul>
