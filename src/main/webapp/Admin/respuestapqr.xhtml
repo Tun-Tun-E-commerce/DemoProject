@@ -15,15 +15,15 @@
 	<link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
 	
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/logo.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo/logo.png" />
 
 	<!-- Custom CSS -->
-	<link href="../plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="../plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+	<link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
 
 	<!-- Custom CSS -->
-	<link href="../css/style.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="../css/stylesadmin.css" />
+	<link href="css/style.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/Admin/css/stylesadmin.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 </h:head>
 
@@ -51,8 +51,7 @@
 						<b class="logo-icon"> <!-- Dark Logo icon --> <img
 							src="../../assets/images/logo/fulllogo.png" width="200"
 							alt="homepage" />
-					</b> <!--End Logo icon --> <!-- Logo text --> 
-					<span class="logo-text">
+					</b> <!--End Logo icon --> <!-- Logo text --> <span class="logo-text">
 							<!-- dark Logo text -->
 							<p>Tun Tun</p>
 					</span>
@@ -99,6 +98,7 @@
 		<!-- End Topbar header -->
 
 		<!-- Left Sidebar -->
+		<!-- Aside bar - Start-->
 		<aside class="left-sidebar" data-sidebarbg="skin6">
 			<!-- Sidebar scroll-->
 			<div class="scroll-sidebar scrollsa">
@@ -130,9 +130,11 @@
 									<li class="list-group-item list-group-item-secondary">
 									<a href="pqr.xhtml"> PQRS </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="respuestapqr.xhtml"> Respuestas PQRS </a></li>		
-								<li class="list-group-item list-group-item-secondary"><a
-											href="Calificacion.xhtml"> Calificaciones PQR </a></li>
+											href="respuestapqr.xhtml"> Respuestas PQRS </a>
+									</li>
+								
+									<li class="list-group-item list-group-item-secondary"><a
+											href="calificaciondelservicio.xhtml"> Calificaciones PQR </a></li>
 
 								</ul>
 							</div></li>
@@ -145,13 +147,13 @@
 							<div class="collapse" id="collapseExample2">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><a
-											href="usuario/tipodocumento.xhtml"> Tipo de Documento </a></li>
+											href="../usuario/tipodocumento.xhtml"> Tipo de Documento </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="usuario/roles.xhtml"> Roles </a></li>
+											href="../usuario/roles.xhtml"> Roles </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="usuario/privilegios.xhtml"> Privilegios </a></li>
+											href="../usuario/privilegios.xhtml"> Privilegios </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="usuario/usuario.xhtml"> Usuarios </a></li>
+											href="../usuario/usuario.xhtml"> Usuarios </a></li>
 
 								</ul>
 							</div></li>
@@ -167,16 +169,16 @@
 											href="inventario/referenciaproducto.xhtml"> Referencia Producto </a></li>
 									
 									<li class="list-group-item list-group-item-secondary"><a
-											href="inventario/ordenproduccion.xhtml">Orden Producccion </a></li>
+											href="../inventario/ordenproduccion.xhtml">Orden Producccion </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
 											href="inventario/inventario.xhtml">Inventario </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="inventario/proveedormateriaprima.xhtml">Proveedor Materia Prima </a>
+											href="../inventario/proveedormateriaprima.xhtml">Proveedor Materia Prima </a>
 									</li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="inventario/materiaprima.xhtml">Materia Prima </a></li>
+											href="../inventario/materiaprima.xhtml">Materia Prima </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="inventario/detalleordenproduccion.xhtml">Detalle Orden Producccion </a>
+											href="../inventario/detalleordenproduccion.xhtml">Detalle Orden Producccion </a>
 									</li>
 
 
@@ -193,15 +195,15 @@
 							<div class="collapse" id="collapseExample4">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><a
-											href="venta/metodopago.xhtml"> Método de Pago</a></li>
+											href="Admin/venta/metodopago.xhtml"> Método de Pago</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="venta/factura.xhtml">Factura</a></li>
+											href="Admin/venta/factura.xhtml">Factura</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="venta/producto.xhtml"> Productos</a></li>
+											href="Admin/venta/producto.xhtml"> Productos</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="venta/categoria.xhtml">Categorias</a></li>
+											href="Admin/venta/categoria.xhtml">Categorias</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="venta/carrito.xhtml">Carrito de Compras</a></li>
+											href="Admin/venta/carrito.xhtml">Carrito de Compras</a></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -214,19 +216,19 @@
 							<div class="collapse" id="collapseExample5">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/almacenes.xhtml">Almacenes</a></li>
+											href="../envio/almacenes.xhtml">Almacenes</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/companiaenvio.xhtml">Compañías de Envío</a></li>
+											href="../envio/companiaenvio.xhtml">Compañías de Envío</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/pedido.xhtml">Pedidos</a></li>
+											href="../envio/pedido.xhtml">Pedidos</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/detallepedidoproducto.xhtml">Detalle de los Pedidos</a></li>
+											href="../envio/detallepedidoproducto.xhtml">Detalle de los Pedidos</a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/envio.xhtml"> Envio </a></li>
+											href="../envio/envio.xhtml"> Envio </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/devolucion.xhtml"> Devoluciones </a></li>
+											href="../envio/devolucion.xhtml"> Devoluciones </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
-											href="envio/proveedorempresa.xhtml"> Proveedores de la empresa </a>
+											href="../envio/proveedorempresa.xhtml"> Proveedores de la empresa </a>
 									</li>
 								</ul>
 							</div></li>
@@ -245,7 +247,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">PQRS</h4>
+						<h4 class="page-title">Respuesta PQRS</h4>
 					</div>
 
 				</div>
@@ -265,13 +267,13 @@
 										style="width: 100%">
 										<h:form>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
-												<h:selectOneMenu value="#{pqrBean.idPqrFecha}"
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:selectOneMenu value="#{rPqrBean.idPqr}"
 													class="form-control">
-													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
+													<f:selectItems value="#{rPqrBean.listaPqr}" itemValue=""
 														itemLabel="Seleccionar" />
-													<f:selectItems value="#{pqrBean.listPqr}" var="var"
-														itemValue="#{var.id}" itemLabel="#{var.fecha}" />
+													<f:selectItems value="#{rPqrBean.listaPqr}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.titulo}" />
 												</h:selectOneMenu>
 											</div>
 											<div class="text-center">
@@ -284,49 +286,52 @@
 											<div
 												class="d-grid gap-2 d-md-flex justify-content-md-center py-3">
 												<h:commandButton values="Export"
-													action="#{PqrBean.exportar()}" value="Excel"
+													action="#{rPqrBean.exportar()}" value="Excel"
 													class="btn btn-success"></h:commandButton>
 											</div>
-											<h:dataTable value="${pqrBean.encontrarTodo()}" var="p"
+											<h:dataTable value="${rPqrBean.encontrarTodo()}" var="rp"
 												border="1" class="table table-striped">
 												<h:column>
 													<f:facet name="header">Id</f:facet>
-													<h:outputText value="${p.id}"></h:outputText>
+													<h:outputText value="${rp.id}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Titulo</f:facet>
-													<h:outputText value="${p.titulo}"></h:outputText>
-												</h:column>
-
-												<h:column>
-													<f:facet name="header">Descripcion</f:facet>
-													<h:outputText value="${p.descripcion}"></h:outputText>
+													<f:facet name="header">Respuesta</f:facet>
+													<h:outputText value="${rp.respuesta}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">Fecha</f:facet>
-													<h:outputText value="${p.fecha}"></h:outputText>
+													<h:outputText value="${rp.fecha}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Tipo</f:facet>
-													<h:outputText value="${p.tipo}"></h:outputText>
+													<f:facet name="header">Estado</f:facet>
+													<h:outputText value="${rp.estado}"></h:outputText>
 												</h:column>
 
+												<h:column>
+													<f:facet name="header">Admin</f:facet>
+													<h:outputText value="${rp.nombreAdministrador}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Id Pqr</f:facet>
+													<h:outputText value="${rp.idPqr.titulo}"></h:outputText>
+												</h:column>
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton action="#{PqrBean.encontrarId(p.id)}"
+													<h:commandButton action="#{rPqrBean.encontrarId(rp.id)}"
 														value="Editar" class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton action="#{PqrBean.eliminar(p.id)}"
+													<h:commandButton action="#{rPqrBean.eliminar(rp.id)}"
 														value="Eliminar" class="btn btn-danger"></h:commandButton>
 												</h:column>
-
 											</h:dataTable>
 										</h:form>
 									</table>
@@ -350,48 +355,58 @@
 								<h5 class="modal-title" id="exampleModalLabel">Agregar
 									Respuesta PQR</h5>
 							</div>
-
 							<h:form>
-
-
 								<div class="modal-body">
+
 									<div class="form-group">
-										<h:outputText class="form-label" value="Titulo"></h:outputText>
-										<h:inputText value="#{PqrBean.pqr.titulo}"
-											class="form-control"></h:inputText>
-									</div>
-									<div class="form-group">
-										<h:outputText value="Descripcion" class="form-label"></h:outputText>
-										<h:inputText value="#{PqrBean.pqr.descripcion}"
+										<h:outputText class="form-label" value="Respuesta"></h:outputText>
+										<h:inputText value="#{rPqrBean.respuestaPqr.respuesta}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
-
-										<h:inputText value="#{PqrBean.pqr.fecha}"
-											class="form-control"></h:inputText>
-										<h:inputText value="#{pqrBean.pqr.fecha}" class="form-control">
-
-											<f:convertDateTime pattern="yyyy/MM/dd" type="Date"/>
+										<h:inputText value="#{rPqrBean.respuestaPqr.fecha}"
+											class="form-control">
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
 										</h:inputText>
+
 									</div>
 									<div class="form-group">
-										<h:outputText value="Tipo de PQR" class="form-label"></h:outputText>
-										<h:inputText value="#{pqrBean.pqr.tipo}" class="form-control"></h:inputText>
+										<h:outputText class="form-label" value="Estado"></h:outputText>
+										<h:inputText value="#{rPqrBean.respuestaPqr.estado}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText class="form-label"
+											value="Nombre del Administrador"></h:outputText>
+										<h:inputText
+											value="#{rPqrBean.respuestaPqr.nombreAdministrador}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="ID Pqr" class="form-label"></h:outputText>
+										<h:selectOneMenu value="#{rPqrBean.idPqr}"
+											class="form-control">
+											<f:selectItems value="#{rPqrBean.listaPqr}" var="rp"
+												itemValue="#{rp.id}" itemLabel="#{rp.titulo}" />
+										</h:selectOneMenu>
 									</div>
 
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-bs-dismiss="modal">Cerrar</button>
-									<h:commandButton action="#{pqrBean.agregar()}"
-										value="Agregar Pqr" class="btn btn-success"></h:commandButton>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">Cerrar</button>
+										<h:commandButton action="#{rPqrBean.agregar()}"
+											value="Agregar RespuestaPqr" class="btn btn-success"></h:commandButton>
+									</div>
 								</div>
 							</h:form>
+
 						</div>
 					</div>
 				</div>
 				<!-- Full screen modal -->
+				<!-- The Modal -->
+				
 			</div>
 		</div>
 		<!-- End Page wrapper  -->

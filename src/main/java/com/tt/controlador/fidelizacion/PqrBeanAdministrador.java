@@ -76,7 +76,7 @@ public class PqrBeanAdministrador {
 	public String agregar() {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.agregar(pqr);
-		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
+		return "/faces/Admin/pqr.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -91,14 +91,14 @@ public class PqrBeanAdministrador {
 		System.out.println("Entro a actualizar Rol");
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.actualizar(pqr);
-		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
+		return "/faces/Admin/pqr.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		PqrImp pqrImp = new PqrImp();
 		pqrImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/fidelizacion/pqr.xhtml?faces-redirect=true";
+		return "/faces/Admin/pqr.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
