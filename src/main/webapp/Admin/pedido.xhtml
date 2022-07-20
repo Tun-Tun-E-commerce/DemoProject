@@ -8,50 +8,44 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-	<meta name="keywords"
-		content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
-	<meta name="description"
-		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
+	<meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
+	<meta name="description" content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
 	<meta name="robots" content="noindex,nofollow"></meta>
 	<title>Admin | Tun Tun</title>
-	<link rel="canonical"
-		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	<link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16"
-		href="../assets/images/logo/logo.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo/logo.png" />
+
 	<!-- Custom CSS -->
-	<link href="plugins/bower_components/chartist/dist/chartist.min.css"
-		rel="stylesheet" />
-	<link rel="stylesheet"
-		href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+	<link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+
 	<!-- Custom CSS -->
 	<link href="css/style.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/Admin/css/stylesadmin.css" />
-	<link rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 </h:head>
-
-<h:body>
-
-
-	<div class="preloader">
-		<div class="lds-ripple">
-			<div class="lds-pos"></div>
-			<div class="lds-pos"></div>
-		</div>
-	</div>
+<body>
+	<!-- Preloader - style you can find in spinners.css
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+     -->
 
 	<!-- Main wrapper - style you can find in pages.scss -->
 	<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5"
 		data-sidebartype="full" data-sidebar-position="absolute"
 		data-header-position="absolute" data-boxed-layout="full">
-		<!-- Topbar header -->
+		<!-- Topbar header - style you can find in pages.scss -->
 		<header class="topbar" data-navbarbg="skin5">
 			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
 				<div class="navbar-header" data-logobg="skin6">
 					<!-- Logo -->
-					<a class="navbar-brand" href="dashboard.html"> <!-- Logo icon -->
+					<a class="navbar-brand" href="dashboard.jsf"> <!-- Logo icon -->
 						<b class="logo-icon"> <!-- Dark Logo icon --> <img
 							src="../assets/images/logo/fulllogo.png" width="200"
 							alt="homepage" />
@@ -69,6 +63,7 @@
 				<!-- End Logo -->
 				<div class="navbar-collapse collapse" id="navbarSupportedContent"
 					data-navbarbg="skin5">
+
 					<!-- Right side toggle and nav items -->
 					<ul class="navbar-nav ms-auto d-flex align-items-center">
 						<!-- User profile and search -->
@@ -82,9 +77,7 @@
 			</nav>
 		</header>
 		<!-- End Topbar header -->
-
 		<!-- Left Sidebar -->
-		<!-- Aside bar - Start-->
 		<aside class="left-sidebar" data-sidebarbg="skin6">
 			<!-- Sidebar scroll-->
 			<div class="scroll-sidebar scrollsa">
@@ -214,8 +207,6 @@
 			</div>
 			<!-- End Sidebar scroll-->
 		</aside>
-		<!-- Aside bar - End -->
-		<!-- Aside bar - End -->
 		<!-- End Left Sidebar  -->
 		<!-- Page wrapper  -->
 		<div class="page-wrapper">
@@ -223,7 +214,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Proveedor de la Empresa</h4>
+						<h4 class="page-title">Pedidos</h4>
 					</div>
 
 				</div>
@@ -242,7 +233,28 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:selectOneMenu value="#{pedidoBean.idEnvio}"
+													class="form-control">
+													<f:selectItems value="#{pedidoBean.listaEnvio}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{pedidoBean.listaEnvio}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.nombreLogistico}" />
+												</h:selectOneMenu>
+											</div>
 
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+												<h:selectOneMenu value="#{pedidoBean.idFactura}"
+													class="form-control">
+													<f:selectItems value="#{pedidoBean.listaFactura}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{pedidoBean.listaFactura}"
+														var="var1" itemValue="#{var1.id}"
+														itemLabel="#{var1.codigo}" />
+												</h:selectOneMenu>
+											</div>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
@@ -250,51 +262,72 @@
 													Agregar</button>
 
 											</div>
-
 											<div
 												class="d-grid gap-2 d-md-flex justify-content-md-center py-3">
 												<h:commandButton values="Export"
-													action="#{provBean.exportar()}" value="Excel"
+													action="#{pedidoBean.exportar()}" value="Excel"
 													class="btn btn-success"></h:commandButton>
 											</div>
-
-											<h:dataTable value="${provBean.encontrarTodo()}" var="pe"
+											<h:dataTable value="${pedidoBean.encontrarTodo()}" var="p"
 												border="1" class="table table-striped">
 												<h:column>
 													<f:facet name="header">Id</f:facet>
-													<h:outputText value="${pe.id}"></h:outputText>
+													<h:outputText value="${p.id}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Nombre</f:facet>
-													<h:outputText value="${pe.nombre}"></h:outputText>
+													<f:facet name="header">Pedido</f:facet>
+													<h:outputText value="${p.fechaPedido}"></h:outputText>
+												</h:column>
+
+
+												<h:column>
+													<f:facet name="header">Entrega</f:facet>
+													<h:outputText value="${p.fechaEntrega}"></h:outputText>
+												</h:column>
+
+
+												<h:column>
+													<f:facet name="header">Envio</f:facet>
+													<h:outputText value="${p.fechaEnvio}"></h:outputText>
+												</h:column>
+
+
+												<h:column>
+													<f:facet name="header">Forma de Envio</f:facet>
+													<h:outputText value="${p.formaEnvio}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Destinatario</f:facet>
+													<h:outputText value="${p.destinatario}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">Direccion</f:facet>
-													<h:outputText value="${pe.direccion}"></h:outputText>
+													<h:outputText value="${p.direccion}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Telefono</f:facet>
-													<h:outputText value="${pe.telefono}"></h:outputText>
+													<f:facet name="header">Factura</f:facet>
+													<h:outputText value="${p.idFactura.codigo}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Observaciones</f:facet>
-													<h:outputText value="${pe.observaciones}"></h:outputText>
+													<f:facet name="header">Envio</f:facet>
+													<h:outputText value="${p.idEnvio.nombreLogistico}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton action="#{provBean.encontrarId(pe.id)}"
+													<h:commandButton action="#{pedidoBean.encontrarId(p.id)}"
 														value="Editar" class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton action="#{provBean.eliminar(pe.id)}"
+													<h:commandButton action="#{pedidoBean.eliminar(p.id)}"
 														value="Eliminar" class="btn btn-danger"></h:commandButton>
 												</h:column>
 
@@ -319,44 +352,80 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="exampleModalLabel">Agregar
-									Proveedor Empresa</h5>
+									Pedido</h5>
 							</div>
-
 							<h:form>
 								<div class="modal-body">
 									<div class="form-group">
-										<h:outputText value="Nombre" class="form-label"></h:outputText>
-										<h:inputText value="#{provBean.pe.nombre}"
+										<h:outputText value="Pedido" class="form-label"></h:outputText>
+										<h:inputText value="#{pedidoBean.p.fechaPedido}"
+											class="form-control">
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+										</h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Fecha Entrega" class="form-label"></h:outputText>
+										<h:inputText value="#{pedidoBean.p.fechaEntrega}"
+											class="form-control">
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+										</h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Fecha Envio" class="form-label"></h:outputText>
+										<h:inputText value="#{pedidoBean.p.fechaEnvio}"
+											class="form-control">
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+										</h:inputText>
+									</div>
+									<div class="form-group">
+
+										<h:outputText class="form-label" value="Forma Envio"></h:outputText>
+										<h:inputText value="#{pedidoBean.p.formaEnvio}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Destinatario" class="form-label"></h:outputText>
+										<h:inputText value="#{pedidoBean.p.destinatario}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText value="Direccion" class="form-label"></h:outputText>
-										<h:inputText value="#{provBean.pe.direccion}"
+										<h:inputText value="#{pedidoBean.p.direccion}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Telefono" class="form-label"></h:outputText>
-										<h:inputText value="#{provBean.pe.telefono}"
-											class="form-control"></h:inputText>
+										<h:outputText value="Factura" class="form-label"></h:outputText>
+										<h:selectOneMenu value="#{pedidoBean.idFactura}"
+											class="form-control">
+											<f:selectItems value="#{pedidoBean.listaFactura}" var="p"
+												itemValue="#{p.id}" itemLabel="#{p.codigo}" />
+										</h:selectOneMenu>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Observaciones" class="form-label"></h:outputText>
-										<h:inputText value="#{provBean.pe.observaciones}"
-											class="form-control"></h:inputText>
+										<h:outputText value="Envio" class="form-label"></h:outputText>
+										<h:selectOneMenu value="#{pedidoBean.idEnvio}"
+											class="form-control">
+											<f:selectItems value="#{pedidoBean.listaEnvio}" var="en"
+												itemValue="#{en.id}" itemLabel="#{en.nombreLogistico}" />
+										</h:selectOneMenu>
 									</div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">Cerrar</button>
-										<h:commandButton action="#{provBean.agregar()}"
-											value="Agregar Proveedor" class="btn btn-success ms-5 mt-5"></h:commandButton>
-									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Cerrar</button>
+									<h:commandButton action="#{pedidoBean.agregar()}"
+										value="Agregar Pedido" class="btn btn-success"></h:commandButton>
 								</div>
 							</h:form>
+
 						</div>
 					</div>
 				</div>
+
+
 				<!-- Full screen modal -->
+
 
 			</div>
 		</div>
@@ -405,6 +474,6 @@
 		src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
 	<script src="/Admin/reportes/js/tabla/product.js"></script>
 
-</h:body>
+</body>
 
 </html>

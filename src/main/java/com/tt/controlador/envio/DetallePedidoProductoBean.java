@@ -134,7 +134,7 @@ public class DetallePedidoProductoBean {
 		dpp.setIdPedido(p);
 		dpp.setIdProducto(pro);
 		dtImp.agregar(dpp);
-		return "/faces/Admin/envios/detallepedidoproducto.xhtml?faces-redirect=true";
+		return "/faces/Admin/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -142,7 +142,7 @@ public class DetallePedidoProductoBean {
 		DetallePedidoProductoImp dtImp = new DetallePedidoProductoImp();
 		dpp = dtImp.econtrarId(id);
 		this.sessionMap.put("dpp", dpp);
-		return "/faces/Admin/editar/envios/detallepedidoproducto.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envio/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(DetallePedidoProducto dpp) {
@@ -159,14 +159,14 @@ public class DetallePedidoProductoBean {
 		dpp.setIdPedido(p);
 		dpp.setIdProducto(pro);
 		dtImp.actualizar(dpp);
-		return "/faces/Admin/envios/detallepedidoproducto.xhtml?faces-redirect=true";
+		return "/faces/Admin/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		DetallePedidoProductoImp dtImp = new DetallePedidoProductoImp();
 		dtImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/detallepedidop.xhtml?faces-redirect=true";
+		return "/faces/Admin/detallepedidoproducto.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

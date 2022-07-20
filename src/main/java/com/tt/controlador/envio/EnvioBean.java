@@ -128,7 +128,7 @@ public class EnvioBean {
 		EnvioImp eImp = new EnvioImp();
 		en = eImp.econtrarId(id);
 		this.sessionMap.put("en", en);
-		return "/faces/Admin/editar/envios/envio.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/envio/envio.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Envio en) {
