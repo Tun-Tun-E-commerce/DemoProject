@@ -49,7 +49,7 @@ public class TipoDocumentoBean {
 	public String agregar() {
 		TipoDocumentoImp tipoDocImp = new TipoDocumentoImp();
 		tipoDocImp.agregar(tipoDocumento);
-		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
+		return "/faces/Admin/tipodocumento.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -65,15 +65,14 @@ public class TipoDocumentoBean {
 		System.out.println("Entro a actualizar Tipo Documento");
 		TipoDocumentoImp tipoDocumentoImp = new TipoDocumentoImp();
 		tipoDocumentoImp.actualizar(tipoDocumento);
-		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/tipodocumento.xhtml?faces-redirect=true";
+		}
 
 	public String eliminar(int id) {
 		TipoDocumentoImp tipoDocumento = new TipoDocumentoImp();
 		tipoDocumento.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/usuario/tipodocumento.xhtml?faces-redirect=true";
-
+		return "/faces/Admin/tipodocumento.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

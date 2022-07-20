@@ -84,7 +84,7 @@ public class PrivilegioBean {
 		rol = rolImp.econtrarId(idRol);
 		privilegio.setIdRol(rol);
 		privilegioImp.agregar(privilegio);
-		return "/faces/Admin/usuario/privilegios.xhtml?faces-redirect=true";
+		return "/faces/Admin/privilegios.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -104,15 +104,15 @@ public class PrivilegioBean {
 		System.out.println("Rol" + rol.toString());
 		privilegio.setIdRol(rol);
 		privilegioImp.actualizar(privilegio);
-		return "/faces/Admin/usuario/privilegios.xhtml?faces-redirect=true";
+		return "/faces/Admin/privilegios.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		PrivilegioImp privilegio = new PrivilegioImp();
 		privilegio.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/usuario/privilegios.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/privilegios.xhtml?faces-redirect=true";
+		}
 
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()

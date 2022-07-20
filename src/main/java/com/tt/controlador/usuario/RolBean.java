@@ -49,7 +49,7 @@ public class RolBean {
 	public String agregar() {
 		RolImp rolImp = new RolImp();
 		rolImp.agregar(rol);
-		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
+		return "/faces/Admin/roles.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -64,15 +64,15 @@ public class RolBean {
 		System.out.println("Entro a actualizar Rol");
 		RolImp rolImp = new RolImp();
 		rolImp.actualizar(rol);
-		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/roles.xhtml?faces-redirect=true";
+		}
 
 	public String eliminar(int id) {
 		RolImp rol = new RolImp();
 		rol.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/usuario/roles.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/roles.xhtml?faces-redirect=true";
+		}
 
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()

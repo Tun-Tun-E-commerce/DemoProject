@@ -8,28 +8,23 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-	<meta name="keywords"
-		content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
-	<meta name="description"
-		content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
+	<meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template"></meta>
+	<meta name="description" content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework"></meta>
 	<meta name="robots" content="noindex,nofollow"></meta>
 	<title>Admin | Tun Tun</title>
-	<link rel="canonical"
-		href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	<link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+	
 	<!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16"
-		href="../assets/images/logo/logo.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo/logo.png" />
+
 	<!-- Custom CSS -->
-	<link href="plugins/bower_components/chartist/dist/chartist.min.css"
-		rel="stylesheet" />
-	<link rel="stylesheet"
-		href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+	<link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" />
+
 	<!-- Custom CSS -->
 	<link href="css/style.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="/Admin/css/stylesadmin.css" />
-	<link rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 </h:head>
 
 <h:body>
@@ -51,7 +46,7 @@
 			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
 				<div class="navbar-header" data-logobg="skin6">
 					<!-- Logo -->
-					<a class="navbar-brand" href="dashboard.html"> <!-- Logo icon -->
+					<a class="navbar-brand" href="dashboard.xhtml"> <!-- Logo icon -->
 						<b class="logo-icon"> <!-- Dark Logo icon --> <img
 							src="../assets/images/logo/fulllogo.png" width="200"
 							alt="homepage" />
@@ -84,13 +79,13 @@
 		<!-- End Topbar header -->
 
 		<!-- Left Sidebar -->
-		<!-- Aside bar - Start-->
 		<aside class="left-sidebar" data-sidebarbg="skin6">
 			<!-- Sidebar scroll-->
 			<div class="scroll-sidebar scrollsa">
 				<!-- Sidebar navigation-->
 				<nav class="sidebar-nav">
 					<ul id="sidebarnav">
+
 						<!--User Profile -->
 						<li class="sidebar-item"><h:link
 								class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -112,7 +107,7 @@
 									<li class="list-group-item list-group-item-secondary"><h:link
 											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
 									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="RespuestaPQR.xhtml"> Calificaciones PQR </h:link></li>
+											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -215,7 +210,6 @@
 			<!-- End Sidebar scroll-->
 		</aside>
 		<!-- Aside bar - End -->
-		<!-- Aside bar - End -->
 		<!-- End Left Sidebar  -->
 		<!-- Page wrapper  -->
 		<div class="page-wrapper">
@@ -223,7 +217,7 @@
 			<div class="page-breadcrumb bg-white">
 				<div class="row align-items-center">
 					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h4 class="page-title">Roles</h4>
+						<h4 class="page-title">Registro de Usuarios</h4>
 					</div>
 
 				</div>
@@ -242,70 +236,137 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-
 											<div class="col-sm-4">
-												<h:outputLabel for="idRolFk" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
-												<h:selectOneMenu value="#{privilegioBean.idRol}"
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Nombre</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idUsuarioN}"
 													class="form-control">
-													<f:selectItems value="#{privilegioBean.listaRoles}"
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
 														itemValue="" itemLabel="Seleccionar" />
-													<f:selectItems value="#{privilegioBean.listaRoles}"
-														var="rol" itemValue="#{rol.id}" itemLabel="#{rol.nombre}" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Apellido</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idUsuarioA}"
+													class="form-control">
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{usuarioBean.listaUsuarios}"
+														var="var" itemValue="#{var.id}"
+														itemLabel="#{var.apellido}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Rol</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idRol}"
+													class="form-control">
+													<f:selectItems value="#{usuarioBean.listaRoles}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{usuarioBean.listaRoles}" var="var"
+														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
+												</h:selectOneMenu>
+											</div>
+											<div class="col-sm-4">
+												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Tipo Documento</h:outputLabel>
+												<h:selectOneMenu value="#{usuarioBean.idTipoDocumento}"
+													class="form-control">
+													<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
+														itemValue="" itemLabel="Seleccionar" />
+													<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
+														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
 
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
-													data-bs-toggle="modal" data-bs-target="#agregarP">Agregar</button>
-
+													data-bs-toggle="modal" data-bs-target="#agregarP">
+													Agregar</button>
 											</div>
+
 											<div
 												class="d-grid gap-2 d-md-flex justify-content-md-center py-3">
 												<h:commandButton values="Export"
-													action="#{privilegioBean.exportar()}" value="Excel"
+													action="#{usuarioBean.exportar()}" value="Excel"
 													class="btn btn-success"></h:commandButton>
 											</div>
-											<h:dataTable value="${privilegioBean.encontrarTodo()}"
-												var="priv" border="1" class="table table-striped">
+											<h:dataTable value="${usuarioBean.encontrarTodo()}" var="u"
+												border="1" class="table table-striped">
 												<h:column>
 													<f:facet name="header">Id</f:facet>
-													<h:outputText value="${priv.id}"></h:outputText>
+													<h:outputText value="${u.id}"></h:outputText>
 												</h:column>
 
 												<h:column>
 													<f:facet name="header">Nombre</f:facet>
-													<h:outputText value="${priv.nombre}"></h:outputText>
+													<h:outputText value="${u.nombre}"></h:outputText>
 												</h:column>
 
 												<h:column>
-													<f:facet name="header">Descripcion</f:facet>
-													<h:outputText value="${priv.descripcion}"></h:outputText>
+													<f:facet name="header">Apellido</f:facet>
+													<h:outputText value="${u.apellido}"></h:outputText>
 												</h:column>
+
+												<h:column>
+													<f:facet name="header">Contraseña</f:facet>
+													<h:outputText value="${u.contrasena}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Telefono</f:facet>
+													<h:outputText value="${u.telefono}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Direccion</f:facet>
+													<h:outputText value="${u.direccion}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Correo</f:facet>
+													<h:outputText value="${u.correo}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Identificacion</f:facet>
+													<h:outputText value="${u.identificacion}"></h:outputText>
+												</h:column>
+
+												<h:column>
+													<f:facet name="header">Fecha de nacimiento</f:facet>
+													<h:outputText value="${u.fechaNacimiento}"></h:outputText>
+												</h:column>
+
 
 												<h:column>
 													<f:facet name="header">Rol</f:facet>
-													<h:outputText value="${priv.idRol.nombre}"></h:outputText>
+													<h:outputText value="${u.idRol.nombre}"></h:outputText>
 												</h:column>
+
+												<h:column>
+													<f:facet name="header">Tipo de Documento</f:facet>
+													<h:outputText value="${u.idTipoDocumento.nombre}"></h:outputText>
+												</h:column>
+
+
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton
-														action="#{privilegioBean.encontrarId(priv.id)}"
+													<h:commandButton action="#{usuarioBean.encontrarId(u.id)}"
 														value="Editar" class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton
-														action="#{privilegioBean.eliminar(priv.id)}"
+													<h:commandButton action="#{usuarioBean.eliminar(u.id)}"
 														value="Eliminar" class="btn btn-danger"></h:commandButton>
 												</h:column>
+
 											</h:dataTable>
 										</h:form>
 									</table>
 								</div>
-
 							</div>
 						</div>
 
@@ -323,40 +384,76 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="exampleModalLabel">Agregar
-									Roles</h5>
+									Usuario</h5>
 							</div>
 
 							<h:form>
 								<div class="modal-body">
+
 									<div class="form-group">
-										<h:outputText class="form-label" value="Nombre Privilegio"></h:outputText>
-										<h:inputText value="#{privilegioBean.privilegio.nombre}"
+										<h:outputText class="form-label" value="Nombre"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.nombre}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
-										<h:outputText value="Descripcion Privilegio"
-											class="form-label"></h:outputText>
-										<h:inputText value="#{privilegioBean.privilegio.descripcion}"
+										<h:outputText value="Apellido" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.apellido}"
 											class="form-control"></h:inputText>
-
 									</div>
-
+									<div class="form-group">
+										<h:outputText value="Contraseña" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.contrasena}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Telefono" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.telefono}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Direccion" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.direccion}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Correo" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.correo}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Identificacion" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.identificacion}"
+											class="form-control"></h:inputText>
+									</div>
+									<div class="form-group">
+										<h:outputText value="Fecha Nacimiento" class="form-label"></h:outputText>
+										<h:inputText value="#{usuarioBean.usuario.fechaNacimiento}"
+											class="form-control">
+											<f:convertDateTime pattern="yyyy/MM/dd" type="Date" />
+										</h:inputText>
+									</div>
 									<div class="form-group">
 										<h:outputText value="ID Rol" class="form-label"></h:outputText>
-
-										<h:selectOneMenu value="#{privilegioBean.idRol}"
+										<h:selectOneMenu value="#{usuarioBean.idRol}"
 											class="form-control">
-											<f:selectItems value="#{privilegioBean.listaRoles}" var="rol"
+											<f:selectItems value="#{usuarioBean.listaRoles}" var="rol"
 												itemValue="#{rol.id}" itemLabel="#{rol.nombre}" />
 										</h:selectOneMenu>
 									</div>
-
+									<div class="form-group">
+										<h:outputText value="ID Tipo Documento" class="form-label"></h:outputText>
+										<h:selectOneMenu value="#{usuarioBean.idTipoDocumento}"
+											class="form-control">
+											<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
+												var="td" itemValue="#{td.id}" itemLabel="#{td.nombre}" />
+										</h:selectOneMenu>
+									</div>
 
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">Cerrar</button>
-										<h:commandButton action="#{privilegioBean.agregar()}"
-											value="Agregar Privilegio" class="btn btn-success"></h:commandButton>
+										<h:commandButton action="#{usuarioBean.agregar()}"
+											value="Agregar Usuario" class="btn btn-success"></h:commandButton>
 									</div>
 								</div>
 							</h:form>
@@ -365,7 +462,6 @@
 					</div>
 				</div>
 				<!-- Full screen modal -->
-
 			</div>
 		</div>
 		<!-- End Page wrapper  -->
