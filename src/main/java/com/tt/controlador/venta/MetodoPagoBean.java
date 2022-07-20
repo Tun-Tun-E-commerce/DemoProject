@@ -57,7 +57,7 @@ public class MetodoPagoBean {
 	public String agregar() {
 		MetodoPagoImp mImp = new MetodoPagoImp();
 		mImp.agregar(m);
-		return "/faces/Admin/venta/metodopago.xhtml?faces-redirect=true";
+		return "/faces/Admin/metodopago.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -72,14 +72,14 @@ public class MetodoPagoBean {
 		System.out.println("Entro a actualizar Rol");
 		MetodoPagoImp mImp = new MetodoPagoImp();
 		mImp.actualizar(m);
-		return "/faces/Admin/venta/metodopago.xhtml?faces-redirect=true";
+		return "/faces/Admin/metodopago.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		MetodoPagoImp m = new MetodoPagoImp();
 		m.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/venta/metodopago.xhtml?faces-redirect=true";
+		return "/faces/Admin/metodopago.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

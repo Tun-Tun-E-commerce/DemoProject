@@ -200,7 +200,7 @@ public class ProductoBean {
 		p.setIdReferenciaProducto(rf);
 		p.setIdProveedorMateria(proveedorM);
 		pImp.agregar(p);
-		return "/faces/Admin/venta/producto.xhtml?faces-redirect=true";
+		return "/faces/Admin/producto.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -235,15 +235,15 @@ public class ProductoBean {
 		p.setIdReferenciaProducto(rf);
 		p.setIdProveedorMateria(proveedorM);
 		pImp.actualizar(p);
-		return "/faces/Admin/venta/producto.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/producto.xhtml?faces-redirect=true";
+		}
 
 	public String eliminar(int id) {
 		ProductoImp pImp = new ProductoImp();
 		pImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/venta/producto.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/producto.xhtml?faces-redirect=true";
+		}
 
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()
