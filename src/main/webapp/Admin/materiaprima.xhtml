@@ -48,7 +48,7 @@
 			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
 				<div class="navbar-header" data-logobg="skin6">
 					<!-- Logo -->
-					<a class="navbar-brand" href="dashboard.jsf"> <!-- Logo icon -->
+					<a class="navbar-brand" href="dashboard.xhtml"> <!-- Logo icon -->
 						<b class="logo-icon"> <!-- Dark Logo icon --> <img
 							src="../assets/images/logo/fulllogo.png" width="200"
 							alt="homepage" />
@@ -68,48 +68,75 @@
 					data-navbarbg="skin5">
 					<!-- Right side toggle and nav items -->
 					<ul class="navbar-nav ms-auto d-flex align-items-center">
-						<!-- User profile and search -->
-						<li><a class="profile-pic" href="#"> <img
+						<div class="dropstart">
+  						<img src="plugins/images/users/varun.jpg" alt="user-img" width="36" class=" dropdown-toggle" 
+  						id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></img>
+    					
+  						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  						
+    					<li><a class="dropdown-item" href="usuario/administrador.xhtml">Ver Perfil</a></li>
+    					<li><a class="dropdown-item" href="../autenticacion/usuario/login.xhtml">Cerrar Sesión</a></li>
+    					
+    					</ul>
+    					</div>
+    					
+  						</ul>
+  						
+						
+						<!-- User profile and search 
+						<li>
+						<a class="profile-pic" href="#"> <img
 								src="plugins/images/users/varun.jpg" alt="user-img" width="36"
-								class="img-circle" /><span class="text-dark font-medium">Admin</span></a>
-						</li>
+								class="img-circle" /><span class="text-dark font-medium">
+									Admin</span></a>
+									</li>
+									-->
 						<!-- User profile and search -->
-					</ul>
+					
 				</div>
 			</nav>
 		</header>
 		<!-- End Topbar header -->
 
-		<!-- Left Sidebar -->
 		<!-- Aside bar - Start-->
+		<!-- Sidebar scroll-->
 		<aside class="left-sidebar" data-sidebarbg="skin6">
 			<!-- Sidebar scroll-->
 			<div class="scroll-sidebar scrollsa">
 				<!-- Sidebar navigation-->
 				<nav class="sidebar-nav">
 					<ul id="sidebarnav">
+						<li>
+							<div class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false">
+								<i class="bi"></i><br></br><br></br>
+								<span class="hide-menu bg-transparen"></span>
+							</div>
+						</li>
 						<!--User Profile -->
-						<li class="sidebar-item"><h:link
+						<li class="sidebar-item"><a
 								class="sidebar-link waves-effect waves-dark sidebar-link"
-								outcome="dashboard.xhtml" aria-expanded="false">
+								href="dashboard.xhtml" aria-expanded="false">
 								<i class="fa fa-clock" aria-hidden="true"></i>
 								<span class="hide-menu">Dashboard</span>
-							</h:link></li>
+							</a></li>
 						<li class="sidebar-item pt-2"><a
 							class="sidebar-link waves-effect waves-dark sidebar-link"
 							data-bs-toggle="collapse" href="#collapseExample" role="button"
 							aria-expanded="false" aria-controls="collapseExample"> <i
 								class="fa fa-users" aria-hidden="true"></i> Fidelización del
-								cliente
+								clientes
 						</a>
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="PQRS.xhtml"> PQRS </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="RespuestaPQR.xhtml"> Respuestas PQRS </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="Calificacion.xhtml"> Calificaciones PQR </h:link></li>
+									<li class="list-group-item list-group-item-secondary">
+									<a href="pqr.xhtml"> PQRS </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="respuestapqr.xhtml"> Respuestas PQRS </a>
+									</li>
+								
+									<li class="list-group-item list-group-item-secondary"><a
+											href="calificacion.xhtml"> Calificaciones PQR </a></li>
+
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -120,14 +147,14 @@
 						</a>
 							<div class="collapse" id="collapseExample2">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="tipodoc.xhtml"> Tipo de Documento </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="roles.xhtml"> Roles </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="privilegios.xhtml"> Privilegios </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="Usuarios.xhtml"> Usuarios </h:link></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="tipodocumento.xhtml"> Tipo de Documento </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="roles.xhtml"> Roles </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="privilegios.xhtml"> Privilegios </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="usuario.xhtml"> Usuarios </a></li>
 
 								</ul>
 							</div></li>
@@ -139,19 +166,20 @@
 						</a>
 							<div class="collapse" id="collapseExample3">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="referenciaP.xhtml"> Referencia Producto </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="materiaPrima.xhtml">Materia Prima </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="ordenP.xhtml">Orden Producccion </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="inventario.xhtml">Inventario </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="proveedorM.xhtml">Proveedor Materia Prima </h:link>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="referenciaproducto.xhtml"> Referencia Producto </a></li>
+									
+									<li class="list-group-item list-group-item-secondary"><a
+											href="ordenproduccion.xhtml">Orden Producccion </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="inventario.xhtml">Inventario </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="proveedormateriaprima.xhtml">Proveedor Materia Prima </a>
 									</li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="detalleOP.xhtml">Detalle Orden Producccion </h:link>
+									<li class="list-group-item list-group-item-secondary"><a class="text-dark"
+											href="materiaprima.xhtml">Materia Prima </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="detalleordenproduccion.xhtml">Detalle Orden Producccion </a>
 									</li>
 
 
@@ -167,16 +195,16 @@
 						</a>
 							<div class="collapse" id="collapseExample4">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="metodopago.xhtml"> Método de Pago</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="facturas.xhtml">Factura</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="product.xhtml"> Productos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="categories.xhtml">Categorias</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="Carrito.xhtml">Carrito de Compras</h:link></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="metodopago.xhtml"> Método de Pago</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="factura.xhtml">Factura</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="producto.xhtml"> Productos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="categoria.xhtml">Categorias</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="carrito.xhtml">Carrito de Compras</a></li>
 								</ul>
 							</div></li>
 						<li class="sidebar-item pt-2"><a
@@ -188,20 +216,20 @@
 						</a>
 							<div class="collapse" id="collapseExample5">
 								<ul class="list-group">
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="almacenes.xhtml">Almacenes</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="companiaenvio.xhtml">Compañías de Envío</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="order.xhtml">Pedidos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="detallepedidop.xhtml">Detalle de los Pedidos</h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="delivery.xhtml"> Envio </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="return.xhtml"> Devoluciones </h:link></li>
-									<li class="list-group-item list-group-item-secondary"><h:link
-											outcome="ProveedorEmpresa.xhtml"> Proveedores de la empresa </h:link>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="almacen.xhtml">Almacenes</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="companiaenvio.xhtml">Compañías de Envío</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="pedido.xhtml">Pedidos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="detallepedidoproducto.xhtml">Detalle de los Pedidos</a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="envio.xhtml"> Envio </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="devolucion.xhtml"> Devoluciones </a></li>
+									<li class="list-group-item list-group-item-secondary"><a
+											href="proveedorempresa.xhtml"> Proveedores de la empresa </a>
 									</li>
 								</ul>
 							</div></li>
