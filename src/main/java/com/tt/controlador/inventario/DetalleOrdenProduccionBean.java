@@ -120,7 +120,7 @@ public class DetalleOrdenProduccionBean {
 		detalleOrdenProduccion.setIdMateriaPrima(mt);
 		detalleOrdenProduccion.setIdOrdenProduccion(o);
 		dtImp.agregar(detalleOrdenProduccion);
-		return "/faces/Admin/inventario/detalleordenproduccion.xhtml?faces-redirect=true";
+		return "/faces/Admin/detalleordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -144,14 +144,14 @@ public class DetalleOrdenProduccionBean {
 		detalleOrdenProduccion.setIdMateriaPrima(mt);
 		detalleOrdenProduccion.setIdOrdenProduccion(o);
 		dtImp.actualizar(detalleOrdenProduccion);
-		return "/faces/Admin/inventario/detalleordenproduccion.xhtml?faces-redirect=true";
+		return "/faces/Admin/detalleordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		DetalleOrdenProduccionImp dtImp = new DetalleOrdenProduccionImp();
 		dtImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/inventario/detalleordenproduccion.xhtml?faces-redirect=true";
+		return "/faces/Admin/detalleordenproduccion.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
