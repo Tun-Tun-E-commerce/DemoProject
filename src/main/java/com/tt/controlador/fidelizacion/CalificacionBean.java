@@ -94,7 +94,7 @@ public class CalificacionBean {
 		pqr = pImp.econtrarId(idPqr);
 		calificacion.setIdPqr(pqr);
 		cImp.agregar(calificacion);
-		return "/faces/Admin/Calificacion.xhtml?faces-redirect=true";
+		return "/faces/Admin/calificacion.xhtml?faces-redirect=true";
 	}
 
 	public String econtrarId(int id) {
@@ -102,7 +102,7 @@ public class CalificacionBean {
 		CalificacionImp cImp = new CalificacionImp();
 		calificacion = cImp.econtrarId(id);
 		this.sessionMap.put("calificacion", calificacion);
-		return "/faces/Admin/editar/editarCALIFICACION.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/calificacion.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(Calificacion calificacion) {
@@ -113,14 +113,14 @@ public class CalificacionBean {
 		pqr = pImp.econtrarId(calificacion.getIdPqr().getId());
 		calificacion.setIdPqr(pqr);
 		cImp.actualizar(calificacion);
-		return "/faces/Admin/Calificacion.xhtml?faces-redirect=true";
+		return "/faces/Admin/calificacion.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		CalificacionImp cImp = new CalificacionImp();
 		cImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/Calificacion.xhtml?faces-redirect=true";
+		return "/faces/Admin/calificacion.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {

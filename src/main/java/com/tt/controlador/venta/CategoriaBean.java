@@ -57,8 +57,8 @@ public class CategoriaBean {
 	public String agregar() {
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.agregar(c);
-		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/categoria.xhtml?faces-redirect=true";
+		}
 
 	public String encontrarId(int id) {
 		System.out.println("Entro al editar" + id);
@@ -72,15 +72,15 @@ public class CategoriaBean {
 		System.out.println("Entro a actualizar Categoria");
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.actualizar(c);
-		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
+		return "/faces/Admin/categoria.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		CategoriaImp cImp = new CategoriaImp();
 		cImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/venta/categoria.xhtml?faces-redirect=true";
-	}
+		return "/faces/Admin/categoria.xhtml?faces-redirect=true";
+		}
 
 	public void exportar() throws IOException {
 		HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext()

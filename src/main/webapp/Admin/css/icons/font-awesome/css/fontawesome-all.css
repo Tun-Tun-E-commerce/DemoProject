@@ -503,12 +503,15 @@ readers do not read off random characters that represent icons */
   content: "\f436"; }
 
 .fa-box:before {
+  color: #93ccff;
   content: "\f466"; }
 
 .fa-box-open:before {
+  color: #93ccff;
   content: "\f49e"; }
 
 .fa-boxes:before {
+  color: #93ccff;
   content: "\f468"; }
 
 .fa-braille:before {

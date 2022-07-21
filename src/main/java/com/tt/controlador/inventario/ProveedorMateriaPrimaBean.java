@@ -92,7 +92,7 @@ public class ProveedorMateriaPrimaBean {
 		mt = mtImp.econtrarId(idMateriaPrima);
 		pmt.setIdMateriaPrima(mt);
 		pmtImp.agregar(pmt);
-		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
+		return "/faces/Admin/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public String encontrarId(int id) {
@@ -112,14 +112,14 @@ public class ProveedorMateriaPrimaBean {
 		System.out.println("MateriaPrima" + mt.toString());
 		pmt.setIdMateriaPrima(mt);
 		pmtImp.actualizar(pmt);
-		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
+		return "/faces/Admin/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public String eliminar(int id) {
 		ProveedorMateriaPrimaImp pmtImp = new ProveedorMateriaPrimaImp();
 		pmtImp.eliminar(id);
 		System.out.print("Se elimino el dato");
-		return "/faces/Admin/inventario/proveedormateriaprima.xhtml?faces-redirect=true";
+		return "/faces/Admin/proveedormateriaprima.xhtml?faces-redirect=true";
 	}
 
 	public void exportar() throws IOException {
