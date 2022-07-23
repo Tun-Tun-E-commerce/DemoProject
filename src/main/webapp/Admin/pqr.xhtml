@@ -319,14 +319,14 @@
 
 												<h:column>
 													<f:facet name="header">Editar</f:facet>
-													<h:commandButton action="#{PqrBean.encontrarId(p.id)}"
+													<h:commandButton action="#{pqrBean.encontrarId(p.id)}"
 														value="Editar" class="btn btn-warning"></h:commandButton>
 												</h:column>
 
 
 												<h:column>
 													<f:facet name="header">Eliminar</f:facet>
-													<h:commandButton action="#{PqrBean.eliminar(p.id)}"
+													<h:commandButton action="#{pqrBean.eliminar(p.id)}"
 														value="Eliminar" class="btn btn-danger"></h:commandButton>
 												</h:column>
 
@@ -360,18 +360,18 @@
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputText class="form-label" value="Titulo"></h:outputText>
-										<h:inputText value="#{PqrBean.pqr.titulo}"
+										<h:inputText value="#{pqrBean.pqr.titulo}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText value="Descripcion" class="form-label"></h:outputText>
-										<h:inputText value="#{PqrBean.pqr.descripcion}"
+										<h:inputText value="#{pqrBean.pqr.descripcion}"
 											class="form-control"></h:inputText>
 									</div>
 									<div class="form-group">
 										<h:outputText value="Fecha" class="form-label"></h:outputText>
 
-										<h:inputText value="#{PqrBean.pqr.fecha}"
+										<h:inputText value="#{pqrBean.pqr.fecha}"
 											class="form-control"></h:inputText>
 										<h:inputText value="#{pqrBean.pqr.fecha}" class="form-control">
 
