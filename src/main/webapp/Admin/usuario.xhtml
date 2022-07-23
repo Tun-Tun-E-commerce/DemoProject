@@ -264,8 +264,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Nombre</h:outputLabel>
+										<div class="row justify-content-center">
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Nombre</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idUsuarioN}"
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaUsuarios}"
@@ -274,8 +275,8 @@
 														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Apellido</h:outputLabel>
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Apellido</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idUsuarioA}"
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaUsuarios}"
@@ -285,8 +286,8 @@
 														itemLabel="#{var.apellido}" />
 												</h:selectOneMenu>
 											</div>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Rol</h:outputLabel>
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Rol</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idRol}"
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaRoles}"
@@ -295,8 +296,9 @@
 														itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Tipo Documento</h:outputLabel>
+											
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Tipo Documento</h:outputLabel>
 												<h:selectOneMenu value="#{usuarioBean.idTipoDocumento}"
 													class="form-control">
 													<f:selectItems value="#{usuarioBean.listaTipoDocumento}"
@@ -305,7 +307,8 @@
 														var="var" itemValue="#{var.id}" itemLabel="#{var.nombre}" />
 												</h:selectOneMenu>
 											</div>
-
+											</div>
+											<br/>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"

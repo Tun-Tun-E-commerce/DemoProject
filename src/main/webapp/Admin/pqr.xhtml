@@ -129,7 +129,7 @@
 							<div class="collapse" id="collapseExample">
 								<ul class="list-group">
 									<li class="list-group-item list-group-item-secondary">
-									<a href="pqr.xhtml"> PQRS </a></li>
+									<a href="pqr.xhtml" class="text-dark"> PQRS </a></li>
 									<li class="list-group-item list-group-item-secondary"><a
 											href="respuestapqr.xhtml"> Respuestas PQRS </a>
 									</li>
@@ -267,8 +267,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Fecha</h:outputLabel>
+										<div class="row justify-content-center">
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Fecha</h:outputLabel>
 												<h:selectOneMenu value="#{pqrBean.idPqrFecha}"
 													class="form-control">
 													<f:selectItems value="#{pqrBean.listPqr}" itemValue=""
@@ -277,6 +278,9 @@
 														itemValue="#{var.id}" itemLabel="#{var.fecha}" />
 												</h:selectOneMenu>
 											</div>
+											</div>
+											<br/>
+											
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"

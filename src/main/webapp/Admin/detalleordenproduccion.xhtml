@@ -262,8 +262,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+										<div class="row justify-content-center">
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Materia Prima</h:outputLabel>
+												<h:outputLabel for="id" class="text-center col-sm-12">Exportar por  Materia Prima</h:outputLabel>
 												<h:selectOneMenu value="#{dtoBean.idMateriaPrima}"
 													class="form-control">
 													<f:selectItems value="#{dtoBean.listaMateriaPrima}"
@@ -273,7 +274,7 @@
 												</h:selectOneMenu>
 											</div>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio de Orden Produccion</h:outputLabel>
+												<h:outputLabel for="id" class="text-center col-sm-12">Exportar por Orden Produccion</h:outputLabel>
 												<h:selectOneMenu value="#{dtoBean.idOrdenProduccion}"
 													class="form-control">
 													<f:selectItems value="#{dtoBean.listaOrdenProdccion}"
@@ -283,6 +284,8 @@
 														itemLabel="#{var.cantidad}" />
 												</h:selectOneMenu>
 											</div>
+											</div>
+											<br/>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"

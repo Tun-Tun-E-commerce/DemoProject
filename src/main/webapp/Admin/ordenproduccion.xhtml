@@ -264,8 +264,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
-											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio</h:outputLabel>
+										<div class="row justify-content-center">
+											<div class="col-sm-3">
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por saldo del inventario</h:outputLabel>
 												<h:selectOneMenu
 													value="#{ordenBean.idIventarioMateriaPrima}"
 													class="form-control">
@@ -275,7 +276,8 @@
 														itemValue="#{var.id}" itemLabel="#{var.saldo}" />
 												</h:selectOneMenu>
 											</div>
-
+											</div>
+											<br/>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
