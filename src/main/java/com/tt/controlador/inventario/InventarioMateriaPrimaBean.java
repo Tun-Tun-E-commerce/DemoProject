@@ -99,7 +99,7 @@ public class InventarioMateriaPrimaBean {
 		InventarioMateriaPrimaImp invImp = new InventarioMateriaPrimaImp();
 		invMT = invImp.econtrarId(id);
 		this.sessionMap.put("invMT", invMT);
-		return "/faces/Admin/editar/inventario.xhtml?faces-redirect=true";
+		return "/faces/Admin/editar/inventario/inventario.xhtml?faces-redirect=true";
 	}
 
 	public String actualizar(InventarioMateriaPrima invMT) {
