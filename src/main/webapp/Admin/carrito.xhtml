@@ -264,8 +264,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+										<div class="row justify-content-center">
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Producto</h:outputLabel>
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por  Producto</h:outputLabel>
 												<h:selectOneMenu value="#{ccBean.idProducto}"
 													class="form-control">
 													<f:selectItems value="#{ccBean.listaProducto}" itemValue=""
@@ -275,7 +276,7 @@
 												</h:selectOneMenu>
 											</div>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Usuario</h:outputLabel>
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Usuario</h:outputLabel>
 												<h:selectOneMenu value="#{ccBean.idUsuario}"
 													class="form-control">
 													<f:selectItems value="#{ccBean.listaUsuario}" itemValue=""
@@ -284,6 +285,8 @@
 														itemValue="#{var1.id}" itemLabel="#{var1.nombre}" />
 												</h:selectOneMenu>
 											</div>
+											</div>
+											<br/>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
