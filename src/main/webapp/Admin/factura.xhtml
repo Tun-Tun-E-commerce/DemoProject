@@ -264,8 +264,9 @@
 									<table class="table text-nowrap" id="example"
 										style="width: 100%">
 										<h:form>
+										<div class="row justify-content-center">
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Metodo Pago</h:outputLabel>
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Metodo Pago</h:outputLabel>
 												<h:selectOneMenu value="#{fBean.idMetodoPago}"
 													class="form-control">
 													<f:selectItems value="#{fBean.listaMetodoPago}"
@@ -275,7 +276,7 @@
 												</h:selectOneMenu>
 											</div>
 											<div class="col-sm-4">
-												<h:outputLabel for="id" class="control-label  col-sm-4">MultiCriterio Carrito</h:outputLabel>
+												<h:outputLabel for="id" class="text-center  col-sm-12">Exportar por Carrito</h:outputLabel>
 												<h:selectOneMenu value="#{fBean.idCarrito}"
 													class="form-control">
 													<f:selectItems value="#{fBean.listaCarritoCompra}"
@@ -285,6 +286,8 @@
 														itemLabel="#{var1.cantidad}" />
 												</h:selectOneMenu>
 											</div>
+											</div>
+											<br/>
 											<div class="text-center">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-success"
