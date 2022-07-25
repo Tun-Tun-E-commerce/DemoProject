@@ -14,22 +14,22 @@
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon"
-		href="../assets/images/logo/logo.png"></link>
+		href="../../assets/images/logo/logo.png"></link>
 	<link rel="stylesheet" href="fonts/icomoon/style.css"></link>
 
 	<!-- PLugins/fonts CSS-->
-	<link rel="stylesheet" href="../assets/css/vendor/line-awesome.min.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/slick.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/animate.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/easyzoom.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/aos.css"></link>
-	<link rel="stylesheet" href="../assets/fonts/icomoon/style-Icon.css"></link>
+	<link rel="stylesheet" href="../../assets/css/vendor/line-awesome.min.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/slick.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/animate.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/easyzoom.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/aos.css"></link>
+	<link rel="stylesheet" href="../../assets/fonts/icomoon/style-Icon.css"></link>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="../assets/css/bootstrap.min.css"></link>
-	<link rel="stylesheet" href="../assets/css/styles.css"></link>
-	<link rel="stylesheet" href="../assets/css/style.css"></link>
-	<link rel="stylesheet" href="../assets/css/chatbot.css"></link>
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="../../assets/css/styles.css"></link>
+	<link rel="stylesheet" href="../../assets/css/style.css"></link>
+	<link rel="stylesheet" href="../../assets/css/chatbot.css"></link>
 
 </h:head>
 
@@ -49,16 +49,17 @@
 					</div>
 					<div class="col-4">
 						<div class="logo text-center">
-							<h:link class="nav-link" alt="logo" outcome="index-cliente.xhtml">
-								<img src="../assets/images/logo/logo.png" alt="logo" />
-							</h:link>
+							<a class="nav-link" alt="logo" href="../index-cliente.xhtml">
+								<img src="../../assets/images/logo/logo.png" alt="logo" />
+							</a>
 						</div>
 						<nav class="navbar navbar-expand-sm justify-content-center">
 							<ul class="navbar-nav">
-								<li class="nav-item"><h:link class="nav-link"
-										outcome="index-cliente.xhtml">INICIO</h:link></li>
-								<li class="nav-item"><h:link class="nav-link"
-										outcome="product.xhtml">PRODUCTOS</h:link></li>
+								<li class="nav-item"><a class="nav-link"
+										href="../index-cliente.xhtml">INICIO</a></li>
+								<li class="nav-item"><a class="nav-link"
+										href="producto.xhtml">PRODUCTOS</a></li>
+										
 							</ul>
 						</nav>
 					</div>
@@ -69,19 +70,19 @@
 								<a class="dropdown-toggle" href="#" role="button"
 									data-bs-toggle="dropdown" aria-expanded="false"> <img
 									class="injectable product-img img-zoom mb-md-0"
-									src="../assets/images/icon-img/login.icon.png" alt="" />
+									src="../../assets/images/icon-img/login.icon.png" alt="" />
 								</a>
-
+								
 								<ul class="dropdown-menu">
-									<li><h:link class="dropdown-item"
-											outcome="user-account.xhtml">Cuenta</h:link></li>
-									<li><h:link class="dropdown-item">Cerrar
-											sesión</h:link></li>
+									<li><a class="dropdown-item"
+											href="../usuario/cuentausuario.xhtml">Cuenta</a></li>
+									<li><a class="dropdown-item" href="../usuario/login.xhtml">Cerrar
+											sesión</a></li>
 								</ul>
 							</div>
 							<div class="header-action-cart white-cart">
 								<a class="cart-active" href="#"> <img class="injectable"
-									src="../assets/images/icon-img/shop.icon.png" alt="" /> <span
+									src="../../assets/images/icon-img/shop.icon.png" alt="" /> <span
 									class="product-count">0</span>
 								</a>
 							</div>
@@ -103,38 +104,38 @@
 				<ul>
 					<li class="single-product-cart">
 						<div class="cart-img">
-							<h:link outcome="product-details.xhtml">
-								<img src="../assets/images/product/product-1.png" alt="" />
-							</h:link>
+							<a href="detallesproducto.xhtml">
+								<img src="../../assets/images/product/product-1.png" alt="" />
+							</a>
 						</div>
 						<div class="cart-title">
 							<h4>
-								<h:link outcome="product-details.xhtml">PRODUCTO</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO</a>
 							</h4>
 							<span> 1 × $35.990 </span>
 						</div>
 						<div class="cart-delete">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<i class="las la-trash"></i>
-							</h:link>
+							</a>
 						</div>
 					</li>
 					<li class="single-product-cart">
 						<div class="cart-img">
-							<h:link outcome="product-details.xhtml">
-								<img src="../assets/images/product/product-2.png" alt="" />
-							</h:link>
+							<a href="detallesproducto.xhtml">
+								<img src="../../assets/images/product/product-2.png" alt="" />
+							</a>
 						</div>
 						<div class="cart-title">
 							<h4>
-								<h:link outcome="product-details.xhtml">PRODUCTO</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO</a>
 							</h4>
 							<span> 1 × $45.990 </span>
 						</div>
 						<div class="cart-delete">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<i class="las la-trash"></i>
-							</h:link>
+							</a>
 						</div>
 					</li>
 				</ul>
@@ -144,7 +145,7 @@
 					</h4>
 				</div>
 				<div class="btn-style cart-checkout-btn">
-					<h:link class="Bt-1 btn btn-outline-primary" outcome="Cart.xhtml">COMPRAR</h:link>
+					<a class="Bt-1 btn btn-outline-primary" href="carrito.xhtml">COMPRAR</a>
 				</div>
 			</div>
 		</div>
@@ -156,8 +157,8 @@
 			<div class="breadcrumb-content text-center">
 
 				<div class="back-to-shop" data-aos="fade-up" data-aos-delay="10">
-					<a href="index.jsf"><img class="injectable"
-						src="../assets/images/icon-img/arrow-left-6.svg" alt="" />
+					<a href="../index-cliente.xhtml"><img class="injectable"
+						src="../../assets/images/icon-img/arrow-left-6.svg" alt="" />
 						Regresar a la tienda</a>
 				</div>
 			</div>
@@ -172,55 +173,55 @@
 						<div class="pro-dec-big-img-slider">
 							<div class="easyzoom-style">
 								<div class="easyzoom easyzoom--overlay">
-									<a href="../assets/images/product-details/b-large-1.png"> <img
-										src="../assets/images/product-details/large-1.png" alt="" />
+									<a href="../../assets/images/product-details/b-large-1.png"> <img
+										src="../../assets/images/product-details/large-1.png" alt="" />
 									</a>
 								</div>
 							</div>
 							<div class="easyzoom-style">
 								<div class="easyzoom easyzoom--overlay">
-									<a href="../assets/images/product-details/b-large-2.png"> <img
-										src="../assets/images/product-details/large-2.png" alt="" />
+									<a href="../../assets/images/product-details/b-large-2.png"> <img
+										src="../../assets/images/product-details/large-2.png" alt="" />
 									</a>
 								</div>
 							</div>
 							<div class="easyzoom-style">
 								<div class="easyzoom easyzoom--overlay">
-									<a href="../assets/images/product-details/b-large-3.png"> <img
-										src="../assets/images/product-details/large-3.png" alt="" />
+									<a href="../../assets/images/product-details/b-large-3.png"> <img
+										src="../../assets/images/product-details/large-3.png" alt="" />
 									</a>
 								</div>
 							</div>
 							<div class="easyzoom-style">
 								<div class="easyzoom easyzoom--overlay">
-									<a href="../assets/images/product-details/b-large-4.png"> <img
-										src="../assets/images/product-details/large-4.png" alt="" />
+									<a href="../../assets/images/product-details/b-large-4.png"> <img
+										src="../../assets/images/product-details/large-4.png" alt="" />
 									</a>
 								</div>
 							</div>
 							<div class="easyzoom-style">
 								<div class="easyzoom easyzoom--overlay">
-									<a href="../assets/images/product-details/b-large-2.png"> <img
-										src="../assets/images/product-details/large-2.png" alt="" />
+									<a href="../../assets/images/product-details/b-large-2.png"> <img
+										src="../../assets/images/product-details/large-2.png" alt="" />
 									</a>
 								</div>
 							</div>
 						</div>
 						<div class="product-dec-slider-small product-dec-small-style1">
 							<div class="product-dec-small active">
-								<img src="../assets/images/product-details/small-1.png" alt="" />
+								<img src="../../assets/images/product-details/small-1.png" alt="" />
 							</div>
 							<div class="product-dec-small">
-								<img src="../assets/images/product-details/small-2.png" alt="" />
+								<img src="../../assets/images/product-details/small-2.png" alt="" />
 							</div>
 							<div class="product-dec-small">
-								<img src="../assets/images/product-details/small-3.png" alt="" />
+								<img src="../../assets/images/product-details/small-3.png" alt="" />
 							</div>
 							<div class="product-dec-small">
-								<img src="../assets/images/product-details/small-4.png" alt="" />
+								<img src="../../assets/images/product-details/small-4.png" alt="" />
 							</div>
 							<div class="product-dec-small">
-								<img src="../assets/images/product-details/small-2.png" alt="" />
+								<img src="../../assets/images/product-details/small-2.png" alt="" />
 							</div>
 						</div>
 					</div>
@@ -273,11 +274,11 @@
 						<div class="product-details-social" data-aos="fade-up"
 							data-aos-delay="10">
 							<a class="facebook" href="#"><img class="injectable"
-								src="../assets/images/icon-img/facebook.svg" alt="" /></a> <a
+								src="../../assets/images/icon-img/facebook.svg" alt="" /></a> <a
 								class="twitter" href="#"><img class="injectable"
-								src="../assets/images/icon-img/twitter.svg" alt="" /></a> <a
+								src="../../assets/images/icon-img/twitter.svg" alt="" /></a> <a
 								class="pinterest" href="#"><img class="injectable"
-								src="../assets/images/icon-img/pinterest.svg" alt="" /></a>
+								src="../../assets/images/icon-img/pinterest.svg" alt="" /></a>
 						</div>
 					</div>
 				</div>
@@ -294,21 +295,21 @@
 				<div class="product-plr-1" data-aos="fade-up" data-aos-delay="10">
 					<div class="product-wrap">
 						<div class="product-img img-zoom mb-4">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<img class="default-img"
-									src="../assets/images/product/product-1.png" alt="" />
-							</h:link>
+									src="../../assets/images/product/product-1.png" alt="" />
+							</a>
 
 							<div class="product-action-wrap">
 								<button title="Add To Cart">
 									<img class="injectable"
-										src="../assets/images/icon-img/bag-2.svg" alt="" />
+										src="../../assets/images/icon-img/bag-2.svg" alt="" />
 								</button>
 							</div>
 						</div>
 						<div class="product-content text-center">
 							<h3>
-								<h:link outcome="product-details.xhtml">PRODUCTO-1</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO-1</a>
 							</h3>
 							<div class="product-price">
 								<span>$39.990</span>
@@ -319,20 +320,20 @@
 				<div class="product-plr-1" data-aos="fade-up" data-aos-delay="10">
 					<div class="product-wrap">
 						<div class="product-img img-zoom mb-4">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<img class="default-img"
-									src="../assets/images/product/product-2.png" alt="" />
-							</h:link>
+									src="../../assets/images/product/product-2.png" alt="" />
+							</a>
 							<div class="product-action-wrap">
 								<button title="Add To Cart">
 									<img class="injectable"
-										src="../assets/images/icon-img/bag-2.svg" alt="" />
+										src="../../assets/images/icon-img/bag-2.svg" alt="" />
 								</button>
 							</div>
 						</div>
 						<div class="product-content text-center">
 							<h3>
-								<h:link outcome="product-details.xhtml">PRODUCTO-2</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO-2</a>
 							</h3>
 							<div class="product-price">
 								<span>$39.990</span>
@@ -343,20 +344,20 @@
 				<div class="product-plr-1" data-aos="fade-up" data-aos-delay="10">
 					<div class="product-wrap">
 						<div class="product-img img-zoom mb-4">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<img class="default-img"
-									src="../assets/images/product/product-1.png" alt="" />
-							</h:link>
+									src="../../assets/images/product/product-1.png" alt="" />
+							</a>
 							<div class="product-action-wrap">
 								<button title="Add To Cart">
 									<img class="injectable"
-										src="../assets/images/icon-img/bag-2.svg" alt="" />
+										src="../../assets/images/icon-img/bag-2.svg" alt="" />
 								</button>
 							</div>
 						</div>
 						<div class="product-content text-center">
 							<h3>
-								<h:link outcome="product-details.xhtml">PRODUCTO-3</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO-3</a>
 							</h3>
 							<div class="product-price">
 								<span>$39.990</span>
@@ -367,20 +368,20 @@
 				<div class="product-plr-1" data-aos="fade-up" data-aos-delay="10">
 					<div class="product-wrap">
 						<div class="product-img img-zoom mb-4">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<img class="default-img"
-									src="../assets/images/product/product-2.png" alt="" />
-							</h:link>
+									src="../../assets/images/product/product-2.png" alt="" />
+							</a>
 							<div class="product-action-wrap">
 								<button title="Add To Cart">
 									<img class="injectable"
-										src="../assets/images/icon-img/bag-2.svg" alt="" />
+										src="../../assets/images/icon-img/bag-2.svg" alt="" />
 								</button>
 							</div>
 						</div>
 						<div class="product-content text-center">
 							<h3>
-								<h:link outcome="product-details.xhtml">PRODUCTO-4</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO-4</a>
 							</h3>
 							<div class="product-price">
 								<span>$39.990</span>
@@ -391,20 +392,20 @@
 				<div class="product-plr-1">
 					<div class="product-wrap">
 						<div class="product-img img-zoom mb-4">
-							<h:link outcome="product-details.xhtml">
+							<a href="detallesproducto.xhtml">
 								<img class="default-img"
-									src="../assets/images/product/product-1.png" alt="" />
-							</h:link>
+									src="../../assets/images/product/product-1.png" alt="" />
+							</a>
 							<div class="product-action-wrap">
 								<button title="Add To Cart">
 									<img class="injectable"
-										src="../assets/images/icon-img/bag-2.svg" alt="" />
+										src="../../assets/images/icon-img/bag-2.svg" alt="" />
 								</button>
 							</div>
 						</div>
 						<div class="product-content text-center">
 							<h3>
-								<h:link outcome="product-details.xhtml">PRODUCTO-5</h:link>
+								<a href="detallesproducto.xhtml">PRODUCTO-5</a>
 							</h3>
 							<div class="product-price">
 								<span>$39.990</span>
@@ -424,7 +425,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-9 text-center">
 					<div class="footer-site-logo mb-4">
-						<img class="logo-footer" src="../assets/images/logo/fulllogo.png"
+						<img class="logo-footer" src="../../assets/images/logo/fulllogo.png"
 							alt="" />
 					</div>
 					<ul class="list-unstyled nav-links mb-5">
@@ -458,25 +459,25 @@
 
 
 	<!-- Global Vendor, plugins JS -->
-	<script src="../assets/js/vendor/modernizr-3.11.2.min.js"></script>
-	<script src="../assets/js/vendor/jquery-3.5.1.min.js"></script>
-	<script src="../assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-	<script src="../assets/js/vendor/bootstrap.bundle.min.js"></script>
-	<script src="../assets/js/plugins/svg-inject.min.js"></script>
-	<script src="../assets/js/plugins/slick.js"></script>
-	<script src="../assets/js/plugins/wow.js"></script>
-	<script src="../assets/js/plugins/slinky.min.js"></script>
-	<script src="../assets/js/plugins/jquery-ui.js"></script>
-	<script src="../assets/js/plugins/jquery-ui-touch-punch.js"></script>
-	<script src="../assets/js/plugins/countdown.js"></script>
-	<script src="../assets/js/plugins/magnific-popup.js"></script>
-	<script src="../assets/js/plugins/easyzoom.js"></script>
-	<script src="../assets/js/plugins/scrollup.js"></script>
-	<script src="../assets/js/plugins/aos.js"></script>
-	<script src="../assets/js/plugins/select2.min.js"></script>
-	<script src="../assets/js/plugins/jquery.nice-select.min.js"></script>
+	<script src="../../assets/js/vendor/modernizr-3.11.2.min.js"></script>
+	<script src="../../assets/js/vendor/jquery-3.5.1.min.js"></script>
+	<script src="../../assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+	<script src="../../assets/js/vendor/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/js/plugins/svg-inject.min.js"></script>
+	<script src="../../assets/js/plugins/slick.js"></script>
+	<script src="../../assets/js/plugins/wow.js"></script>
+	<script src="../../assets/js/plugins/slinky.min.js"></script>
+	<script src="../../assets/js/plugins/jquery-ui.js"></script>
+	<script src="../../assets/js/plugins/jquery-ui-touch-punch.js"></script>
+	<script src="../../assets/js/plugins/countdown.js"></script>
+	<script src="../../assets/js/plugins/magnific-popup.js"></script>
+	<script src="../../assets/js/plugins/easyzoom.js"></script>
+	<script src="../../assets/js/plugins/scrollup.js"></script>
+	<script src="../../assets/js/plugins/aos.js"></script>
+	<script src="../../assets/js/plugins/select2.min.js"></script>
+	<script src="../../assets/js/plugins/jquery.nice-select.min.js"></script>
 	<!-- Main JS -->
-	<script src="../assets/js/main.js"></script>
+	<script src="../../assets/js/main.js"></script>
 </body>
 
 </html>
