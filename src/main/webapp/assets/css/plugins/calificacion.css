@@ -1,0 +1,20 @@
+.etiqueta{
+	color:grey;
+}
+input[type = "radio"]{
+	display:none;
+}
+.clasificacion{
+      direction: rtl;/* right to left */
+      unicode-bidi: bidi-override;/* bidi de bidireccional */
+}
+.etiqueta:hover{
+	color:orange;
+}
+
+.etiqueta:hover ~ .etiqueta{
+	color:orange;
+}
+input[type = "radio"]:checked ~ .etiqueta{
+	color:orange;
+}

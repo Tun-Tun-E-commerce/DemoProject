@@ -18,12 +18,12 @@
 	<link rel="stylesheet" href="fonts/icomoon/style.css"></link>
 
 	<!-- PLugins/fonts CSS-->
-	<link rel="stylesheet" href="../assets/css/vendor/line-awesome.min.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/slick.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/animate.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/easyzoom.css"></link>
-	<link rel="stylesheet" href="../assets/css/plugins/aos.css"></link>
-	<link rel="stylesheet" href="../assets/fonts/icomoon/style-Icon.css"></link>
+	<link rel="stylesheet" href="../../assets/css/vendor/line-awesome.min.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/slick.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/animate.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/easyzoom.css"></link>
+	<link rel="stylesheet" href="../../assets/css/plugins/aos.css"></link>
+	<link rel="stylesheet" href="../../assets/fonts/icomoon/style-Icon.css"></link>
 
 	<!-- CSS -->
 	<link
@@ -31,10 +31,10 @@
 		rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 		crossorigin="anonymous" />
-	<link rel="stylesheet" href="../assets/css/bootstrap.min.css"></link>
-	<link rel="stylesheet" href="../assets/css/styles.css"></link>
-	<link rel="stylesheet" href="../assets/css/style.css"></link>
-	<link rel="stylesheet" href="../assets/css/chatbot.css"></link>
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="../../assets/css/styles.css"></link>
+	<link rel="stylesheet" href="../../assets/css/style.css"></link>
+	<link rel="stylesheet" href="../../assets/css/chatbot.css"></link>
 
 </h:head>
 
@@ -64,7 +64,7 @@
 								<li class="nav-item"><h:link class="nav-link"
 										outcome="index-cliente.xhtml">INICIO</h:link></li>
 								<li class="nav-item"><h:link class="nav-link"
-										outcome="product.xhtml">PRODUCTOS</h:link></li>
+										outcome="producto.xhtml">PRODUCTOS</h:link></li>
 							</ul>
 						</nav>
 					</div>
@@ -80,8 +80,8 @@
 
 								<ul class="dropdown-menu">
 									<li><h:link class="dropdown-item"
-											outcome="user-account.xhtml">Cuenta</h:link></li>
-									<li><h:link class="dropdown-item">Cerrar
+											outcome="cuentausuario.xhtml">Cuenta</h:link></li>
+									<li><h:link class="dropdown-item" outcome="login.xhtml">Cerrar
 											sesión</h:link></li>
 								</ul>
 							</div>
@@ -109,36 +109,36 @@
 				<ul>
 					<li class="single-product-cart">
 						<div class="cart-img">
-							<h:link outcome="product-details.xhtml">
+							<h:link outcome="detallesproducto.xhtml">
 								<img src="../assets/images/product/product-1.png" alt="" />
 							</h:link>
 						</div>
 						<div class="cart-title">
 							<h4>
-								<h:link outcome="product-details.xhtml">PRODUCTO</h:link>
+								<h:link outcome="detallesproducto.xhtml">PRODUCTO</h:link>
 							</h4>
 							<span> 1 × $35.990 </span>
 						</div>
 						<div class="cart-delete">
-							<h:link outcome="product-details.xhtml">
+							<h:link outcome="detallesproducto.xhtml">
 								<i class="las la-trash"></i>
 							</h:link>
 						</div>
 					</li>
 					<li class="single-product-cart">
 						<div class="cart-img">
-							<h:link outcome="product-details.xhtml">
+							<h:link outcome="detallesproducto.xhtml">
 								<img src="../assets/images/product/product-2.png" alt="" />
 							</h:link>
 						</div>
 						<div class="cart-title">
 							<h4>
-								<h:link outcome="product-details.xhtml">PRODUCTO</h:link>
+								<h:link outcome="detallesproducto.xhtml">PRODUCTO</h:link>
 							</h4>
 							<span> 1 × $45.990 </span>
 						</div>
 						<div class="cart-delete">
-							<h:link outcome="product-details.xhtml">
+							<h:link outcome="detallesproducto.xhtml">
 								<i class="las la-trash"></i>
 							</h:link>
 						</div>
@@ -150,7 +150,7 @@
 					</h4>
 				</div>
 				<div class="btn-style cart-checkout-btn">
-					<h:link class="Bt-1 btn btn-outline-primary" outcome="Cart.xhtml">COMPRAR</h:link>
+					<h:link class="Bt-1 btn btn-outline-primary" outcome="carrito.xhtml">COMPRAR</h:link>
 				</div>
 			</div>
 		</div>
@@ -189,8 +189,8 @@
 									<a href="#dashboad" class="active" data-bs-toggle="tab">INICIO</a>
 									<a href="#orders" data-bs-toggle="tab">Historial de Ventas</a>
 									<a href="#account-info" data-bs-toggle="tab">Detalles de
-										lacuenta</a> <a href="#pqrs" data-bs-toggle="tab">Tus PQRS</a>
-									<h:link>Cerrar sesión</h:link>
+										la cuenta</a> <a href="#pqrs" data-bs-toggle="tab">Tus PQRS</a>
+									<h:link outcome="login.xhtml">Cerrar sesión</h:link>
 								</div>
 							</div>
 							<!-- Mi cuenta Tab Menu End -->
@@ -241,7 +241,7 @@
 
 															<h:column>
 																<f:facet name="header">Ver Detalle</f:facet>
-																<h:link outcome="Detalle_Venta.xhtml"
+																<h:link outcome="detalleventa.xhtml"
 																	class="check-btn sqr-btn">Ver</h:link>
 															</h:column>
 
@@ -279,7 +279,7 @@
 
 															<h:column>
 																<f:facet name="header">Ver Detalle</f:facet>
-																<h:link outcome="Detalle_PQRS.xhtml"
+																<h:link outcome="detallepqrs.xhtml"
 																	class="check-btn sqr-btn">Ver</h:link>
 															</h:column>
 															<h:column>
