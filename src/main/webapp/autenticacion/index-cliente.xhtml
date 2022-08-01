@@ -681,12 +681,8 @@
 													<div class="col-sm-6">
 
 												<h:outputText value="¿Qué vas a enviar?" class="form-label"></h:outputText>
-												<h:selectOneMenu  class="form-select"
-															aria-label="Default select example" id="floatingpqr">
-													<f:selectItem itemValue="1" itemLabel="1.Sugerencia" />
-													<f:selectItem itemValue="2" itemLabel="2. Problematica" />
-													<f:selectItem itemValue="3" itemLabel="3. Inquietud" />
-												</h:selectOneMenu>
+												<h:inputText value="#{pqrBeanU.pqr.tipo}"
+															class="form-control"></h:inputText>
 													</div>
 
 
